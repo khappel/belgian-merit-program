@@ -33,14 +33,17 @@
 <script>
 import PlacingComponent from './PlacingComponent.vue'
 import { showViewData } from '../classess/showResults.js'
+import { store } from '../classess/store.js'
 
 export default {
     name: "Results",
+    props: ['showData'],
     data() {
         return {
+            store,
             placingDataList: [],
             placingFile: 'Placings/2023BelgianMeritPlacings.json',
-            defaultFileSelected: {
+            /*defaultFileSelected: {
                 year: "2023-2024",
                 file: "Placings/2023BelgianMeritPlacings.json"
             },
@@ -67,9 +70,10 @@ export default {
                     id: 2,
                     show: "Great Lakes"
                 }
-            ],
-            horseData: [],
-            horseDataList: [],
+            ],*/
+            storeShowData: store.showData,
+            horseData: refs(showViewData(store.showData).ReturnHorseResults()),
+            //horseData: storeToRefs(showViewData(store.showData).ReturnHorseResults()),
             accordianCount: [],
             expandedRows: []
         };
@@ -78,8 +82,10 @@ export default {
         PlacingComponent
     },
     methods: {
-
-        getShowData() {
+        getShowData(){
+            //this.horseData = new showViewData(store.showData).ReturnHorseResults()
+        },
+        /*getShowData() {
             fetch(this.defaultFileSelected.file)
                 .then(response => response.json())
                 .then(data => (
@@ -89,7 +95,7 @@ export default {
                     this.horseData = new showViewData(data).ReturnHorseResults()
                     //this.horseDataList = this.horseData.map(d => Array.from(Object.values(d)))
                 ))
-        },
+        },*/
         setAccordianCount(length) {
             let arr = [];
             for (let i = 0; i < length; i++) {
@@ -99,8 +105,14 @@ export default {
             return arr;
         }
     },
+    computed: {
+        totalPoints(){
+
+        }
+
+    },
     created: function () {
-        this.getShowData();
+        //this.getShowData();
     }
 };
 </script>

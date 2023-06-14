@@ -14,8 +14,13 @@
                 <Column field="horseName" header="Horse"></Column>
                 <Column field="sire" header="Sire"></Column>
                 <Column field="dam" header="Sire"></Column>
-                <Column field="ChampionshipPoints" header="Championship"></Column>
-                <Column field="placingPoints" header="Points"></Column>
+                <Column field="ChampionshipPoints" header="Championship Points"></Column>
+                <Column field="placingPoints" header="Placing Points"></Column>
+                <Column field="pointsTotal" header="Total Points" sortable>
+                        <template #body="slotProps">
+                            {{ sumTotalPoints(slotProps.data) }}
+                        </template>
+                    </Column>
             </DataTable>
         </div>
 
@@ -27,7 +32,48 @@ export default {
     props: {
         ShowClass: String,
         Placings: Array,
+        HorseCount: Number,
+    },
+    methods:{
+        sumTotalPoints(item) {
+            return item.placingPoints + item.ChampionshipPoints * this.showIndex(this.HorseCount);
+        },
+        ExhibitorPointsSummary(itemClasses) {
+            return itemClasses.reduce((partialSum, a) => partialSum + this.sumTotalPoints(a), 0);
+        },
+        showIndex(horseCount) {
+            switch (true) {
+                case horseCount >= 200:
+                    return 9;
+                    break;
+                case horseCount >= 175:
+                    return 8;
+                    break;
+                case horseCount >= 150:
+                    return 7;
+                    break;
+                case horseCount >= 125:
+                    return 6;
+                    break;
+                case horseCount >= 100:
+                    return 5;
+                    break;
+                case horseCount >= 75:
+                    return 4;
+                    break;
+                case horseCount >= 50:
+                    return 3;
+                    break;
+                case horseCount >= 25:
+                    return 2;
+                    break;
+
+                default:
+                    return 1;
+            }
+        }
     }
+
 
 }
 </script>

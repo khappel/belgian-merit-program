@@ -11,7 +11,7 @@
         <template #content>
             <Accordion :multiple="true" :activeIndex="setAccordianCount(showClasses.length)">
                 <AccordionTab v-for="cls in showClasses" :key="cls.class" :header="cls.class">
-<div>{{ cls }}</div>
+                    <div>{{ cls }}</div>
                     <PlacingEntryComponent :ShowClass="cls"></PlacingEntryComponent>
 
                 </AccordionTab>
@@ -23,12 +23,14 @@
 
 <script>
 import PlacingEntryComponent from './PlacingEntryComponent.vue'
+import { store } from '../classess/store.js'
 
 export default {
     name: "Results",
     data() {
         return {
-            placingDataList: [],
+            store,
+            /*placingDataList: [],
             placingFile: 'Placings/2023BelgianMeritPlacings.json',
             defaultFileSelected: {
                 year: "2023-2024",
@@ -48,7 +50,7 @@ export default {
                 id: 1,
                 show: "ISF"
             }],
-            shows: [],
+            shows: [],*/
             showClasses: [],
             showDataList: [],
             accordianCount: [],
@@ -59,18 +61,21 @@ export default {
     },
     methods: {
         getShowData() {
-            fetch(this.defaultFileSelected.file)
+            this.showDataList = store.showData;
+            if (this.showDataList.classsess != null) {
+                this.showClasses = this.showDataList.classsess
+            }
+            /*fetch(this.defaultFileSelected.file)
                 .then(response => response.json())
-                .then(function(data)
-                {
+                .then(function (data) {
                     this.showDataList = data.find(({ show }) => show === this.defaultShowSelected.show)
 
-                    if (this.showDataList.classess != null){
-                        this.showClasses = this.showDataList.classes    
+                    if (this.showDataList.classess != null) {
+                        this.showClasses = this.showDataList.classes
                     }
-                    
-                    
-        });
+
+
+                });*/
         },
         getShowDef() {
             fetch("Definition Files/Shows.json")

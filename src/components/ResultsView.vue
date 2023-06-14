@@ -1,15 +1,6 @@
 <template>
-    <Card>
-        <template #title>
-            <Dropdown v-model="defaultFileSelected" :options="fileYears" optionLabel="year" placeholder="Select a year"
-                class="w-full md:w-14rem" @update:modelValue="getShowData" />
-
-        </template>
-        <template #content>
-            <TabMenu :model="items" />
-            <router-view />
-        </template>
-    </Card>
+    <TabMenu :model="items" />    
+    <router-view/>
 </template>
 
 <script>
@@ -17,9 +8,10 @@ import PlacingComponent from './PlacingComponent.vue'
 
 export default {
     name: "Results",
+    props: ['showData'],
     data() {
         return {
-            placingDataList: [],
+            /*placingDataList: [],
             placingFile: 'Placings/2023BelgianMeritPlacings.json',
             defaultFileSelected: {
                 year: "2023-2024",
@@ -50,7 +42,7 @@ export default {
                 }
             ],
             showDataList: [],
-            accordianCount: [],
+            accordianCount: [],*/
             items: [
                 {
                     label: 'Show Results',
@@ -69,15 +61,15 @@ export default {
                 }
             ],
         };
-    },    
+    },
     components: {
         PlacingComponent
     },
     methods: {
-        
+
     },
     created: function () {
-        
+        //showDataList = showData
     }
 };
 </script>

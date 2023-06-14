@@ -2,7 +2,7 @@
     <Accordion :multiple="true" :activeIndex="setAccordianCount(showDataList.length)">
                 <AccordionTab v-for="show in showDataList" :key="show.show" :header="show.show">
                     <div v-for="cls in show.classes">
-                        <PlacingComponent :ShowClass=cls.class :Placings=cls.placings />
+                        <PlacingComponent :ShowClass=cls.class :Placings=cls.placings :HorseCount=show.horseCount />
                     </div>
                 </AccordionTab>
             </Accordion>
@@ -20,12 +20,14 @@
 
 <script>
 import PlacingComponent from './PlacingComponent.vue'
+import { store } from '../classess/store.js'
 
 export default {
     name: "Results",
     data() {
         return {
-            placingDataList: [],
+            store,
+            /*placingDataList: [],
             placingFile: 'Placings/2023BelgianMeritPlacings.json',
             defaultFileSelected: {
                 year: "2023-2024",
@@ -54,7 +56,7 @@ export default {
                     id: 2,
                     show: "Great Lakes"
                 }
-            ],
+            ],*/
             showDataList: [],
             accordianCount: [],
         };
@@ -64,10 +66,13 @@ export default {
     },
     methods: {
         getShowData() {
+            this.showDataList = store.showData
+        },
+        /*getShowData() {
             fetch(this.defaultFileSelected.file)
                 .then(response => response.json())
                 .then(data => (this.showDataList = data));
-        },
+        },*/
         setAccordianCount(length) {
             let arr = [];
             for (let i = 0; i < length; i++) {
