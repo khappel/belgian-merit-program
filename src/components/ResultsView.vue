@@ -1,17 +1,27 @@
 <template>
-    <TabMenu :model="items" />    
-    <router-view/>
+    <Dropdown v-model="defaultFileSelected" :options="fileYears" optionLabel="year" placeholder="Select a year"
+        class="w-full md:w-14rem" @change="getShowData()" />
+    <Dropdown v-model="defaultViewSelected" :options="items" optionLabel="label" placeholder="Select a view"
+        class="w-full md:w-14rem" @change="changeView()" />
+    <TabMenu :model="items" />
+    <router-view />
 </template>
 
 <script>
 import PlacingComponent from './PlacingComponent.vue'
+import { store } from '../classess/store.js'
 
 export default {
     name: "Results",
     props: ['showData'],
     data() {
         return {
-            /*placingDataList: [],
+            defaultViewSelected: {
+                    label: 'Show Results',
+                    icon: 'pi pi-fw pi-home',
+                    to: '/showresultsview'
+                },
+            /*placingDataList: [],*/
             placingFile: 'Placings/2023BelgianMeritPlacings.json',
             defaultFileSelected: {
                 year: "2023-2024",
@@ -41,7 +51,7 @@ export default {
                     show: "Great Lakes"
                 }
             ],
-            showDataList: [],
+            /*showDataList: [],
             accordianCount: [],*/
             items: [
                 {
@@ -66,9 +76,27 @@ export default {
         PlacingComponent
     },
     methods: {
-
+        getShowData() {
+            fetch(this.defaultFileSelected.file)
+                .then(response => response.json())
+                .then(data => (
+                    //showDataList = data
+                    store.showData = data
+                    //this.showDataList = new showViewData(data)
+                    //this.horseDataList = new showViewData(data).ReturnHorseResults()
+                    //this.horseDataList = Array.from(new showViewData(data).ReturnHorseResults()).map(([name, value]) => ({value}))
+                    //this.horseData = new showViewData(data).ReturnHorseResults()
+                    //this.horseDataList = this.horseData.map(d => Array.from(Object.values(d)))
+                ))
+        },
+        changeView() {
+            //router.push({ path: this.defaultViewSelected.to })
+            //this.$router.push('/')
+        }
     },
     created: function () {
+        //defaultFileSelected = defaultFile;
+        this.getShowData();
         //showDataList = showData
     }
 };

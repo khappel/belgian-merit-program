@@ -2,13 +2,12 @@
   <Menubar :model="items" class="flexrow">
     <template #start>
       <div class="flexrow">
-        <img alt="logo" src="/public/corpclear.webp" height="40" class="mr-2" />
+        <img alt="logo" src="/belgian-draft-horse-alliance-clear.webp" height="40" class="mr-2" />
         <h3>Belgian Merit Program</h3>
       </div>
     </template>
     <template #end>
-      <Dropdown v-model="defaultFileSelected" :options="fileYears" optionLabel="year" placeholder="Select a year"
-        class="w-full md:w-14rem" @change="getShowData()" />
+     
     </template>
   </Menubar>
   <router-view />
@@ -26,7 +25,7 @@
 
 <script setup>
 import { onMounted, ref } from "vue";
-import { store } from './classess/store.js'
+//import { store } from './classess/store.js'
 
 
 const items = ref([
@@ -47,20 +46,9 @@ const items = ref([
   }
 ])
 
-const fileYears = [
-  {
-    year: "2023-2024",
-    file: "Placings/2023BelgianMeritPlacings.json"
-  },
-  {
-    year: "2022-2023",
-    file: "Placings/2022BelgianMeritPlacings.json"
-  }
-]
 
-let defaultFileSelected = ref()
 
-let defaultFile = {
+/*let defaultFile = {
   year: "2023-2024",
   file: "Placings/2023BelgianMeritPlacings.json"
 }
@@ -77,10 +65,10 @@ function getShowData() {
       //this.horseData = new showViewData(data).ReturnHorseResults()
       //this.horseDataList = this.horseData.map(d => Array.from(Object.values(d)))
     ))
-}
+}*/
 
 onMounted(() => {
-  defaultFileSelected = defaultFile;
-  getShowData();
+  /*defaultFileSelected = defaultFile;
+  getShowData();*/
 })
 </script>

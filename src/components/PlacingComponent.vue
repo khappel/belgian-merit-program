@@ -13,7 +13,7 @@
                 <Column field="registrationNumber" header="Registraion"></Column>
                 <Column field="horseName" header="Horse"></Column>
                 <Column field="sire" header="Sire"></Column>
-                <Column field="dam" header="Sire"></Column>
+                <Column field="dam" header="Dam"></Column>
                 <Column field="ChampionshipPoints" header="Championship Points"></Column>
                 <Column field="placingPoints" header="Placing Points"></Column>
                 <Column field="pointsTotal" header="Total Points" sortable>

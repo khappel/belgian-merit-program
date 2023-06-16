@@ -46,18 +46,15 @@ export default {
             /*defaultFileSelected: {
                 year: "2023-2024",
                 file: "Placings/2023BelgianMeritPlacings.json"
-            },*/
-            ownerData: [],
+            },
+            ownerData: [],*/
             accordianCount: [],
             expandedRows: []
         };
     },
     components: {
     },
-    methods: {
-        getOwnerData() {
-            this.ownerData = new showViewData(store.showData).ReturnOwnerResults()
-        },
+    methods: {       
         /*getOwnerData() {
             fetch(this.defaultFileSelected.file)
                 .then(response => response.json())
@@ -112,8 +109,13 @@ export default {
             }
         }
     },
+    computed:{
+        ownerData() {
+            return new showViewData(store.showData).ReturnOwnerResults()
+        }
+    },
     created: function () {
-        this.getOwnerData();
+        //this.getOwnerData();
     }
 };
 </script>
