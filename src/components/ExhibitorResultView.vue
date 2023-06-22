@@ -1,6 +1,6 @@
 <template>
     <DataTable v-model:expandedRows="expandedRows" :value="Array.from(ownerData.values())" stripedRows
-        @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" dataKey="owner" :class="p - datatable - sm"
+        @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" dataKey="owner" :class="p-datatable-sm"
         tableStyle="min-width: 50rem">
 
         <Column expander style="width: 5rem" />

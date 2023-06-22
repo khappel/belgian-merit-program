@@ -1,12 +1,27 @@
 <template>
-    <Dropdown v-model="defaultFileSelected" :options="fileYears" optionLabel="year" placeholder="Select a year"
-        class="w-full md:w-14rem" @change="getShowData()" />
-    <Dropdown v-model="defaultViewSelected" :options="items" optionLabel="label" placeholder="Select a view"
-        class="w-full md:w-14rem" @change="changeView()" />
-    <TabMenu :model="items" />
-    <router-view />
+    <card>
+        <template #title class="flexrow">
+            <Dropdown v-model="defaultFileSelected" :options="fileYears" optionLabel="year" placeholder="Select a year"
+                class="w-full md:w-14rem" @change="getShowData()" />
+            <Dropdown v-model="defaultViewSelected" :options="items" optionLabel="label" placeholder="Select a view"
+                class="w-full md:w-14rem" @change="changeView()" />
+        </template>
+        <template #content>
+            <!--<TabMenu :model="items" />-->
+            <router-view />
+        </template>
+    </card>
 </template>
 
+<style scoped>
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  gap: .15rem;
+  align-items: center;
+  width: 100%;
+}
+</style>
 <script>
 import PlacingComponent from './PlacingComponent.vue'
 import { store } from '../classess/store.js'
@@ -17,10 +32,10 @@ export default {
     data() {
         return {
             defaultViewSelected: {
-                    label: 'Show Results',
-                    icon: 'pi pi-fw pi-home',
-                    to: '/showresultsview'
-                },
+                label: 'Show Results',
+                icon: 'pi pi-fw pi-home',
+                to: '/showresultsview'
+            },
             /*placingDataList: [],*/
             placingFile: 'Placings/2023BelgianMeritPlacings.json',
             defaultFileSelected: {
@@ -65,9 +80,24 @@ export default {
                     to: '/exhibitorresultsview'
                 },
                 {
+                    label: 'Class Results',
+                    icon: 'fa-solid fa-horse',
+                    to: '/classresultsview'
+                },
+                {
                     label: 'Horse Results',
                     icon: 'fa-solid fa-horse',
                     to: '/horseresultsview'
+                },
+                {
+                    label: 'Sire Results',
+                    icon: 'fa-solid fa-horse',
+                    to: '/sireresultsview'
+                },
+                {
+                    label: 'Dam Results',
+                    icon: 'fa-solid fa-horse',
+                    to: '/damresultsview'
                 }
             ],
         };
@@ -90,7 +120,7 @@ export default {
                 ))
         },
         changeView() {
-            //router.push({ path: this.defaultViewSelected.to })
+            this.$router.push({ path: this.defaultViewSelected.to })
             //this.$router.push('/')
         }
     },

@@ -1,186 +1,1655 @@
 [
-    {
-        "show": "KH Georgia National Fair",
-        "horseCount": "45",
-        "classes": [
-            {
-                "class": "Stallions 4 & over",
-                "placings": [
-                    {
-                        "placing": 1,
-                        "registrationNumber": "S7000",
-                        "horseName": "T-Rex",
-                        "owner": "smith, sam",
-                        "sire": "tt",
-                        "dam": "ff",
-                        "ChampionshipPoints": 6,
-                        "placingPoints": 10
-                    },
-                    {
-                        "placing": 2,
-                        "registrationNumber": "S8803",
-                        "horseName": "Morgan",
-                        "owner": "sammy, sam",
-                        "sire": "mighty",
-                        "dam": "max",
-                        "ChampionshipPoints": 0,
-                        "placingPoints": 7
-                    }
-                ]
-            },
-            {
-                "class": "Stallions 3",
-                "placings": [
-                    {
-                        "placing": 1,
-                        "registrationNumber": "S7000",
-                        "horseName": "T-Rex",
-                        "owner": "smith, sam",
-                        "sire": "tt",
-                        "dam": "ff",
-                        "ChampionshipPoints": 6,
-                        "placingPoints": 10
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "show": "Idaho",
-        "horseCount": "45",
-        "classes": [
-            {
-                "class": "Stallions 4 & over",
-                "placings": [
-                    {
-                        "placing": 1,
-                        "registrationNumber": "S7000",
-                        "horseName": "T-Rex",
-                        "owner": "smith, sam",
-                        "sire": "tt",
-                        "dam": "ff",
-                        "ChampionshipPoints": 6,
-                        "placingPoints": 10
-                    },
-                    {
-                        "placing": 2,
-                        "registrationNumber": "S8803",
-                        "horseName": "Morgan",
-                        "owner": "sammy, sam",
-                        "sire": "mighty",
-                        "dam": "max",
-                        "ChampionshipPoints": 0,
-                        "placingPoints": 7
-                    }
-                ]
-            },
-            {
-                "class": "Stallions 3",
-                "placings": [
-                    {
-                        "placing": 1,
-                        "registrationNumber": "S7000",
-                        "horseName": "T-Rex",
-                        "owner": "smith, sam",
-                        "sire": "tt",
-                        "dam": "ff",
-                        "ChampionshipPoints": 6,
-                        "placingPoints": 10
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "show": "Illinois State Fair",
-        "horseCount": "45",
-        "classes": [
-            {
-                "class": "Stallions 4 & over",
-                "placings": [
-                    {
-                        "placing": 1,
-                        "registrationNumber": "S7000",
-                        "horseName": "T-Rex",
-                        "owner": "smith, sam",
-                        "sire": "tt",
-                        "dam": "ff",
-                        "ChampionshipPoints": 6,
-                        "placingPoints": 10
-                    },
-                    {
-                        "placing": 2,
-                        "registrationNumber": "S8803",
-                        "horseName": "Morgan",
-                        "owner": "sammy, sam",
-                        "sire": "mighty",
-                        "dam": "max",
-                        "ChampionshipPoints": 0,
-                        "placingPoints": 7
-                    }
-                ]
-            },
-            {
-                "class": "Stallions 3",
-                "placings": [
-                    {
-                        "placing": 1,
-                        "registrationNumber": "S7000",
-                        "horseName": "T-Rex",
-                        "owner": "smith, sam",
-                        "sire": "tt",
-                        "dam": "ff",
-                        "ChampionshipPoints": 6,
-                        "placingPoints": 10
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "show": "Indiana State Fair (National Belgian Show and National Belgian Futurity)",
-        "horseCount": "45",
-        "classes": [
-            {
-                "class": "Stallions 4 & over",
-                "placings": [
-                    {
-                        "placing": 1,
-                        "registrationNumber": "S7000",
-                        "horseName": "T-Rex",
-                        "owner": "smith, sam",
-                        "sire": "tt",
-                        "dam": "ff",
-                        "ChampionshipPoints": 6,
-                        "placingPoints": 10
-                    },
-                    {
-                        "placing": 2,
-                        "registrationNumber": "S8803",
-                        "horseName": "Morgan",
-                        "owner": "sammy, sam",
-                        "sire": "mighty",
-                        "dam": "max",
-                        "ChampionshipPoints": 0,
-                        "placingPoints": 7
-                    }
-                ]
-            },
-            {
-                "class": "Stallions 3",
-                "placings": [
-                    {
-                        "placing": 1,
-                        "registrationNumber": "S7000",
-                        "horseName": "T-Rex",
-                        "owner": "smith, sam",
-                        "sire": "tt",
-                        "dam": "ff",
-                        "ChampionshipPoints": 6,
-                        "placingPoints": 10
-                    }
-                ]
-            }
-        ]
-    }
+	{
+		"show": "Indiana State Fair",
+		"horseCount": 85,
+		"classes": [
+			{
+				"class": "Stallions 4 & over",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "S70623",
+						"horseName": "Hallett's T-Rex",
+						"owner": "Duane E. Miller",
+						"sire": "Thunderbranch Prince",
+						"dam": "Millville's Frieda",
+						"ChampionshipPoints": 6,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "S70254",
+						"horseName": "Farfield's Max",
+						"owner": "Cole Charles  Steinbrick",
+						"sire": "Style's Stylemaster",
+						"dam": "Alpine Hill Dianne",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "S73950",
+						"horseName": "SR Whiskey",
+						"owner": "Kirk D. Fenoff",
+						"sire": "Korry's Conqueror",
+						"dam": "Hi-Ho Valley Sarah",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					}
+				]
+			},
+			{
+				"class": "Stallions 3",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "S74702",
+						"horseName": "Orndorff's Master Bill",
+						"owner": "Caitlin M. Morton",
+						"sire": "Orndorff's Master Encore",
+						"dam": "Provost Bernadette",
+						"ChampionshipPoints": 4,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "S74511",
+						"horseName": "Pine Row Avenger",
+						"owner": "Kirt W. &/or Sarah A. Drew",
+						"sire": "D.H.F. Captain's Abe",
+						"dam": "Millerview's Jacey",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					}
+				]
+			},
+			{
+				"class": "Stallion 2",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "S75284",
+						"horseName": "Hickland Director",
+						"owner": "Herman M. &/or Julie R.  Miller",
+						"sire": "Country Road Uconn",
+						"dam": "Tree Top Zoey",
+						"ChampionshipPoints": 1,
+						"placingPoints": 10
+					}
+				]
+			},
+			{
+				"class": "Stallion 1",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "S76089",
+						"horseName": "WesSand's Merlin",
+						"owner": "Weston T. Mangels",
+						"sire": "Triple M Farms Moose",
+						"dam": "WesSand's Madalyn",
+						"ChampionshipPoints": 0,
+						"placingPoints": 10
+					}
+				]
+			},
+			{
+				"class": "Senior colts",
+				"placings": []
+			},
+			{
+				"class": "Colts",
+				"placings": []
+			},
+			{
+				"class": "First (Senior)",
+				"placings": []
+			},
+			{
+				"class": "First (Junior)",
+				"placings": []
+			},
+			{
+				"class": "Second (Senior)",
+				"placings": []
+			},
+			{
+				"class": "Third (senior)",
+				"placings": []
+			},
+			{
+				"class": "Fourth (senior)",
+				"placings": []
+			},
+			{
+				"class": "Fifth (senior)",
+				"placings": []
+			},
+			{
+				"class": "Brood ",
+				"placings": []
+			},
+			{
+				"class": "Mares 5 and over",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "M137351",
+						"horseName": "Sunny Crest Kendra",
+						"owner": "Duane E. Miller",
+						"sire": "BJ Majesty",
+						"dam": "Junior's Betsy",
+						"ChampionshipPoints": 0,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "M137113",
+						"horseName": "Rocky Hills Ruby",
+						"owner": "Weston T. Mangels",
+						"sire": "Relyb's Balance",
+						"dam": "Maple Creek Robin",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "M126538",
+						"horseName": "Twin Oaks Dorothy",
+						"owner": "Evva Sue Miller",
+						"sire": "Harbor Haven's Extreme",
+						"dam": "Twin Oaks Dot",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "M137604",
+						"horseName": "RKG Knight's Charm Ruby",
+						"owner": "Thomas E. &/or Sally A. Glauer",
+						"sire": "RKG Lady's Thunder Knight",
+						"dam": "JW Charm",
+						"ChampionshipPoints": 0,
+						"placingPoints": 3
+					}
+				]
+			},
+			{
+				"class": "Yeld",
+				"placings": []
+			},
+			{
+				"class": "Mares 5 and over",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "M136787",
+						"horseName": "Lor-Rob Ida Mae",
+						"owner": "Todd C. Jardine",
+						"sire": "Orndorff's Master Encore",
+						"dam": "Coats Farms Isabella",
+						"ChampionshipPoints": 4,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "M136933",
+						"horseName": "LY's Lilly",
+						"owner": "Adam Charles  Steinbrick",
+						"sire": "LH Acres Dream Chief",
+						"dam": "Millerview's Rose",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "M135306",
+						"horseName": "WB Merry Go Round",
+						"owner": "Jim &/or Lynn  Carey",
+						"sire": "BJ Majesty",
+						"dam": "Shady Creek Jewel",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "M129994",
+						"horseName": "Har-Lyn Ridge DiamondDust",
+						"owner": "Luke William  Drew",
+						"sire": "Detweiler'sPrincesDiamond",
+						"dam": "Wee-Ridge Janice",
+						"ChampionshipPoints": 0,
+						"placingPoints": 3
+					}
+				]
+			},
+			{
+				"class": "Mares 4 year old",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "1044820",
+						"horseName": "Stoney Lake Cornelius",
+						"owner": "Darrell Drain",
+						"sire": "Stoney Lake Calvin",
+						"dam": "Stoney Lake Alaska",
+						"ChampionshipPoints": 6,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "M138682",
+						"horseName": "Orndorff's Cap'n Brenda",
+						"owner": "Adam Charles  Steinbrick",
+						"sire": "Orndorff's Captain Encore",
+						"dam": "Orndorff's CB Marissa",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "M138903",
+						"horseName": "Produce Acres Rose Lou",
+						"owner": "Brian K. Heuring",
+						"sire": " DVM",
+						"dam": "Stoney Lake Extreme",
+						"ChampionshipPoints": 20,
+						"placingPoints": 0
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "M138566",
+						"horseName": "WesSand's Melanie",
+						"owner": "Weston T. Mangels",
+						"sire": "Triple M Farms Moose",
+						"dam": "WesSand's Mitzi",
+						"ChampionshipPoints": 0,
+						"placingPoints": 3
+					},
+					{
+						"placing": 5,
+						"registrationNumber": "M138625",
+						"horseName": "LJ Jenny",
+						"owner": "Scott J. &/or Teresa  Zube",
+						"sire": "Shady Creek Supreme",
+						"dam": "LJ Amber",
+						"ChampionshipPoints": 0,
+						"placingPoints": 2
+					}
+				]
+			},
+			{
+				"class": "Mare 3",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "1041701",
+						"horseName": "Stoney Lake Silver",
+						"owner": "Darrell Drain",
+						"sire": "Stoney Lake Elvis",
+						"dam": "Pine Grove Kayleen",
+						"ChampionshipPoints": 0,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "M140818",
+						"horseName": "Millerview's Kayla",
+						"owner": "Duane E. Miller",
+						"sire": "Country Road Uconn",
+						"dam": "Mountaineer Korky Lu",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "M140959",
+						"horseName": "WH Lola",
+						"owner": "Ralph &/or Ruth  Bloom",
+						"sire": "Orndorff's Master Encore",
+						"dam": "WH Lucy",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "M139893",
+						"horseName": "Precision Acres Fiona",
+						"owner": "Cole Charles  Steinbrick",
+						"sire": "S.E.M. Jasper",
+						"dam": "Clintridge Amber",
+						"ChampionshipPoints": 0,
+						"placingPoints": 3
+					},
+					{
+						"placing": 5,
+						"registrationNumber": "M140436",
+						"horseName": "PVF Malarie",
+						"owner": "Brian K. Heuring",
+						"sire": " DVM",
+						"dam": "Orndorff's Master Encore",
+						"ChampionshipPoints": 8,
+						"placingPoints": 0
+					}
+				]
+			},
+			{
+				"class": "Mare 2",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "M141811",
+						"horseName": "Country Meadow's Queen",
+						"owner": "Duane E. Miller",
+						"sire": "Country Road Uconn",
+						"dam": "Master Encore's Ezzy",
+						"ChampionshipPoints": 2,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "M142012",
+						"horseName": "CF Marley",
+						"owner": "Jonathan D. Cush",
+						"sire": "Orndorff's Master Encore",
+						"dam": "CF Charley",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "M142013",
+						"horseName": "CF Cherry Pie",
+						"owner": "Jonathan D. Cush",
+						"sire": "Orndorff's Master Encore",
+						"dam": "RH Captain's Lily",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "M141911",
+						"horseName": "Whistling Pine Angie",
+						"owner": "Dan J. Johnson",
+						"sire": " Sr.",
+						"dam": "Orndorff's Master Encore",
+						"ChampionshipPoints": 12,
+						"placingPoints": 0
+					},
+					{
+						"placing": 5,
+						"registrationNumber": "M141518",
+						"horseName": "AgRestore JW Layna",
+						"owner": "Adam Charles  Steinbrick",
+						"sire": "Orndorff's Captain Encore",
+						"dam": "S.E.M. Freeway's Lily",
+						"ChampionshipPoints": 0,
+						"placingPoints": 2
+					}
+				]
+			},
+			{
+				"class": "Mare 1",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "M143158",
+						"horseName": "Meadow Crest Jewel",
+						"owner": "Todd C. Jardine",
+						"sire": "AgRestore's Diamond's Dream",
+						"dam": "Jardine's Victoria",
+						"ChampionshipPoints": 1,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "M143651",
+						"horseName": "Millerview's Juliette",
+						"owner": "Duane E. Miller",
+						"sire": "Hallett's T-Rex",
+						"dam": "Double LV Julie",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "M144358",
+						"horseName": "CF Sienna",
+						"owner": "Jonathan D. Cush",
+						"sire": "CF Suspect",
+						"dam": "Masterpeace Lassie",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "M143976",
+						"horseName": "OHF SB Conquest's I'm Suki's Girl",
+						"owner": "Lewis & Gail  Biddle & Family",
+						"sire": "SB Conquest",
+						"dam": "OHF I'm Special's Girl",
+						"ChampionshipPoints": 0,
+						"placingPoints": 3
+					},
+					{
+						"placing": 5,
+						"registrationNumber": "M144281",
+						"horseName": "DNL Fire's Fran",
+						"owner": "Stanton R. Miller",
+						"sire": "Never Done Fire's Chip",
+						"dam": "I.G. Linda",
+						"ChampionshipPoints": 0,
+						"placingPoints": 2
+					}
+				]
+			},
+			{
+				"class": "Senior fillies",
+				"placings": []
+			},
+			{
+				"class": "Fillies",
+				"placings": []
+			},
+			{
+				"class": "First (Senior)",
+				"placings": []
+			},
+			{
+				"class": "First (Junior)",
+				"placings": []
+			},
+			{
+				"class": "Second (Senior)",
+				"placings": []
+			},
+			{
+				"class": "Second (Junior)",
+				"placings": []
+			},
+			{
+				"class": "Third (Senior)",
+				"placings": []
+			},
+			{
+				"class": "Third (Junior)",
+				"placings": []
+			},
+			{
+				"class": "Fourth (Senior)",
+				"placings": []
+			},
+			{
+				"class": "Fourth (Junior)",
+				"placings": []
+			},
+			{
+				"class": "Fifth (senior)",
+				"placings": []
+			},
+			{
+				"class": "Fifth (Junior)",
+				"placings": []
+			},
+			{
+				"class": "Reg.Geldings 4 & older:",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "G71677",
+						"horseName": "Shady Creek Chief",
+						"owner": "Bryce  Smith",
+						"sire": "Double J Justin",
+						"dam": "JW Sue",
+						"ChampionshipPoints": 4,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "G73011",
+						"horseName": "Dunton Farm Carter",
+						"owner": "Jason & Celestey  Hill",
+						"sire": "Stone Hill Captain Kid",
+						"dam": "Lor-Rob Harper",
+						"ChampionshipPoints": 3,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "G72389",
+						"horseName": "Lor-Rob Petron",
+						"owner": "Mark C. Barie",
+						"sire": "Orndorff's Master Encore",
+						"dam": "Johnhart's Irish Cream",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "G72122",
+						"horseName": "Everganic Jule's Jerome",
+						"owner": "Morrisville College Foundation Inc.",
+						"sire": "",
+						"dam": "Orndorffs Conqueror Jules",
+						"ChampionshipPoints": 12,
+						"placingPoints": 0
+					},
+					{
+						"placing": 5,
+						"registrationNumber": "G71302",
+						"horseName": "K&R Kelsey's Thunder",
+						"owner": "Mitchell A. Garrett",
+						"sire": "Hidden View Trade Mark",
+						"dam": "Windy Oaks Kelsey",
+						"ChampionshipPoints": 0,
+						"placingPoints": 2
+					}
+				]
+			},
+			{
+				"class": "Reg.Geldings 3 & Under",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "G74891",
+						"horseName": "Autumnwood Cade",
+						"owner": "Thomas E. &/or Sally A. Glauer",
+						"sire": "Orndorff's Master Encore",
+						"dam": "Long View's Sheila",
+						"ChampionshipPoints": 0,
+						"placingPoints": 10
+					}
+				]
+			},
+			{
+				"class": "Registered Mare Cart",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "M139781",
+						"horseName": "Oak Haven's Image",
+						"owner": "Dr. Michael R. Stone",
+						"sire": "AgRestore's JW Majistro",
+						"dam": "Oak Haven's Ivy",
+						"ChampionshipPoints": 0,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "M140742",
+						"horseName": "LeBros Grace",
+						"owner": "Rick  Welsh",
+						"sire": "Willow Creek Baja",
+						"dam": "LeBros Brandy",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "M139162",
+						"horseName": "Schrock Acres Karla",
+						"owner": "Angela C. Vreeland",
+						"sire": "Switzerland Co. Geronimo",
+						"dam": "Elm Lawn Ann XII",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "1041701",
+						"horseName": "Stoney Lake Silver",
+						"owner": "Darrell Drain",
+						"sire": "Stoney Lake Elvis",
+						"dam": "Pine Grove Kayleen",
+						"ChampionshipPoints": 0,
+						"placingPoints": 3
+					},
+					{
+						"placing": 5,
+						"registrationNumber": "M136556",
+						"horseName": "OHF Conqueror's Dream Girl",
+						"owner": "Lewis & Gail  Biddle & Family",
+						"sire": "Korry's Conqueror",
+						"dam": "OHF I'm Special's Girl",
+						"ChampionshipPoints": 0,
+						"placingPoints": 2
+					}
+				]
+			},
+			{
+				"class": "Registered Gelding Cart",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "S73950",
+						"horseName": "SR Whiskey",
+						"owner": "Kirk D. Fenoff",
+						"sire": "Korry's Conqueror",
+						"dam": "Hi-Ho Valley Sarah",
+						"ChampionshipPoints": 0,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "G69075",
+						"horseName": "MAK Aclaim's Excel",
+						"owner": "Bryce  Smith",
+						"sire": "T.S.F. GV Korry's Aclaim",
+						"dam": "MAK Ella",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "G72054",
+						"horseName": "ReQuest",
+						"owner": "Jason & Celestey  Hill",
+						"sire": "Country Road Quest",
+						"dam": "Jes Lou Maggie Rose",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "G68245",
+						"horseName": "Twin Oaks Rocky",
+						"owner": "Duane &/or Sara  Herschberger",
+						"sire": "Twin Oaks Martin",
+						"dam": "Twin Oaks Ruby",
+						"ChampionshipPoints": 0,
+						"placingPoints": 3
+					},
+					{
+						"placing": 5,
+						"registrationNumber": "G71288",
+						"horseName": "Spring Hill Cooter",
+						"owner": "Mark C. Barie",
+						"sire": "Whispering Wind's Cactus",
+						"dam": "Spring Hill Vinetta",
+						"ChampionshipPoints": 0,
+						"placingPoints": 2
+					}
+				]
+			}
+		]
+	},
+	{
+		"show": "Laporte",
+		"horseCount": 56,
+		"classes": [
+			{
+				"class": "Stallions 4 & over",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "S70623",
+						"horseName": "Hallett's T-Rex",
+						"owner": "Duane E. Miller",
+						"sire": "Thunderbranch Prince",
+						"dam": "Millville's Frieda",
+						"ChampionshipPoints": 6,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "S70254",
+						"horseName": "Farfield's Max",
+						"owner": "Cole Charles  Steinbrick",
+						"sire": "Style's Stylemaster",
+						"dam": "Alpine Hill Dianne",
+						"ChampionshipPoints": 4,
+						"placingPoints": 7
+					}
+				]
+			},
+			{
+				"class": "Stallions 3",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "S74702",
+						"horseName": "Orndorff's Master Bill",
+						"owner": "Caitlin M. Morton",
+						"sire": "Orndorff's Master Encore",
+						"dam": "Provost Bernadette",
+						"ChampionshipPoints": 0,
+						"placingPoints": 10
+					}
+				]
+			},
+			{
+				"class": "Stallion 2",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "S75284",
+						"horseName": "Hickland Director",
+						"owner": "Herman M. &/or Julie R.  Miller",
+						"sire": "Country Road Uconn",
+						"dam": "Tree Top Zoey",
+						"ChampionshipPoints": 2,
+						"placingPoints": 10
+					}
+				]
+			},
+			{
+				"class": "Stallion 1",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "S76089",
+						"horseName": "WesSand's Merlin",
+						"owner": "Weston T. Mangels",
+						"sire": "Triple M Farms Moose",
+						"dam": "WesSand's Madalyn",
+						"ChampionshipPoints": 1,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "S75907",
+						"horseName": "Hickland Lucas",
+						"owner": "Herman M. &/or Julie R.  Miller",
+						"sire": "Triple M Farms Masterpiece",
+						"dam": "Hickland Connie Liegh",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "S76502",
+						"horseName": "Ollie's Encore",
+						"owner": "Brian J. Miller",
+						"sire": "Orndorff's Captain Encore",
+						"dam": "Water Edge Ollie",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					}
+				]
+			},
+			{
+				"class": "Weanling Colts",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "S77001",
+						"horseName": "S.C.V.F. Speak Easy",
+						"owner": "Lawrence T. & Carolyn L. Piergallini",
+						"sire": "AgRestore's Diamond's Dream",
+						"dam": "S.C.V.F. Just Like A Rose",
+						"ChampionshipPoints": 0,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "S77092",
+						"horseName": "MHS Casey",
+						"owner": "Scott J. &/or Teresa  Zube",
+						"sire": "Sunny Crest CS Flash",
+						"dam": "Willow Creek Coral",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "S77127",
+						"horseName": "S.E.M. Mac",
+						"owner": "Steven &/or Elizabeth  Mrozinski",
+						"sire": "Clear Creek Thorne",
+						"dam": "S.E.M. Matilda",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "S76968",
+						"horseName": "AgRestore's Marengo",
+						"owner": "Jacob B. Wittmer",
+						"sire": "Farfield's Dutchman",
+						"dam": "AgRestore Matilda",
+						"ChampionshipPoints": 0,
+						"placingPoints": 3
+					}
+				]
+			},
+			{
+				"class": "Brood ",
+				"placings": []
+			},
+			{
+				"class": "Mares 5 and over",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "M137351",
+						"horseName": "Sunny Crest Kendra",
+						"owner": "Duane E. Miller",
+						"sire": "BJ Majesty",
+						"dam": "Junior's Betsy",
+						"ChampionshipPoints": 6,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "M137113",
+						"horseName": "Rocky Hills Ruby",
+						"owner": "Weston T. Mangels",
+						"sire": "Relyb's Balance",
+						"dam": "Maple Creek Robin",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "M135686",
+						"horseName": "Triple M Farms Gemini",
+						"owner": "Duane &/or Sara  Herschberger",
+						"sire": "Whispering Wind's Cactus",
+						"dam": "B.Y. Acre's Lucy",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					}
+				]
+			},
+			{
+				"class": "Yeld",
+				"placings": []
+			},
+			{
+				"class": "Mares 5 and over",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "M136933",
+						"horseName": "LY's Lilly",
+						"owner": "Adam Charles  Steinbrick",
+						"sire": "LH Acres Dream Chief",
+						"dam": "Millerview's Rose",
+						"ChampionshipPoints": 4,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "M134963",
+						"horseName": "Sycamore Fancy Nancy",
+						"owner": "Cole Charles  Steinbrick",
+						"sire": "BJ Majesty",
+						"dam": "Ardi Extreme Rikki",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "M135306",
+						"horseName": "WB Merry Go Round",
+						"owner": "Jim &/or Lynn  Carey",
+						"sire": "BJ Majesty",
+						"dam": "Shady Creek Jewel",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "M135914",
+						"horseName": "L-Valley Dreams Darlene",
+						"owner": "Elmer E. Kauffman Jr.",
+						"sire": "",
+						"dam": "Country Road Prince",
+						"ChampionshipPoints": 9,
+						"placingPoints": 0
+					},
+					{
+						"placing": 5,
+						"registrationNumber": "M130349",
+						"horseName": "Sunrise Hollow's Lucy",
+						"owner": "Lewis & Gail  Biddle & Family",
+						"sire": "Weeping Meadow Contender",
+						"dam": "Sunrise Hollow's Lilac",
+						"ChampionshipPoints": 0,
+						"placingPoints": 2
+					}
+				]
+			},
+			{
+				"class": "Mares 4 year old",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "M138682",
+						"horseName": "Orndorff's Cap'n Brenda",
+						"owner": "Adam Charles  Steinbrick",
+						"sire": "Orndorff's Captain Encore",
+						"dam": "Orndorff's CB Marissa",
+						"ChampionshipPoints": 0,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "M138625",
+						"horseName": "LJ Jenny",
+						"owner": "Scott J. &/or Teresa  Zube",
+						"sire": "Shady Creek Supreme",
+						"dam": "LJ Amber",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "M138419",
+						"horseName": "B.Y. Acre's Dixie",
+						"owner": "Ronald &/or Richard  Wagler",
+						"sire": "Detweiler'sPrincesDiamond",
+						"dam": "B. Y. Acre's Dee Light",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "M139242",
+						"horseName": "Creekside's Serena",
+						"owner": "Dallas  Raber",
+						"sire": "AgRestore Dylan",
+						"dam": "Spring Water Sierra",
+						"ChampionshipPoints": 0,
+						"placingPoints": 3
+					}
+				]
+			},
+			{
+				"class": "Mare 3",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "M140818",
+						"horseName": "Millerview's Kayla",
+						"owner": "Duane E. Miller",
+						"sire": "Country Road Uconn",
+						"dam": "Mountaineer Korky Lu",
+						"ChampionshipPoints": 0,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "M140307",
+						"horseName": "WesSand's Melody",
+						"owner": "Weston T. Mangels",
+						"sire": "Triple M Farms Moose",
+						"dam": "WesSand's Madalyn",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "M140959",
+						"horseName": "WH Lola",
+						"owner": "Ralph &/or Ruth  Bloom",
+						"sire": "Orndorff's Master Encore",
+						"dam": "WH Lucy",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "M139893",
+						"horseName": "Precision Acres Fiona",
+						"owner": "Cole Charles  Steinbrick",
+						"sire": "S.E.M. Jasper",
+						"dam": "Clintridge Amber",
+						"ChampionshipPoints": 0,
+						"placingPoints": 3
+					},
+					{
+						"placing": 5,
+						"registrationNumber": "M142269",
+						"horseName": "G.R. Heidi",
+						"owner": "Glenn R. Miller &/or Kauffman  Brothers",
+						"sire": "Stoney Lake Easy",
+						"dam": "Lor-Rob Hazel",
+						"ChampionshipPoints": 0,
+						"placingPoints": 2
+					}
+				]
+			},
+			{
+				"class": "Mare 2",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "M141518",
+						"horseName": "AgRestore JW Layna",
+						"owner": "Adam Charles  Steinbrick",
+						"sire": "Orndorff's Captain Encore",
+						"dam": "S.E.M. Freeway's Lily",
+						"ChampionshipPoints": 2,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "M142274",
+						"horseName": "K.B. Kaiya",
+						"owner": "  Kauffman Bros.",
+						"sire": "Pervenche's Master Prince",
+						"dam": "LJ Callie",
+						"ChampionshipPoints": 1,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "M142612",
+						"horseName": "MHS Naomi",
+						"owner": "Scott J. &/or Teresa  Zube",
+						"sire": "Orndorff's Master Encore",
+						"dam": "Miss Norissa",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "M141379",
+						"horseName": "Freeway's Cotton's Candy",
+						"owner": "Aaron &/or Kristen  Freitag",
+						"sire": "Orndorff's Master Encore",
+						"dam": "Double T Cotton",
+						"ChampionshipPoints": 0,
+						"placingPoints": 3
+					},
+					{
+						"placing": 5,
+						"registrationNumber": "M141102",
+						"horseName": "N V Lacer's Sassy",
+						"owner": "  Northview Farms",
+						"sire": "OHF Master's Lacer",
+						"dam": "Turkey Creek Betz",
+						"ChampionshipPoints": 0,
+						"placingPoints": 2
+					}
+				]
+			},
+			{
+				"class": "Mare 1",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "M143651",
+						"horseName": "Millerview's Juliette",
+						"owner": "Duane E. Miller",
+						"sire": "Hallett's T-Rex",
+						"dam": "Double LV Julie",
+						"ChampionshipPoints": 0,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "M143172",
+						"horseName": "Rocky Road Sharla",
+						"owner": "Cole Charles  Steinbrick",
+						"sire": "Sandy Road Cheif",
+						"dam": "WMW Sharla",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "M143088",
+						"horseName": "LH Acres Karmanita",
+						"owner": "Adam Charles  Steinbrick",
+						"sire": "Farfield's Dutchman",
+						"dam": "LY's Ambernita",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "M143679",
+						"horseName": "Freeway's Crystal",
+						"owner": "Aaron &/or Kristen  Freitag",
+						"sire": "Freeway's Roger",
+						"dam": "Double T Cotton",
+						"ChampionshipPoints": 0,
+						"placingPoints": 3
+					},
+					{
+						"placing": 5,
+						"registrationNumber": "M143796",
+						"horseName": "Carey's Queen Dezra",
+						"owner": "Jim &/or Lynn  Carey",
+						"sire": "Maple Glen Mark",
+						"dam": "Double A Lad's Carrie",
+						"ChampionshipPoints": 0,
+						"placingPoints": 2
+					}
+				]
+			},
+			{
+				"class": "Fillies",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "M145116",
+						"horseName": "S.C.V.F. Miss Daisy",
+						"owner": "Lawrence T. & Carolyn L. Piergallini",
+						"sire": "Orndorff's Master Encore",
+						"dam": "S.C.V.F. Doubleshot of CC",
+						"ChampionshipPoints": 0,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "M145580",
+						"horseName": "WesSand's Rose of Sharon",
+						"owner": "Weston T. Mangels",
+						"sire": "Triple M Farms Moose",
+						"dam": "W.O.W. Kiva Lou",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "M144756",
+						"horseName": "Hickland Cherise",
+						"owner": "Herman M. &/or Julie R.  Miller",
+						"sire": "JBJ Mariah's Cooper",
+						"dam": "Tree Top Zoey",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "M144993",
+						"horseName": "DNL Gail",
+						"owner": "Adam Charles  Steinbrick",
+						"sire": "Never Done Fire's Chip",
+						"dam": "Bank Barn Caroline",
+						"ChampionshipPoints": 0,
+						"placingPoints": 3
+					},
+					{
+						"placing": 5,
+						"registrationNumber": "M145052",
+						"horseName": "AgRestore's Wynonna",
+						"owner": "Todd M. &/or Jade E.  Seaman",
+						"sire": "AgRestore's JW Duplex",
+						"dam": "AgRestore Mia",
+						"ChampionshipPoints": 0,
+						"placingPoints": 2
+					}
+				]
+			},
+			{
+				"class": "Reg.Geldings 4 & older:",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "G71404",
+						"horseName": "Hilltop Ridge Firestone",
+						"owner": "Timothy &/or Justin  Berry",
+						"sire": "McQueen's Mr. Opportunity",
+						"dam": "Hilltop Ridge Prides Lisa",
+						"ChampionshipPoints": 4,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "G73018",
+						"horseName": "MAK Lucy's Louie",
+						"owner": "Timothy M. Berry",
+						"sire": "AgRestore JW Nutcracker",
+						"dam": "MAK Lucy Lou",
+						"ChampionshipPoints": 3,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "G73329",
+						"horseName": "NFF Scott",
+						"owner": "Donald L. Sherwood",
+						"sire": "Kidron Road Firestone",
+						"dam": "M+R Reba",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "S73135",
+						"horseName": "Sycamore Cash Is King",
+						"owner": "Richard E. &/or Barbara  Young",
+						"sire": "Charlie's Dexter",
+						"dam": "Ardi Extreme Rokki",
+						"ChampionshipPoints": 0,
+						"placingPoints": 3
+					}
+				]
+			},
+			{
+				"class": "Reg.Geldings 3 years old",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "S74064",
+						"horseName": "Fohrman's Prince Quest",
+						"owner": "Michael & Bonnie  Fohrman",
+						"sire": "Country Road Quest",
+						"dam": "Greenlee's Master Lori",
+						"ChampionshipPoints": 0,
+						"placingPoints": 10
+					}
+				]
+			},
+			{
+				"class": "Reg.Geldings yearlings",
+				"placings": []
+			},
+			{
+				"class": "Registered Mare Cart",
+				"placings": []
+			}
+		]
+	},
+	{
+		"show": "Wisconsin State Fair",
+		"horseCount": 34,
+		"classes": [
+			{
+				"class": "Stallions 4 & over",
+				"placings": []
+			},
+			{
+				"class": "Stallions 3",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "S74702",
+						"horseName": "Orndorff's Master Bill",
+						"owner": "Caitlin M. Morton",
+						"sire": "Orndorff's Master Encore",
+						"dam": "Provost Bernadette",
+						"ChampionshipPoints": 6,
+						"placingPoints": 10
+					}
+				]
+			},
+			{
+				"class": "Stallion 2",
+				"placings": []
+			},
+			{
+				"class": "Stallion 1",
+				"placings": []
+			},
+			{
+				"class": "Colts",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "S77354",
+						"horseName": "MAK Romeo",
+						"owner": "Jerry &/or Mary Jean  Maker",
+						"sire": "MAK Dream Master",
+						"dam": "MAK Aclaim's Robin",
+						"ChampionshipPoints": 5,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "S77127",
+						"horseName": "S.E.M. Mac",
+						"owner": "Steven &/or Elizabeth  Mrozinski",
+						"sire": "Clear Creek Thorne",
+						"dam": "S.E.M. Matilda",
+						"ChampionshipPoints": 1,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "S77092",
+						"horseName": "MHS Casey",
+						"owner": "Scott J. &/or Teresa  Zube",
+						"sire": "Sunny Crest CS Flash",
+						"dam": "Willow Creek Coral",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "S76920",
+						"horseName": "Country Pride Dexter",
+						"owner": " Country Pride Belgians Inc.",
+						"sire": "M G Junior's Supreme",
+						"dam": "Country Pride Victory",
+						"ChampionshipPoints": 0,
+						"placingPoints": 3
+					}
+				]
+			},
+			{
+				"class": "Junior colts",
+				"placings": []
+			},
+			{
+				"class": "Brood ",
+				"placings": []
+			},
+			{
+				"class": "Mares 5 and over",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "M136677",
+						"horseName": "Sapphire",
+						"owner": "Steven &/or Ashley  Connell",
+						"sire": "PVF Ricky J",
+						"dam": "Stefani",
+						"ChampionshipPoints": 0,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "M136138",
+						"horseName": "MAK Aclaim's Robin",
+						"owner": "Jerry &/or Mary Jean  Maker",
+						"sire": "T.S.F. GV Korry's Aclaim",
+						"dam": "E D Ellen's Robin",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "M130345",
+						"horseName": "K & J House's Reese",
+						"owner": "John R. Meyer",
+						"sire": "Country Pride Rex",
+						"dam": "K & J House's Reagan",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "M137701",
+						"horseName": "Barkman's Kyra",
+						"owner": "Tony &/or Sally  Sikora",
+						"sire": "Orndorff's U.C. Commander",
+						"dam": "Spring Hill Cassidy",
+						"ChampionshipPoints": 0,
+						"placingPoints": 3
+					},
+					{
+						"placing": 5,
+						"registrationNumber": "M126140",
+						"horseName": "Eggen HighMeadow Crystal",
+						"owner": "John R. Meyer",
+						"sire": "Korry's Conqueror",
+						"dam": "Junior's Cindy",
+						"ChampionshipPoints": 0,
+						"placingPoints": 2
+					}
+				]
+			},
+			{
+				"class": "Yeld",
+				"placings": []
+			},
+			{
+				"class": "Mares 5 and over",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "M136933",
+						"horseName": "LY's Lilly",
+						"owner": "Adam Charles  Steinbrick",
+						"sire": "LH Acres Dream Chief",
+						"dam": "Millerview's Rose",
+						"ChampionshipPoints": 0,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "M137189",
+						"horseName": "DRM Diesel's Ivy",
+						"owner": "Jered Lee  Althoff",
+						"sire": "Royal E. Diesel",
+						"dam": "Kidron Road Isabelle",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "M132630",
+						"horseName": "L-Valley Prince Leona",
+						"owner": "Steven &/or Ashley  Connell",
+						"sire": "Country Road Prince",
+						"dam": "L-Valley Lace du Marais",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "M135739",
+						"horseName": "Xtreme Calibre Ranae",
+						"owner": "John R. Meyer",
+						"sire": "PJ's Cowboy Calibre",
+						"dam": "K & J House's Reese",
+						"ChampionshipPoints": 0,
+						"placingPoints": 3
+					},
+					{
+						"placing": 5,
+						"registrationNumber": "M126675",
+						"horseName": "Triple M Farms Mercy",
+						"owner": "Ann L. Hill",
+						"sire": "C.J. Mitch",
+						"dam": "Hidden Creek Misty",
+						"ChampionshipPoints": 0,
+						"placingPoints": 2
+					}
+				]
+			},
+			{
+				"class": "Brood",
+				"placings": []
+			},
+			{
+				"class": "Mares 4 year old",
+				"placings": []
+			},
+			{
+				"class": "Yeld",
+				"placings": []
+			},
+			{
+				"class": "Mares 4 year old",
+				"placings": []
+			},
+			{
+				"class": "First (brood)",
+				"placings": []
+			},
+			{
+				"class": "First (Yeld)",
+				"placings": []
+			},
+			{
+				"class": "Second (Yeld)",
+				"placings": []
+			},
+			{
+				"class": "Third (Yeld)",
+				"placings": []
+			},
+			{
+				"class": "Fourth (Yeld)",
+				"placings": []
+			},
+			{
+				"class": "Mare 3",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "M141342",
+						"horseName": "Country Pride Vaida",
+						"owner": "Country Pride Belgians Inc.",
+						"sire": "",
+						"dam": "Indian Ridge Romeo",
+						"ChampionshipPoints": 20,
+						"placingPoints": 0
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "M140053",
+						"horseName": "CS Nia",
+						"owner": "Howard or Mable  Buerckley",
+						"sire": "Rose Acres Lincoln",
+						"dam": "Chupp's Extreme Niki",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "M140462",
+						"horseName": "Xtreme Duke's Reanna",
+						"owner": "John R. Meyer",
+						"sire": "L.G.F. Duke",
+						"dam": "K & J House's Reese",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					}
+				]
+			},
+			{
+				"class": "Mare 2",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "M141518",
+						"horseName": "AgRestore JW Layna",
+						"owner": "Adam Charles  Steinbrick",
+						"sire": "Orndorff's Captain Encore",
+						"dam": "S.E.M. Freeway's Lily",
+						"ChampionshipPoints": 5,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "M142612",
+						"horseName": "MHS Naomi",
+						"owner": "Scott J. &/or Teresa  Zube",
+						"sire": "Orndorff's Master Encore",
+						"dam": "Miss Norissa",
+						"ChampionshipPoints": 1,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "M141379",
+						"horseName": "Freeway's Cotton's Candy",
+						"owner": "Aaron &/or Kristen  Freitag",
+						"sire": "Orndorff's Master Encore",
+						"dam": "Double T Cotton",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					}
+				]
+			},
+			{
+				"class": "Mare 1",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "M143088",
+						"horseName": "LH Acres Karmanita",
+						"owner": "Adam Charles  Steinbrick",
+						"sire": "Farfield's Dutchman",
+						"dam": "LY's Ambernita",
+						"ChampionshipPoints": 0,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "M143679",
+						"horseName": "Freeway's Crystal",
+						"owner": "Aaron &/or Kristen  Freitag",
+						"sire": "Freeway's Roger",
+						"dam": "Double T Cotton",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					},
+					{
+						"placing": 3,
+						"registrationNumber": "M144452",
+						"horseName": "BBF Addison",
+						"owner": "Tony &/or Sally  Sikora",
+						"sire": "MAK Aclaim's Highlander",
+						"dam": "Shamrock Felicia",
+						"ChampionshipPoints": 0,
+						"placingPoints": 5
+					},
+					{
+						"placing": 4,
+						"registrationNumber": "M143799",
+						"horseName": "MHS Destiny",
+						"owner": "Scott J. &/or Teresa  Zube",
+						"sire": "Royal E. Pierre",
+						"dam": "L & C Darbee",
+						"ChampionshipPoints": 0,
+						"placingPoints": 3
+					}
+				]
+			},
+			{
+				"class": "Senior fillies",
+				"placings": []
+			},
+			{
+				"class": "Fillies",
+				"placings": [
+					{
+						"placing": 1,
+						"registrationNumber": "M144993",
+						"horseName": "DNL Gail",
+						"owner": "Adam Charles  Steinbrick",
+						"sire": "Never Done Fire's Chip",
+						"dam": "Bank Barn Caroline",
+						"ChampionshipPoints": 0,
+						"placingPoints": 10
+					},
+					{
+						"placing": 2,
+						"registrationNumber": "M145057",
+						"horseName": "BBF Rose",
+						"owner": "Samuel  Schwartz",
+						"sire": "Dusty Road Chance",
+						"dam": "Yellow Creek Kim",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					}
+				]
+			},
+			{
+				"class": "Reg.Geldings 4 & older:",
+				"placings": []
+			},
+			{
+				"class": "Reg.Geldings 2 years old",
+				"placings": []
+			},
+			{
+				"class": "Reg.Geldings 3 year old",
+				"placings": []
+			},
+			{
+				"class": "Registered Mare Cart",
+				"placings": [
+					{
+						"placing": 2,
+						"registrationNumber": "M126675",
+						"horseName": "Triple M Farms Mercy",
+						"owner": "Ann L. Hill",
+						"sire": "C.J. Mitch",
+						"dam": "Hidden Creek Misty",
+						"ChampionshipPoints": 0,
+						"placingPoints": 7
+					}
+				]
+			}
+		]
+	}
 ]

@@ -1,14 +1,10 @@
 <template>
     <DataTable v-model:expandedRows="expandedRows" :value="Array.from(horseData.values())" stripedRows
-        @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" dataKey="registrationNumber" :class="p-datatable-sm"
+        @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" dataKey="sire" :class="p-datatable-sm"
         tableStyle="min-width: 50rem">
 
-        <Column expander style="width: 5rem" />
-        <Column field="registrationNumber" header="Registraion"></Column>
-        <Column field="horseName" header="Horse"></Column>
-        <Column field="owner" header="Owner"></Column>
-        <Column field="sire" header="Sire"></Column>
-        <Column field="dam" header="Dam"></Column>
+        <Column expander style="width: 5rem" />        
+        <Column field="sire" header="Sire"></Column>        
         <Column field="HorsePointsSummary" header="Total Points" sortable>
             <template #body="slotProps">
                 {{ horsePointsSummary(slotProps.data.shows) }}
@@ -20,6 +16,10 @@
                     <Column field="show" header="Show" sortable></Column>
                     <Column field="horseCount" header="HorseCount" sortable></Column>
                     <Column field="class" header="Class" sortable></Column>
+                    <Column field="registrationNumber" header="Registraion"></Column>
+                    <Column field="horseName" header="Horse"></Column>
+                    <Column field="owner" header="Owner"></Column>
+                    <Column field="dam" header="Dam"></Column>
                     <Column field="championshipPoints" header="Championship Points" sortable></Column>
                     <Column field="placingPoints" header="Placing Points" sortable></Column>
                     <Column field="pointsTotal" header="Points" sortable>
@@ -116,7 +116,7 @@ export default {
     },
     computed: {
         horseData() {
-            return new showViewData(store.showData).ReturnHorseResults()
+            return new showViewData(store.showData).ReturnSireResults()
         },
 
     },

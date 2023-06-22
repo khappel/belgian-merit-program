@@ -1,6 +1,6 @@
 <template>
     <DataTable v-model:expandedRows="expandedRows" :value="showDataList" @rowExpand="onRowExpand"
-        @rowCollapse="onRowCollapse" dataKey="show" :class="p - datatable - sm" tableStyle="min-width: 50rem">
+        @rowCollapse="onRowCollapse" dataKey="show" :class="p-datatable-sm" tableStyle="min-width: 50rem">
 
         <Column expander style="width: 5rem" />
         <Column field="show" header="Show" sortable></Column>
@@ -11,12 +11,12 @@
                 <PlacingComponent :ShowClass=cls.class :Placings=cls.placings :HorseCount=slotProps.data.horseCount />
             </div>-->
             <DataTable v-model:expandedRows="expandedClassRows" :value="slotProps.data.classes" @rowExpand="onRowExpand"
-                @rowCollapse="onRowCollapse" dataKey="class" :class="p - datatable - sm" tableStyle="min-width: 50rem">
+                @rowCollapse="onRowCollapse" dataKey="class" :class="p-datatable-sm" tableStyle="min-width: 50rem">
                 <Column expander style="width: 5rem" />
                 <Column field="class" header="Classes" sortable></Column>
 
                 <template #expansion="slotProps">
-                    <DataTable :value="slotProps.data.placings" stripedRows :class="p - datatable - sm"
+                    <DataTable :value="slotProps.data.placings" stripedRows :class="p-datatable-sm"
                         tableStyle="min-width: 50rem">
                         
                         <Column field="placing" header="Placing"></Column>
