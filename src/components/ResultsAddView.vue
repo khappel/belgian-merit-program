@@ -1,21 +1,38 @@
 <template>
     <Card>
         <template #title>
-            <Dropdown v-model="defaultFileSelected" :options="fileYears" optionLabel="year" placeholder="Select a year"
-                class="w-full md:w-14rem" @update:modelValue="getShowData" />
-
-            <Dropdown v-model="defaultShowSelected" :options="shows" optionLabel="show" placeholder="Select show(s)"
-                class="w-full md:w-20rem" @update:modelValue="getShowData" />
-
+            <Button label="New" icon="pi pi-plus" class="mr-2" />
+            <Button label="Open" icon="pi pi-upload" severity="success" class="mr-2" />
+            <Button label="Save" icon="" class="mr-2" />
+        
         </template>
         <template #content>
-            <Accordion :multiple="true" :activeIndex="setAccordianCount(showClasses.length)">
-                <AccordionTab v-for="cls in showClasses" :key="cls.class" :header="cls.class">
-                    <div>{{ cls }}</div>
-                    <PlacingEntryComponent :ShowClass="cls"></PlacingEntryComponent>
+            <form @submit="handleSubmit" class="placing-form; mr-0">
+                <h1>Enter Results</h1>
+                <div class="flex flex-row gap-2" style="align-items: center;">
+                    <Dropdown v-model="defaultFileSelected" :options="fileYears" optionLabel="year"
+                        placeholder="Select a year" class="w-full md:w-14rem" @update:modelValue="getShowData" />
 
-                </AccordionTab>
-            </Accordion>
+                    <Dropdown v-model="defaultShowSelected" :options="shows" optionLabel="show" placeholder="Select show(s)"
+                        class="w-full md:w-20rem" @update:modelValue="getShowData" />
+                </div>
+                <div class="flex flex-row gap-2" style="align-items: center;">
+                    <label for="form.horseCount">Horse Count</label>
+                    <InputNumber v-model="form.horseCount" inputId="integeronly" required />
+                </div>
+
+                <Accordion :multiple="true" :activeIndex="setAccordianCount(form.showClasses.length)">
+                    <AccordionTab v-for="cls in form.showClasses" :key="cls.class" :header="cls.class">
+                        <PlacingEntryComponent :ShowClass="cls" :placings="cls.placings"
+                            @input="(e, c) => handleChange(e, c)"></PlacingEntryComponent>
+
+                    </AccordionTab>
+                </Accordion>
+                <button>Submit</button>
+            </form>
+
+            {{ form }}
+
 
         </template>
     </Card>
@@ -24,36 +41,18 @@
 <script>
 import PlacingEntryComponent from './PlacingEntryComponent.vue'
 import { store } from '../classess/store.js'
+import { reactive } from "vue";
 
 export default {
     name: "Results",
     data() {
         return {
             store,
-            /*placingDataList: [],
-            placingFile: 'Placings/2023BelgianMeritPlacings.json',
-            defaultFileSelected: {
-                year: "2023-2024",
-                file: "Placings/2023BelgianMeritPlacings.json"
-            },
-            fileYears: [
-                {
-                    year: "2023-2024",
-                    file: "Placings/2023BelgianMeritPlacings.json"
-                },
-                {
-                    year: "2022-2023",
-                    file: "Placings/2022BelgianMeritPlacings.json"
-                }
-            ],
-            defaultShowSelected: [{
-                id: 1,
-                show: "ISF"
-            }],
-            shows: [],*/
+            shows: [],
             showClasses: [],
             showDataList: [],
             accordianCount: [],
+            form: { "show": "", "horseCount": 0, "showClasses": [] }
         };
     },
     components: {
@@ -62,8 +61,8 @@ export default {
     methods: {
         getShowData() {
             this.showDataList = store.showData;
-            if (this.showDataList.classsess != null) {
-                this.showClasses = this.showDataList.classsess
+            if (this.showDataList.classes != null) {
+                this.form.showClasses = this.showDataList.classsess
             }
             /*fetch(this.defaultFileSelected.file)
                 .then(response => response.json())
@@ -85,7 +84,7 @@ export default {
         getClassDef() {
             fetch("Definition Files/Classes.json")
                 .then(response => response.json())
-                .then(data => (this.showClasses = data));
+                .then(data => (this.form.showClasses = data));
         },
         setAccordianCount(length) {
             let arr = [];
@@ -94,8 +93,49 @@ export default {
             }
 
             return arr;
+        },
+        handleSubmit() {
+            var y = form;
+        },
+        handleChange(placing, showclass) {
+            const foundClass = this.form.showClasses.find(c => c.class == showclass.class);
+            if (foundClass != null) {
+                foundClass.placings = placing;
+            }
+            else {
+                this.form.showClasses.push({ showclass, placing })
+            }
+
+        },
+        addResults() {
+
         }
     },
+    /*setup() {
+    const form: reactive([
+                {"show": "",
+                "horseCount": 0,
+                "classes": [
+                    {
+                        "class": "",
+                        "placings": [
+                            {
+                                "placing": 0,
+                                "registrationNumber": "",
+                                "horseName": "",
+                                "owner": "",
+                                "sire": "",
+                                "dam": "",
+                                "ChampionshipPoints": 0,
+                                "placingPoints": 0
+                            }
+                        ]
+                    }
+                ]}]);
+    return {
+      form
+    };
+  },*/
     created: function () {
         this.getShowDef();
         this.getClassDef();

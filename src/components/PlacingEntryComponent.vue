@@ -4,41 +4,44 @@
 
         <template #content>
             <!--<form @submit.prevent="handleSubmit" class="placing-form">-->
-
             <table width="100%">
                 <thead>
                     <tr>
-                        <th>Placing</th>
-                        <th>Registration Number</th>
-                        <th>Horse</th>
-                        <th>Sire</th>
-                        <th>Dam</th>
-                        <th>Championship Points</th>
-                        <th>Points</th>
+                        <th style="text-align: left;">Placing</th>
+                        <th style="text-align: left;">Registration Number</th>
+                        <th style="text-align: left;">Horse</th>
+                        <th style="text-align: left;">Sire</th>
+                        <th style="text-align: left;">Dam</th>
+                        <th style="text-align: left;">Championship Points</th>
+                        <th style="text-align: left;">Points</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="placing in Placings" :key="placing">
+                    
+                    <tr v-for="(placing,index) in this.Placings" :key="placing" style="text-align: left;">
                         <td>
                             {{ placing.placing }}
                         </td>
                         <td>
-                            <InputText type="text" id="registrationNumber" v-model="placing.registrationNumber"
-                                class="p-inputtext-sm" required />
+                            <div class="p-inputgroup flex-1">
+                                <InputText type="text" id="registrationNumber" v-model="placing.registrationNumber"
+                                class="p-inputtext-sm" @change="updateValue(Placings,ShowClass)" />
+                                <Button icon="pi pi-search" severity="warning" />
+                            </div>
+                            
                         </td>
                         <td>
-                            <InputText type="text" id="horseName" v-model="placing.horseName" class="p-inputtext-sm"
-                                required />
+                            <InputText type="text" id="horseName" v-model="placing.horseName"
+                                class="p-inputtext-sm" />
                         </td>
                         <td>
-                            <InputText type="text" id="sire" v-model="placing.sire" class="p-inputtext-sm" required />
+                            <InputText type="text" id="sire" v-model="placing.sire" class="p-inputtext-sm" />
                         </td>
                         <td>
-                            <InputText type="text" id="dam" v-model="placing.dam" class="p-inputtext-sm" required />
+                            <InputText type="text" id="dam" v-model="placing.dam" class="p-inputtext-sm" />
                         </td>
                         <td>
-                            <InputText type="text" id="ChampionshipPoints" v-model="placing.ChampionshipPoints"
-                                class="p-inputtext-sm" required />
+                            <InputNumber v-model="placing.hampionshipPoints" inputId="integeronly" id="ChampionshipPoints" required />
                         </td>
                         <td>
                             {{ placing.placingPoints }}
@@ -51,8 +54,6 @@
             <!--</form>-->
         </template>
         <template #footer>
-            <Button icon="pi pi-check" label="Save" />
-            <Button icon="pi pi-times" label="Cancel" severity="secondary" style="margin-left: 0.5em" />
         </template>
     </Card>
 </template>
@@ -63,6 +64,9 @@ export default {
         ShowClass: String,
         Placings: Array,
     },
+    emits: 
+        ['input'],
+        
     data() {
         return {
             Placings: [
@@ -118,8 +122,12 @@ export default {
                 }
             ],
         }
+    },
+    methods: {
+        updateValue: function (placing,show) {
+            this.$emit('input', placing, show);
     }
-
+    },
 }
 </script>
 
