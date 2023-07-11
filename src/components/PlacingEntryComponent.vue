@@ -18,7 +18,7 @@
                 </thead>
                 <tbody>
                     
-                    <tr v-for="(placing,index) in this.Placings" :key="placing" style="text-align: left;">
+                    <tr v-for="(placing,index) in Placings" :key="placing" style="text-align: left;">
                         <td>
                             {{ placing.placing }}
                         </td>
@@ -61,15 +61,20 @@
 <script>
 export default {
     props: {
+        Show: String,
         ShowClass: String,
-        Placings: Array,
+        Placings: {
+            type: Object,
+            required: true,
+            default: () => []
+        }
     },
     emits: 
         ['input'],
         
     data() {
         return {
-            Placings: [
+            placings: [
                 {
                     "placing": 1,
                     "registrationNumber": "",
