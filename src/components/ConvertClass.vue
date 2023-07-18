@@ -65,7 +65,7 @@ export default {
                                         placing.owner = columns[5];
                                         placing.sire = columns[6];
                                         placing.dam = columns[7];
-                                        placing.ChampionshipPoints = parseInt(columns[9]) || 0;
+                                        placing.championshipPoints = parseInt(columns[9]) || 0;
                                         placing.placingPoints = parseInt(columns[10]) || 0;
 
                                         showClass.placings.push(placing);
@@ -83,7 +83,7 @@ export default {
                                         placing.owner = columns[5];
                                         placing.sire = columns[6];
                                         placing.dam = columns[7];
-                                        placing.ChampionshipPoints = parseInt(columns[9]) || 0;
+                                        placing.championshipPoints = parseInt(columns[9]) || 0;
                                         placing.placingPoints = parseInt(columns[10]) || 0;
 
                                         showClass.placings.push(placing);
@@ -100,7 +100,7 @@ export default {
                                         placing.owner = columns[5];
                                         placing.sire = columns[6];
                                         placing.dam = columns[7];
-                                        placing.ChampionshipPoints = parseInt(columns[9]) || 0;
+                                        placing.championshipPoints = parseInt(columns[9]) || 0;
                                         placing.placingPoints = parseInt(columns[10]) || 0;
 
                                         showClass.placings.push(placing);
@@ -117,7 +117,7 @@ export default {
                                         placing.owner = columns[5];
                                         placing.sire = columns[6];
                                         placing.dam = columns[7];
-                                        placing.ChampionshipPoints = parseInt(columns[9]) || 0;
+                                        placing.championshipPoints = parseInt(columns[9]) || 0;
                                         placing.placingPoints = parseInt(columns[10]) || 0;
 
                                         showClass.placings.push(placing);
@@ -134,7 +134,7 @@ export default {
                                         placing.owner = columns[5];
                                         placing.sire = columns[6];
                                         placing.dam = columns[7];
-                                        placing.ChampionshipPoints = parseInt(columns[9]) || 0;
+                                        placing.championshipPoints = parseInt(columns[9]) || 0;
                                         placing.placingPoints = parseInt(columns[10]) || 0;
 
                                         showClass.placings.push(placing);

@@ -1,6 +1,8 @@
 [
     {
         "class": "Stallion 4 and Over",
+        "classType": "Halter",
+        "classCount": 0,
         "placings": [
             {
                 "placing": 1,
@@ -9,7 +11,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 10
             },
             {
@@ -19,7 +21,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 7
             },
             {
@@ -29,7 +31,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 5
             },
             {
@@ -39,7 +41,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 3
             },
             {
@@ -49,13 +51,15 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 1
             }
         ]
     },
     {
         "class": "Stallions 3",
+        "classType": "Halter",
+        "classCount": 0,
         "placings": [
             {
                 "placing": 1,
@@ -64,7 +68,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 10
             },
             {
@@ -74,7 +78,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 7
             },
             {
@@ -84,7 +88,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 5
             },
             {
@@ -94,7 +98,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 3
             },
             {
@@ -104,13 +108,15 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 1
             }
         ]
     },
     {
         "class": "Stallions 2",
+        "classType": "Halter",
+        "classCount": 0,
         "placings": [
             {
                 "placing": 1,
@@ -119,7 +125,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 10
             },
             {
@@ -129,7 +135,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 7
             },
             {
@@ -139,7 +145,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 5
             },
             {
@@ -149,7 +155,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 3
             },
             {
@@ -159,13 +165,15 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 1
             }
         ]
     },
     {
         "class": "Stallions 1",
+        "classType": "Halter",
+        "classCount": 0,
         "placings": [
             {
                 "placing": 1,
@@ -174,7 +182,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 10
             },
             {
@@ -184,7 +192,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 7
             },
             {
@@ -194,7 +202,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 5
             },
             {
@@ -204,7 +212,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 3
             },
             {
@@ -214,13 +222,15 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 1
             }
         ]
     },
     {
-        "class": "Stallion foals",
+        "class": "Junior Stallion foals",
+        "classType": "Halter",
+        "classCount": 0,
         "placings": [
             {
                 "placing": 1,
@@ -229,7 +239,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 10
             },
             {
@@ -239,7 +249,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 7
             },
             {
@@ -249,7 +259,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 5
             },
             {
@@ -259,7 +269,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 3
             },
             {
@@ -269,13 +279,72 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
+                "placingPoints": 1
+            }
+        ]
+    },
+    {
+        "class": "Senior Stallion foals",
+        "classType": "Halter",
+        "classCount": 0,
+        "placings": [
+            {
+                "placing": 1,
+                "registrationNumber": "",
+                "horseName": "",
+                "owner": "",
+                "sire": "",
+                "dam": "",
+                "championshipPoints": "",
+                "placingPoints": 10
+            },
+            {
+                "placing": 2,
+                "registrationNumber": "",
+                "horseName": "",
+                "owner": "",
+                "sire": "",
+                "dam": "",
+                "championshipPoints": "",
+                "placingPoints": 7
+            },
+            {
+                "placing": 3,
+                "registrationNumber": "",
+                "horseName": "",
+                "owner": "",
+                "sire": "",
+                "dam": "",
+                "championshipPoints": "",
+                "placingPoints": 5
+            },
+            {
+                "placing": 4,
+                "registrationNumber": "",
+                "horseName": "",
+                "owner": "",
+                "sire": "",
+                "dam": "",
+                "championshipPoints": "",
+                "placingPoints": 3
+            },
+            {
+                "placing": 5,
+                "registrationNumber": "",
+                "horseName": "",
+                "owner": "",
+                "sire": "",
+                "dam": "",
+                "championshipPoints": "",
                 "placingPoints": 1
             }
         ]
     },
     {
         "class": "Brood mares 5 and over",
+        "classType": "Halter",
+        "classCount": 0,
         "placings": [
             {
                 "placing": 1,
@@ -284,7 +353,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 10
             },
             {
@@ -294,7 +363,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 7
             },
             {
@@ -304,7 +373,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 5
             },
             {
@@ -314,7 +383,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 3
             },
             {
@@ -324,13 +393,15 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 1
             }
         ]
     },
     {
         "class": "Yeld mares 5 and over",
+        "classType": "Halter",
+        "classCount": 0,
         "placings": [
             {
                 "placing": 1,
@@ -339,7 +410,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 10
             },
             {
@@ -349,7 +420,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 7
             },
             {
@@ -359,7 +430,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 5
             },
             {
@@ -369,7 +440,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 3
             },
             {
@@ -379,13 +450,15 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 1
             }
         ]
     },
     {
         "class": "Mares 4",
+        "classType": "Halter",
+        "classCount": 0,
         "placings": [
             {
                 "placing": 1,
@@ -394,7 +467,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 10
             },
             {
@@ -404,7 +477,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 7
             },
             {
@@ -414,7 +487,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 5
             },
             {
@@ -424,7 +497,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 3
             },
             {
@@ -434,13 +507,15 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 1
             }
         ]
     },
     {
         "class": "Mares 3",
+        "classType": "Halter",
+        "classCount": 0,
         "placings": [
             {
                 "placing": 1,
@@ -449,7 +524,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 10
             },
             {
@@ -459,7 +534,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 7
             },
             {
@@ -469,7 +544,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 5
             },
             {
@@ -479,7 +554,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 3
             },
             {
@@ -489,13 +564,15 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 1
             }
         ]
     },
     {
         "class": "Mares 2",
+        "classType": "Halter",
+        "classCount": 0,
         "placings": [
             {
                 "placing": 1,
@@ -504,7 +581,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 10
             },
             {
@@ -514,7 +591,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 7
             },
             {
@@ -524,7 +601,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 5
             },
             {
@@ -534,7 +611,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 3
             },
             {
@@ -544,13 +621,15 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 1
             }
         ]
     },
     {
         "class": "Mares 1",
+        "classType": "Halter",
+        "classCount": 0,
         "placings": [
             {
                 "placing": 1,
@@ -559,7 +638,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 10
             },
             {
@@ -569,7 +648,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 7
             },
             {
@@ -579,7 +658,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 5
             },
             {
@@ -589,7 +668,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 3
             },
             {
@@ -599,13 +678,15 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 1
             }
         ]
     },
     {
-        "class": "Weanling mares",
+        "class": "Junior Weanling mares",
+        "classType": "Halter",
+        "classCount": 0,
         "placings": [
             {
                 "placing": 1,
@@ -614,7 +695,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 10
             },
             {
@@ -624,7 +705,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 7
             },
             {
@@ -634,7 +715,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 5
             },
             {
@@ -644,7 +725,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 3
             },
             {
@@ -654,13 +735,72 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
+                "placingPoints": 1
+            }
+        ]
+    },
+    {
+        "class": "Senior Weanling mares",
+        "classType": "Halter",
+        "classCount": 0,
+        "placings": [
+            {
+                "placing": 1,
+                "registrationNumber": "",
+                "horseName": "",
+                "owner": "",
+                "sire": "",
+                "dam": "",
+                "championshipPoints": "",
+                "placingPoints": 10
+            },
+            {
+                "placing": 2,
+                "registrationNumber": "",
+                "horseName": "",
+                "owner": "",
+                "sire": "",
+                "dam": "",
+                "championshipPoints": "",
+                "placingPoints": 7
+            },
+            {
+                "placing": 3,
+                "registrationNumber": "",
+                "horseName": "",
+                "owner": "",
+                "sire": "",
+                "dam": "",
+                "championshipPoints": "",
+                "placingPoints": 5
+            },
+            {
+                "placing": 4,
+                "registrationNumber": "",
+                "horseName": "",
+                "owner": "",
+                "sire": "",
+                "dam": "",
+                "championshipPoints": "",
+                "placingPoints": 3
+            },
+            {
+                "placing": 5,
+                "registrationNumber": "",
+                "horseName": "",
+                "owner": "",
+                "sire": "",
+                "dam": "",
+                "championshipPoints": "",
                 "placingPoints": 1
             }
         ]
     },
     {
         "class": "Reg. Geldings 4 and over",
+        "classType": "Halter",
+        "classCount": 0,
         "placings": [
             {
                 "placing": 1,
@@ -669,7 +809,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 10
             },
             {
@@ -679,7 +819,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 7
             },
             {
@@ -689,7 +829,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 5
             },
             {
@@ -699,7 +839,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 3
             },
             {
@@ -709,13 +849,15 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 1
             }
         ]
     },
     {
         "class": "Reg. Geldings 3 and under",
+        "classType": "Halter",
+        "classCount": 0,
         "placings": [
             {
                 "placing": 1,
@@ -724,7 +866,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 10
             },
             {
@@ -734,7 +876,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 7
             },
             {
@@ -744,7 +886,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 5
             },
             {
@@ -754,7 +896,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 3
             },
             {
@@ -764,13 +906,15 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 1
             }
         ]
     },
     {
         "class": "Mare Cart",
+        "classType": "Hitch",
+        "classCount": 0,
         "placings": [
             {
                 "placing": 1,
@@ -779,7 +923,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 10
             },
             {
@@ -789,7 +933,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 7
             },
             {
@@ -799,7 +943,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 5
             },
             {
@@ -809,7 +953,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 3
             },
             {
@@ -819,13 +963,15 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 1
             }
         ]
     },
     {
         "class": "Gelding Cart",
+        "classType": "Hitch",
+        "classCount": 0,
         "placings": [
             {
                 "placing": 1,
@@ -834,7 +980,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 10
             },
             {
@@ -844,7 +990,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 7
             },
             {
@@ -854,7 +1000,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 5
             },
             {
@@ -864,7 +1010,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 3
             },
             {
@@ -874,7 +1020,7 @@
                 "owner": "",
                 "sire": "",
                 "dam": "",
-                "ChampionshipPoints": "",
+                "championshipPoints": "",
                 "placingPoints": 1
             }
         ]

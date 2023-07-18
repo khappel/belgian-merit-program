@@ -13,7 +13,7 @@
                         "owner": "smith, sam",
                         "sire": "tt",
                         "dam": "ff",
-                        "ChampionshipPoints": 6,
+                        "championshipPoints": 6,
                         "placingPoints": 10
                     },
                     {
@@ -23,7 +23,7 @@
                         "owner": "sammy, sam",
                         "sire": "mighty",
                         "dam": "max",
-                        "ChampionshipPoints": 0,
+                        "championshipPoints": 0,
                         "placingPoints": 7
                     }
                 ]
@@ -38,7 +38,7 @@
                         "owner": "smith, sam",
                         "sire": "tt",
                         "dam": "ff",
-                        "ChampionshipPoints": 6,
+                        "championshipPoints": 6,
                         "placingPoints": 10
                     }
                 ]
@@ -59,7 +59,7 @@
                         "owner": "smith, sam",
                         "sire": "tt",
                         "dam": "ff",
-                        "ChampionshipPoints": 6,
+                        "championshipPoints": 6,
                         "placingPoints": 10
                     },
                     {
@@ -69,7 +69,7 @@
                         "owner": "sammy, sam",
                         "sire": "mighty",
                         "dam": "max",
-                        "ChampionshipPoints": 0,
+                        "championshipPoints": 0,
                         "placingPoints": 7
                     }
                 ]
@@ -84,7 +84,7 @@
                         "owner": "smith, sam",
                         "sire": "tt",
                         "dam": "ff",
-                        "ChampionshipPoints": 6,
+                        "championshipPoints": 6,
                         "placingPoints": 10
                     }
                 ]
@@ -105,7 +105,7 @@
                         "owner": "smith, sam",
                         "sire": "tt",
                         "dam": "ff",
-                        "ChampionshipPoints": 6,
+                        "championshipPoints": 6,
                         "placingPoints": 10
                     },
                     {
@@ -115,7 +115,7 @@
                         "owner": "sammy, sam",
                         "sire": "mighty",
                         "dam": "max",
-                        "ChampionshipPoints": 0,
+                        "championshipPoints": 0,
                         "placingPoints": 7
                     }
                 ]
@@ -130,7 +130,7 @@
                         "owner": "smith, sam",
                         "sire": "tt",
                         "dam": "ff",
-                        "ChampionshipPoints": 6,
+                        "championshipPoints": 6,
                         "placingPoints": 10
                     }
                 ]
@@ -151,7 +151,7 @@
                         "owner": "smith, sam",
                         "sire": "tt",
                         "dam": "ff",
-                        "ChampionshipPoints": 6,
+                        "championshipPoints": 6,
                         "placingPoints": 10
                     },
                     {
@@ -161,7 +161,7 @@
                         "owner": "sammy, sam",
                         "sire": "mighty",
                         "dam": "max",
-                        "ChampionshipPoints": 0,
+                        "championshipPoints": 0,
                         "placingPoints": 7
                     }
                 ]
@@ -176,7 +176,7 @@
                         "owner": "smith, sam",
                         "sire": "tt",
                         "dam": "ff",
-                        "ChampionshipPoints": 6,
+                        "championshipPoints": 6,
                         "placingPoints": 10
                     }
                 ]

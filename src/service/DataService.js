@@ -16,7 +16,7 @@ export const DataService = {
                                 "owner": "smith, sam",
                                 "sire": "tt",
                                 "dam": "ff",
-                                "ChampionshipPoints": 6,
+                                "championshipPoints": 6,
                                 "placingPoints": 10
                             },
                             {
@@ -26,7 +26,7 @@ export const DataService = {
                                 "owner": "sammy, sam",
                                 "sire": "mighty",
                                 "dam": "max",
-                                "ChampionshipPoints": 0,
+                                "championshipPoints": 0,
                                 "placingPoints": 7
                             }
                         ]
@@ -41,7 +41,7 @@ export const DataService = {
                                 "owner": "smith, sam",
                                 "sire": "tt",
                                 "dam": "ff",
-                                "ChampionshipPoints": 6,
+                                "championshipPoints": 6,
                                 "placingPoints": 10
                             }
                         ]
@@ -62,7 +62,7 @@ export const DataService = {
                                 "owner": "smith, sam",
                                 "sire": "tt",
                                 "dam": "ff",
-                                "ChampionshipPoints": 6,
+                                "championshipPoints": 6,
                                 "placingPoints": 10
                             }
                         ]

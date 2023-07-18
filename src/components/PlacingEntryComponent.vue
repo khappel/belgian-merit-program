@@ -9,6 +9,7 @@
                     <tr>
                         <th style="text-align: left;">Placing</th>
                         <th style="text-align: left;">Registration Number</th>
+                        <th style="text-align: left;">Owner</th>
                         <th style="text-align: left;">Horse</th>
                         <th style="text-align: left;">Sire</th>
                         <th style="text-align: left;">Dam</th>
@@ -31,6 +32,10 @@
                             
                         </td>
                         <td>
+                            <InputText type="text" id="owner" v-model="placing.owner"
+                                class="p-inputtext-sm" />
+                        </td>
+                        <td>
                             <InputText type="text" id="horseName" v-model="placing.horseName"
                                 class="p-inputtext-sm" />
                         </td>
@@ -41,7 +46,7 @@
                             <InputText type="text" id="dam" v-model="placing.dam" class="p-inputtext-sm" />
                         </td>
                         <td>
-                            <InputNumber v-model="placing.hampionshipPoints" inputId="integeronly" id="ChampionshipPoints" required />
+                            <InputNumber v-model="placing.championshipPoints" inputId="integeronly" id="championshipPoints" />
                         </td>
                         <td>
                             {{ placing.placingPoints }}
@@ -82,7 +87,7 @@ export default {
                     "owner": "",
                     "sire": "",
                     "dam": "",
-                    "ChampionshipPoints": "",
+                    "championshipPoints": "",
                     "placingPoints": 10
                 },
                 {
@@ -92,7 +97,7 @@ export default {
                     "owner": "",
                     "sire": "",
                     "dam": "",
-                    "ChampionshipPoints": "",
+                    "championshipPoints": "",
                     "placingPoints": 7
                 },
                 {
@@ -102,7 +107,7 @@ export default {
                     "owner": "",
                     "sire": "",
                     "dam": "",
-                    "ChampionshipPoints": "",
+                    "championshipPoints": "",
                     "placingPoints": 5
                 },
                 {
@@ -112,7 +117,7 @@ export default {
                     "owner": "",
                     "sire": "",
                     "dam": "",
-                    "ChampionshipPoints": "",
+                    "championshipPoints": "",
                     "placingPoints": 3
                 },
                 {
@@ -122,7 +127,7 @@ export default {
                     "owner": "",
                     "sire": "",
                     "dam": "",
-                    "ChampionshipPoints": "",
+                    "championshipPoints": "",
                     "placingPoints": 1
                 }
             ],
@@ -145,7 +150,7 @@ export default {
                         "owner": "smith, sam",
                         "sire": "tt",
                         "dam": "ff",
-                        "ChampionshipPoints": 6,
+                        "championshipPoints": 6,
                         "placingPoints": 10
                     }]
 -->

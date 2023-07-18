@@ -9,8 +9,10 @@
         </template>
         <template #content class="m-0">
             <Fieldset legend="Show" class="w-full m-1 p-1" :toggleable="true">
-                <Dropdown v-model="defaultFileSelected" :options="fileYears" optionLabel="year" placeholder="Select a year"
-                    class="w-full mb-1 md:w-20rem" />
+                <div class="flex flex-column gap-2">
+                    <label for="inputYear">Show Year</label>
+                    <InputText id="inputYear" v-model="inputYear" />
+                </div>
 
                 <Listbox v-model="selectedShow" :options="showList" optionLabel="show" class="w-full mb-1" />
                 <Button label="Add Show" icon="pi pi-plus" @click="visibleRight = true" />
@@ -22,9 +24,13 @@
                     class="w-full mb-1" />
 
                 <div class="flex flex-row gap-2" style="align-items: center;">
-                    <label for="horseCount">Horse Count</label>
-                    <InputNumber v-model="horseCount" inputId="integeronly" required />
+                    <label for="halterHorseCount">Halter Horse Count</label>
+                    <InputNumber v-model="halterHorseCount" inputId="integeronly" required />
                 </div>
+                <div class="flex flex-row gap-2" style="align-items: center;">
+                            <label for="hitchHorseCount">Hitch Horse Count</label>
+                            <InputNumber v-model="hitchHorseCount" inputId="integeronly" required />
+                        </div>
                 <Button label="New Class" icon="pi pi-plus" class="mr-2" @click="StartClassEntry" />
             </Sidebar>
 
@@ -32,9 +38,12 @@
                 <h1>Enter Results</h1>
                 <Accordion :multiple="true" :activeIndex="setAccordianCount()">
                     <AccordionTab v-for="cls in selectedShow?.classes" :key="cls.class" :header="cls.class">
+                        <div class="flex flex-row gap-2" style="align-items: center;">
+                            <label for="classHorseCount">Class Horse Count</label>
+                            <InputNumber v-model="cls.classHorseCount" inputId="integeronly" />
+                        </div>
                         <PlacingEntryComponent :show="selectedShow.show" :ShowClass="cls" :Placings="cls.placings"
                             @input="(e, c) => handleChange(e, c)"></PlacingEntryComponent>
-
                     </AccordionTab>
                 </Accordion>
                 <!--<button>Submit</button>-->
@@ -50,7 +59,7 @@
 <script>
 import PlacingEntryComponent from './PlacingEntryComponent.vue'
 import { store } from '../classess/store.js'
-import { reactive } from "vue";
+import { ref } from "vue";
 
 export default {
     name: "Results",
@@ -62,7 +71,8 @@ export default {
             showDataList: [],
             accordianCount: [],
             defaultShowSelected: {},
-            showYear: { "year": "", "shows": [] },
+            //showYear: { "year": "", "shows": currentShowList() },
+            inputYear: "",
             selectedShow: { "show": "", "horseCount": 0, "classes": [] },
             showList: [],
             enableForm: false,
@@ -87,16 +97,32 @@ export default {
         ReadFile() {
             this.file = this.$refs.file.files[0];
             const reader = new FileReader();
-            if (this.file.name.includes(".json")) {
+            if (this.file?.name.includes(".json")) {
                 reader.onload = (res) => {
-                    this.showList = JSON.parse(res.target.result);
+                    var FileParse = JSON.parse(res.target.result);
+
+                    if (FileParse.year != undefined){
+                        this.showYear = FileParse;
+                    }
+                    else{
+                        this.showList = FileParse;
+                    }
+
+                    //this.showYear = JSON.parse(res.target.result);
                 };
                 reader.onerror = (err) => console.log(err);
                 reader.readAsText(this.file);
             }
         },
-        Savefile() {
-
+        SaveFile() {
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(new Blob([JSON.stringify(this.showYear)], {
+                type: "text/plain"
+            }));
+            a.setAttribute("download", this.showYear.year + " Belgian Merit Program.json");
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
         },
         SetNewMode() { },
         StartClassEntry() {
@@ -156,6 +182,11 @@ export default {
 
         }
     },
+    computed: {
+        showYear(){
+            return { year: this.inputYear, shows: this.showList };
+        }
+    },
     /*setup() {
     const form: reactive([
                 {"show": "",
@@ -171,7 +202,7 @@ export default {
                                 "owner": "",
                                 "sire": "",
                                 "dam": "",
-                                "ChampionshipPoints": 0,
+                                "championshipPoints": 0,
                                 "placingPoints": 0
                             }
                         ]

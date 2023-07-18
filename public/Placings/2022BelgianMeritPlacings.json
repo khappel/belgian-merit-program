@@ -13,7 +13,7 @@
 						"owner": "Duane E. Miller",
 						"sire": "Thunderbranch Prince",
 						"dam": "Millville's Frieda",
-						"ChampionshipPoints": 6,
+						"championshipPoints": 6,
 						"placingPoints": 10
 					},
 					{
@@ -23,7 +23,7 @@
 						"owner": "Cole Charles  Steinbrick",
 						"sire": "Style's Stylemaster",
 						"dam": "Alpine Hill Dianne",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -33,7 +33,7 @@
 						"owner": "Kirk D. Fenoff",
 						"sire": "Korry's Conqueror",
 						"dam": "Hi-Ho Valley Sarah",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					}
 				]
@@ -48,7 +48,7 @@
 						"owner": "Caitlin M. Morton",
 						"sire": "Orndorff's Master Encore",
 						"dam": "Provost Bernadette",
-						"ChampionshipPoints": 4,
+						"championshipPoints": 4,
 						"placingPoints": 10
 					},
 					{
@@ -58,7 +58,7 @@
 						"owner": "Kirt W. &/or Sarah A. Drew",
 						"sire": "D.H.F. Captain's Abe",
 						"dam": "Millerview's Jacey",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					}
 				]
@@ -73,7 +73,7 @@
 						"owner": "Herman M. &/or Julie R.  Miller",
 						"sire": "Country Road Uconn",
 						"dam": "Tree Top Zoey",
-						"ChampionshipPoints": 1,
+						"championshipPoints": 1,
 						"placingPoints": 10
 					}
 				]
@@ -88,7 +88,7 @@
 						"owner": "Weston T. Mangels",
 						"sire": "Triple M Farms Moose",
 						"dam": "WesSand's Madalyn",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 10
 					}
 				]
@@ -139,7 +139,7 @@
 						"owner": "Duane E. Miller",
 						"sire": "BJ Majesty",
 						"dam": "Junior's Betsy",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 10
 					},
 					{
@@ -149,7 +149,7 @@
 						"owner": "Weston T. Mangels",
 						"sire": "Relyb's Balance",
 						"dam": "Maple Creek Robin",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -159,7 +159,7 @@
 						"owner": "Evva Sue Miller",
 						"sire": "Harbor Haven's Extreme",
 						"dam": "Twin Oaks Dot",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					},
 					{
@@ -169,7 +169,7 @@
 						"owner": "Thomas E. &/or Sally A. Glauer",
 						"sire": "RKG Lady's Thunder Knight",
 						"dam": "JW Charm",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 3
 					}
 				]
@@ -188,7 +188,7 @@
 						"owner": "Todd C. Jardine",
 						"sire": "Orndorff's Master Encore",
 						"dam": "Coats Farms Isabella",
-						"ChampionshipPoints": 4,
+						"championshipPoints": 4,
 						"placingPoints": 10
 					},
 					{
@@ -198,7 +198,7 @@
 						"owner": "Adam Charles  Steinbrick",
 						"sire": "LH Acres Dream Chief",
 						"dam": "Millerview's Rose",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -208,7 +208,7 @@
 						"owner": "Jim &/or Lynn  Carey",
 						"sire": "BJ Majesty",
 						"dam": "Shady Creek Jewel",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					},
 					{
@@ -218,7 +218,7 @@
 						"owner": "Luke William  Drew",
 						"sire": "Detweiler'sPrincesDiamond",
 						"dam": "Wee-Ridge Janice",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 3
 					}
 				]
@@ -233,7 +233,7 @@
 						"owner": "Darrell Drain",
 						"sire": "Stoney Lake Calvin",
 						"dam": "Stoney Lake Alaska",
-						"ChampionshipPoints": 6,
+						"championshipPoints": 6,
 						"placingPoints": 10
 					},
 					{
@@ -243,7 +243,7 @@
 						"owner": "Adam Charles  Steinbrick",
 						"sire": "Orndorff's Captain Encore",
 						"dam": "Orndorff's CB Marissa",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -253,7 +253,7 @@
 						"owner": "Brian K. Heuring",
 						"sire": " DVM",
 						"dam": "Stoney Lake Extreme",
-						"ChampionshipPoints": 20,
+						"championshipPoints": 20,
 						"placingPoints": 0
 					},
 					{
@@ -263,7 +263,7 @@
 						"owner": "Weston T. Mangels",
 						"sire": "Triple M Farms Moose",
 						"dam": "WesSand's Mitzi",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 3
 					},
 					{
@@ -273,7 +273,7 @@
 						"owner": "Scott J. &/or Teresa  Zube",
 						"sire": "Shady Creek Supreme",
 						"dam": "LJ Amber",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 2
 					}
 				]
@@ -288,7 +288,7 @@
 						"owner": "Darrell Drain",
 						"sire": "Stoney Lake Elvis",
 						"dam": "Pine Grove Kayleen",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 10
 					},
 					{
@@ -298,7 +298,7 @@
 						"owner": "Duane E. Miller",
 						"sire": "Country Road Uconn",
 						"dam": "Mountaineer Korky Lu",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -308,7 +308,7 @@
 						"owner": "Ralph &/or Ruth  Bloom",
 						"sire": "Orndorff's Master Encore",
 						"dam": "WH Lucy",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					},
 					{
@@ -318,7 +318,7 @@
 						"owner": "Cole Charles  Steinbrick",
 						"sire": "S.E.M. Jasper",
 						"dam": "Clintridge Amber",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 3
 					},
 					{
@@ -328,7 +328,7 @@
 						"owner": "Brian K. Heuring",
 						"sire": " DVM",
 						"dam": "Orndorff's Master Encore",
-						"ChampionshipPoints": 8,
+						"championshipPoints": 8,
 						"placingPoints": 0
 					}
 				]
@@ -343,7 +343,7 @@
 						"owner": "Duane E. Miller",
 						"sire": "Country Road Uconn",
 						"dam": "Master Encore's Ezzy",
-						"ChampionshipPoints": 2,
+						"championshipPoints": 2,
 						"placingPoints": 10
 					},
 					{
@@ -353,7 +353,7 @@
 						"owner": "Jonathan D. Cush",
 						"sire": "Orndorff's Master Encore",
 						"dam": "CF Charley",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -363,7 +363,7 @@
 						"owner": "Jonathan D. Cush",
 						"sire": "Orndorff's Master Encore",
 						"dam": "RH Captain's Lily",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					},
 					{
@@ -373,7 +373,7 @@
 						"owner": "Dan J. Johnson",
 						"sire": " Sr.",
 						"dam": "Orndorff's Master Encore",
-						"ChampionshipPoints": 12,
+						"championshipPoints": 12,
 						"placingPoints": 0
 					},
 					{
@@ -383,7 +383,7 @@
 						"owner": "Adam Charles  Steinbrick",
 						"sire": "Orndorff's Captain Encore",
 						"dam": "S.E.M. Freeway's Lily",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 2
 					}
 				]
@@ -398,7 +398,7 @@
 						"owner": "Todd C. Jardine",
 						"sire": "AgRestore's Diamond's Dream",
 						"dam": "Jardine's Victoria",
-						"ChampionshipPoints": 1,
+						"championshipPoints": 1,
 						"placingPoints": 10
 					},
 					{
@@ -408,7 +408,7 @@
 						"owner": "Duane E. Miller",
 						"sire": "Hallett's T-Rex",
 						"dam": "Double LV Julie",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -418,7 +418,7 @@
 						"owner": "Jonathan D. Cush",
 						"sire": "CF Suspect",
 						"dam": "Masterpeace Lassie",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					},
 					{
@@ -428,7 +428,7 @@
 						"owner": "Lewis & Gail  Biddle & Family",
 						"sire": "SB Conquest",
 						"dam": "OHF I'm Special's Girl",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 3
 					},
 					{
@@ -438,7 +438,7 @@
 						"owner": "Stanton R. Miller",
 						"sire": "Never Done Fire's Chip",
 						"dam": "I.G. Linda",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 2
 					}
 				]
@@ -501,7 +501,7 @@
 						"owner": "Bryce  Smith",
 						"sire": "Double J Justin",
 						"dam": "JW Sue",
-						"ChampionshipPoints": 4,
+						"championshipPoints": 4,
 						"placingPoints": 10
 					},
 					{
@@ -511,7 +511,7 @@
 						"owner": "Jason & Celestey  Hill",
 						"sire": "Stone Hill Captain Kid",
 						"dam": "Lor-Rob Harper",
-						"ChampionshipPoints": 3,
+						"championshipPoints": 3,
 						"placingPoints": 7
 					},
 					{
@@ -521,7 +521,7 @@
 						"owner": "Mark C. Barie",
 						"sire": "Orndorff's Master Encore",
 						"dam": "Johnhart's Irish Cream",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					},
 					{
@@ -531,7 +531,7 @@
 						"owner": "Morrisville College Foundation Inc.",
 						"sire": "",
 						"dam": "Orndorffs Conqueror Jules",
-						"ChampionshipPoints": 12,
+						"championshipPoints": 12,
 						"placingPoints": 0
 					},
 					{
@@ -541,7 +541,7 @@
 						"owner": "Mitchell A. Garrett",
 						"sire": "Hidden View Trade Mark",
 						"dam": "Windy Oaks Kelsey",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 2
 					}
 				]
@@ -556,7 +556,7 @@
 						"owner": "Thomas E. &/or Sally A. Glauer",
 						"sire": "Orndorff's Master Encore",
 						"dam": "Long View's Sheila",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 10
 					}
 				]
@@ -571,7 +571,7 @@
 						"owner": "Dr. Michael R. Stone",
 						"sire": "AgRestore's JW Majistro",
 						"dam": "Oak Haven's Ivy",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 10
 					},
 					{
@@ -581,7 +581,7 @@
 						"owner": "Rick  Welsh",
 						"sire": "Willow Creek Baja",
 						"dam": "LeBros Brandy",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -591,7 +591,7 @@
 						"owner": "Angela C. Vreeland",
 						"sire": "Switzerland Co. Geronimo",
 						"dam": "Elm Lawn Ann XII",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					},
 					{
@@ -601,7 +601,7 @@
 						"owner": "Darrell Drain",
 						"sire": "Stoney Lake Elvis",
 						"dam": "Pine Grove Kayleen",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 3
 					},
 					{
@@ -611,7 +611,7 @@
 						"owner": "Lewis & Gail  Biddle & Family",
 						"sire": "Korry's Conqueror",
 						"dam": "OHF I'm Special's Girl",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 2
 					}
 				]
@@ -626,7 +626,7 @@
 						"owner": "Kirk D. Fenoff",
 						"sire": "Korry's Conqueror",
 						"dam": "Hi-Ho Valley Sarah",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 10
 					},
 					{
@@ -636,7 +636,7 @@
 						"owner": "Bryce  Smith",
 						"sire": "T.S.F. GV Korry's Aclaim",
 						"dam": "MAK Ella",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -646,7 +646,7 @@
 						"owner": "Jason & Celestey  Hill",
 						"sire": "Country Road Quest",
 						"dam": "Jes Lou Maggie Rose",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					},
 					{
@@ -656,7 +656,7 @@
 						"owner": "Duane &/or Sara  Herschberger",
 						"sire": "Twin Oaks Martin",
 						"dam": "Twin Oaks Ruby",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 3
 					},
 					{
@@ -666,7 +666,7 @@
 						"owner": "Mark C. Barie",
 						"sire": "Whispering Wind's Cactus",
 						"dam": "Spring Hill Vinetta",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 2
 					}
 				]
@@ -687,7 +687,7 @@
 						"owner": "Duane E. Miller",
 						"sire": "Thunderbranch Prince",
 						"dam": "Millville's Frieda",
-						"ChampionshipPoints": 6,
+						"championshipPoints": 6,
 						"placingPoints": 10
 					},
 					{
@@ -697,7 +697,7 @@
 						"owner": "Cole Charles  Steinbrick",
 						"sire": "Style's Stylemaster",
 						"dam": "Alpine Hill Dianne",
-						"ChampionshipPoints": 4,
+						"championshipPoints": 4,
 						"placingPoints": 7
 					}
 				]
@@ -712,7 +712,7 @@
 						"owner": "Caitlin M. Morton",
 						"sire": "Orndorff's Master Encore",
 						"dam": "Provost Bernadette",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 10
 					}
 				]
@@ -727,7 +727,7 @@
 						"owner": "Herman M. &/or Julie R.  Miller",
 						"sire": "Country Road Uconn",
 						"dam": "Tree Top Zoey",
-						"ChampionshipPoints": 2,
+						"championshipPoints": 2,
 						"placingPoints": 10
 					}
 				]
@@ -742,7 +742,7 @@
 						"owner": "Weston T. Mangels",
 						"sire": "Triple M Farms Moose",
 						"dam": "WesSand's Madalyn",
-						"ChampionshipPoints": 1,
+						"championshipPoints": 1,
 						"placingPoints": 10
 					},
 					{
@@ -752,7 +752,7 @@
 						"owner": "Herman M. &/or Julie R.  Miller",
 						"sire": "Triple M Farms Masterpiece",
 						"dam": "Hickland Connie Liegh",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -762,7 +762,7 @@
 						"owner": "Brian J. Miller",
 						"sire": "Orndorff's Captain Encore",
 						"dam": "Water Edge Ollie",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					}
 				]
@@ -777,7 +777,7 @@
 						"owner": "Lawrence T. & Carolyn L. Piergallini",
 						"sire": "AgRestore's Diamond's Dream",
 						"dam": "S.C.V.F. Just Like A Rose",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 10
 					},
 					{
@@ -787,7 +787,7 @@
 						"owner": "Scott J. &/or Teresa  Zube",
 						"sire": "Sunny Crest CS Flash",
 						"dam": "Willow Creek Coral",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -797,7 +797,7 @@
 						"owner": "Steven &/or Elizabeth  Mrozinski",
 						"sire": "Clear Creek Thorne",
 						"dam": "S.E.M. Matilda",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					},
 					{
@@ -807,7 +807,7 @@
 						"owner": "Jacob B. Wittmer",
 						"sire": "Farfield's Dutchman",
 						"dam": "AgRestore Matilda",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 3
 					}
 				]
@@ -826,7 +826,7 @@
 						"owner": "Duane E. Miller",
 						"sire": "BJ Majesty",
 						"dam": "Junior's Betsy",
-						"ChampionshipPoints": 6,
+						"championshipPoints": 6,
 						"placingPoints": 10
 					},
 					{
@@ -836,7 +836,7 @@
 						"owner": "Weston T. Mangels",
 						"sire": "Relyb's Balance",
 						"dam": "Maple Creek Robin",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -846,7 +846,7 @@
 						"owner": "Duane &/or Sara  Herschberger",
 						"sire": "Whispering Wind's Cactus",
 						"dam": "B.Y. Acre's Lucy",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					}
 				]
@@ -865,7 +865,7 @@
 						"owner": "Adam Charles  Steinbrick",
 						"sire": "LH Acres Dream Chief",
 						"dam": "Millerview's Rose",
-						"ChampionshipPoints": 4,
+						"championshipPoints": 4,
 						"placingPoints": 10
 					},
 					{
@@ -875,7 +875,7 @@
 						"owner": "Cole Charles  Steinbrick",
 						"sire": "BJ Majesty",
 						"dam": "Ardi Extreme Rikki",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -885,7 +885,7 @@
 						"owner": "Jim &/or Lynn  Carey",
 						"sire": "BJ Majesty",
 						"dam": "Shady Creek Jewel",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					},
 					{
@@ -895,7 +895,7 @@
 						"owner": "Elmer E. Kauffman Jr.",
 						"sire": "",
 						"dam": "Country Road Prince",
-						"ChampionshipPoints": 9,
+						"championshipPoints": 9,
 						"placingPoints": 0
 					},
 					{
@@ -905,7 +905,7 @@
 						"owner": "Lewis & Gail  Biddle & Family",
 						"sire": "Weeping Meadow Contender",
 						"dam": "Sunrise Hollow's Lilac",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 2
 					}
 				]
@@ -920,7 +920,7 @@
 						"owner": "Adam Charles  Steinbrick",
 						"sire": "Orndorff's Captain Encore",
 						"dam": "Orndorff's CB Marissa",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 10
 					},
 					{
@@ -930,7 +930,7 @@
 						"owner": "Scott J. &/or Teresa  Zube",
 						"sire": "Shady Creek Supreme",
 						"dam": "LJ Amber",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -940,7 +940,7 @@
 						"owner": "Ronald &/or Richard  Wagler",
 						"sire": "Detweiler'sPrincesDiamond",
 						"dam": "B. Y. Acre's Dee Light",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					},
 					{
@@ -950,7 +950,7 @@
 						"owner": "Dallas  Raber",
 						"sire": "AgRestore Dylan",
 						"dam": "Spring Water Sierra",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 3
 					}
 				]
@@ -965,7 +965,7 @@
 						"owner": "Duane E. Miller",
 						"sire": "Country Road Uconn",
 						"dam": "Mountaineer Korky Lu",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 10
 					},
 					{
@@ -975,7 +975,7 @@
 						"owner": "Weston T. Mangels",
 						"sire": "Triple M Farms Moose",
 						"dam": "WesSand's Madalyn",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -985,7 +985,7 @@
 						"owner": "Ralph &/or Ruth  Bloom",
 						"sire": "Orndorff's Master Encore",
 						"dam": "WH Lucy",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					},
 					{
@@ -995,7 +995,7 @@
 						"owner": "Cole Charles  Steinbrick",
 						"sire": "S.E.M. Jasper",
 						"dam": "Clintridge Amber",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 3
 					},
 					{
@@ -1005,7 +1005,7 @@
 						"owner": "Glenn R. Miller &/or Kauffman  Brothers",
 						"sire": "Stoney Lake Easy",
 						"dam": "Lor-Rob Hazel",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 2
 					}
 				]
@@ -1020,7 +1020,7 @@
 						"owner": "Adam Charles  Steinbrick",
 						"sire": "Orndorff's Captain Encore",
 						"dam": "S.E.M. Freeway's Lily",
-						"ChampionshipPoints": 2,
+						"championshipPoints": 2,
 						"placingPoints": 10
 					},
 					{
@@ -1030,7 +1030,7 @@
 						"owner": "  Kauffman Bros.",
 						"sire": "Pervenche's Master Prince",
 						"dam": "LJ Callie",
-						"ChampionshipPoints": 1,
+						"championshipPoints": 1,
 						"placingPoints": 7
 					},
 					{
@@ -1040,7 +1040,7 @@
 						"owner": "Scott J. &/or Teresa  Zube",
 						"sire": "Orndorff's Master Encore",
 						"dam": "Miss Norissa",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					},
 					{
@@ -1050,7 +1050,7 @@
 						"owner": "Aaron &/or Kristen  Freitag",
 						"sire": "Orndorff's Master Encore",
 						"dam": "Double T Cotton",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 3
 					},
 					{
@@ -1060,7 +1060,7 @@
 						"owner": "  Northview Farms",
 						"sire": "OHF Master's Lacer",
 						"dam": "Turkey Creek Betz",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 2
 					}
 				]
@@ -1075,7 +1075,7 @@
 						"owner": "Duane E. Miller",
 						"sire": "Hallett's T-Rex",
 						"dam": "Double LV Julie",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 10
 					},
 					{
@@ -1085,7 +1085,7 @@
 						"owner": "Cole Charles  Steinbrick",
 						"sire": "Sandy Road Cheif",
 						"dam": "WMW Sharla",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -1095,7 +1095,7 @@
 						"owner": "Adam Charles  Steinbrick",
 						"sire": "Farfield's Dutchman",
 						"dam": "LY's Ambernita",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					},
 					{
@@ -1105,7 +1105,7 @@
 						"owner": "Aaron &/or Kristen  Freitag",
 						"sire": "Freeway's Roger",
 						"dam": "Double T Cotton",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 3
 					},
 					{
@@ -1115,7 +1115,7 @@
 						"owner": "Jim &/or Lynn  Carey",
 						"sire": "Maple Glen Mark",
 						"dam": "Double A Lad's Carrie",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 2
 					}
 				]
@@ -1130,7 +1130,7 @@
 						"owner": "Lawrence T. & Carolyn L. Piergallini",
 						"sire": "Orndorff's Master Encore",
 						"dam": "S.C.V.F. Doubleshot of CC",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 10
 					},
 					{
@@ -1140,7 +1140,7 @@
 						"owner": "Weston T. Mangels",
 						"sire": "Triple M Farms Moose",
 						"dam": "W.O.W. Kiva Lou",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -1150,7 +1150,7 @@
 						"owner": "Herman M. &/or Julie R.  Miller",
 						"sire": "JBJ Mariah's Cooper",
 						"dam": "Tree Top Zoey",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					},
 					{
@@ -1160,7 +1160,7 @@
 						"owner": "Adam Charles  Steinbrick",
 						"sire": "Never Done Fire's Chip",
 						"dam": "Bank Barn Caroline",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 3
 					},
 					{
@@ -1170,7 +1170,7 @@
 						"owner": "Todd M. &/or Jade E.  Seaman",
 						"sire": "AgRestore's JW Duplex",
 						"dam": "AgRestore Mia",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 2
 					}
 				]
@@ -1185,7 +1185,7 @@
 						"owner": "Timothy &/or Justin  Berry",
 						"sire": "McQueen's Mr. Opportunity",
 						"dam": "Hilltop Ridge Prides Lisa",
-						"ChampionshipPoints": 4,
+						"championshipPoints": 4,
 						"placingPoints": 10
 					},
 					{
@@ -1195,7 +1195,7 @@
 						"owner": "Timothy M. Berry",
 						"sire": "AgRestore JW Nutcracker",
 						"dam": "MAK Lucy Lou",
-						"ChampionshipPoints": 3,
+						"championshipPoints": 3,
 						"placingPoints": 7
 					},
 					{
@@ -1205,7 +1205,7 @@
 						"owner": "Donald L. Sherwood",
 						"sire": "Kidron Road Firestone",
 						"dam": "M+R Reba",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					},
 					{
@@ -1215,7 +1215,7 @@
 						"owner": "Richard E. &/or Barbara  Young",
 						"sire": "Charlie's Dexter",
 						"dam": "Ardi Extreme Rokki",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 3
 					}
 				]
@@ -1230,7 +1230,7 @@
 						"owner": "Michael & Bonnie  Fohrman",
 						"sire": "Country Road Quest",
 						"dam": "Greenlee's Master Lori",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 10
 					}
 				]
@@ -1263,7 +1263,7 @@
 						"owner": "Caitlin M. Morton",
 						"sire": "Orndorff's Master Encore",
 						"dam": "Provost Bernadette",
-						"ChampionshipPoints": 6,
+						"championshipPoints": 6,
 						"placingPoints": 10
 					}
 				]
@@ -1286,7 +1286,7 @@
 						"owner": "Jerry &/or Mary Jean  Maker",
 						"sire": "MAK Dream Master",
 						"dam": "MAK Aclaim's Robin",
-						"ChampionshipPoints": 5,
+						"championshipPoints": 5,
 						"placingPoints": 10
 					},
 					{
@@ -1296,7 +1296,7 @@
 						"owner": "Steven &/or Elizabeth  Mrozinski",
 						"sire": "Clear Creek Thorne",
 						"dam": "S.E.M. Matilda",
-						"ChampionshipPoints": 1,
+						"championshipPoints": 1,
 						"placingPoints": 7
 					},
 					{
@@ -1306,7 +1306,7 @@
 						"owner": "Scott J. &/or Teresa  Zube",
 						"sire": "Sunny Crest CS Flash",
 						"dam": "Willow Creek Coral",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					},
 					{
@@ -1316,7 +1316,7 @@
 						"owner": " Country Pride Belgians Inc.",
 						"sire": "M G Junior's Supreme",
 						"dam": "Country Pride Victory",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 3
 					}
 				]
@@ -1339,7 +1339,7 @@
 						"owner": "Steven &/or Ashley  Connell",
 						"sire": "PVF Ricky J",
 						"dam": "Stefani",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 10
 					},
 					{
@@ -1349,7 +1349,7 @@
 						"owner": "Jerry &/or Mary Jean  Maker",
 						"sire": "T.S.F. GV Korry's Aclaim",
 						"dam": "E D Ellen's Robin",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -1359,7 +1359,7 @@
 						"owner": "John R. Meyer",
 						"sire": "Country Pride Rex",
 						"dam": "K & J House's Reagan",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					},
 					{
@@ -1369,7 +1369,7 @@
 						"owner": "Tony &/or Sally  Sikora",
 						"sire": "Orndorff's U.C. Commander",
 						"dam": "Spring Hill Cassidy",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 3
 					},
 					{
@@ -1379,7 +1379,7 @@
 						"owner": "John R. Meyer",
 						"sire": "Korry's Conqueror",
 						"dam": "Junior's Cindy",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 2
 					}
 				]
@@ -1398,7 +1398,7 @@
 						"owner": "Adam Charles  Steinbrick",
 						"sire": "LH Acres Dream Chief",
 						"dam": "Millerview's Rose",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 10
 					},
 					{
@@ -1408,7 +1408,7 @@
 						"owner": "Jered Lee  Althoff",
 						"sire": "Royal E. Diesel",
 						"dam": "Kidron Road Isabelle",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -1418,7 +1418,7 @@
 						"owner": "Steven &/or Ashley  Connell",
 						"sire": "Country Road Prince",
 						"dam": "L-Valley Lace du Marais",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					},
 					{
@@ -1428,7 +1428,7 @@
 						"owner": "John R. Meyer",
 						"sire": "PJ's Cowboy Calibre",
 						"dam": "K & J House's Reese",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 3
 					},
 					{
@@ -1438,7 +1438,7 @@
 						"owner": "Ann L. Hill",
 						"sire": "C.J. Mitch",
 						"dam": "Hidden Creek Misty",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 2
 					}
 				]
@@ -1489,7 +1489,7 @@
 						"owner": "Country Pride Belgians Inc.",
 						"sire": "",
 						"dam": "Indian Ridge Romeo",
-						"ChampionshipPoints": 20,
+						"championshipPoints": 20,
 						"placingPoints": 0
 					},
 					{
@@ -1499,7 +1499,7 @@
 						"owner": "Howard or Mable  Buerckley",
 						"sire": "Rose Acres Lincoln",
 						"dam": "Chupp's Extreme Niki",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -1509,7 +1509,7 @@
 						"owner": "John R. Meyer",
 						"sire": "L.G.F. Duke",
 						"dam": "K & J House's Reese",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					}
 				]
@@ -1524,7 +1524,7 @@
 						"owner": "Adam Charles  Steinbrick",
 						"sire": "Orndorff's Captain Encore",
 						"dam": "S.E.M. Freeway's Lily",
-						"ChampionshipPoints": 5,
+						"championshipPoints": 5,
 						"placingPoints": 10
 					},
 					{
@@ -1534,7 +1534,7 @@
 						"owner": "Scott J. &/or Teresa  Zube",
 						"sire": "Orndorff's Master Encore",
 						"dam": "Miss Norissa",
-						"ChampionshipPoints": 1,
+						"championshipPoints": 1,
 						"placingPoints": 7
 					},
 					{
@@ -1544,7 +1544,7 @@
 						"owner": "Aaron &/or Kristen  Freitag",
 						"sire": "Orndorff's Master Encore",
 						"dam": "Double T Cotton",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					}
 				]
@@ -1559,7 +1559,7 @@
 						"owner": "Adam Charles  Steinbrick",
 						"sire": "Farfield's Dutchman",
 						"dam": "LY's Ambernita",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 10
 					},
 					{
@@ -1569,7 +1569,7 @@
 						"owner": "Aaron &/or Kristen  Freitag",
 						"sire": "Freeway's Roger",
 						"dam": "Double T Cotton",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					},
 					{
@@ -1579,7 +1579,7 @@
 						"owner": "Tony &/or Sally  Sikora",
 						"sire": "MAK Aclaim's Highlander",
 						"dam": "Shamrock Felicia",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 5
 					},
 					{
@@ -1589,7 +1589,7 @@
 						"owner": "Scott J. &/or Teresa  Zube",
 						"sire": "Royal E. Pierre",
 						"dam": "L & C Darbee",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 3
 					}
 				]
@@ -1608,7 +1608,7 @@
 						"owner": "Adam Charles  Steinbrick",
 						"sire": "Never Done Fire's Chip",
 						"dam": "Bank Barn Caroline",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 10
 					},
 					{
@@ -1618,7 +1618,7 @@
 						"owner": "Samuel  Schwartz",
 						"sire": "Dusty Road Chance",
 						"dam": "Yellow Creek Kim",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					}
 				]
@@ -1645,7 +1645,7 @@
 						"owner": "Ann L. Hill",
 						"sire": "C.J. Mitch",
 						"dam": "Hidden Creek Misty",
-						"ChampionshipPoints": 0,
+						"championshipPoints": 0,
 						"placingPoints": 7
 					}
 				]

@@ -1,8 +1,9 @@
+
 export class showViewData {
     constructor(showJSON) {
         this.showJSON = showJSON;
         //this.shows = this.GetShowsData();
-    }
+    }   
     GetShowsData() {
         let itemShows = new Map();
 
@@ -37,7 +38,7 @@ export class showViewData {
                             "horseCount": showItem.horseCount,
                             "class": clsItem.class,
                             "placing": placeItem.placing,
-                            "championshipPoints": placeItem.ChampionshipPoints,
+                            "championshipPoints": placeItem.championshipPoints,
                             "placingPoints": placeItem.placingPoints
                         })
                     }
@@ -53,7 +54,7 @@ export class showViewData {
                                 "horseCount": showItem.horseCount,
                                 "class": clsItem.class,
                                 "placing": placeItem.placing,
-                                "championshipPoints": placeItem.ChampionshipPoints,
+                                "championshipPoints": placeItem.championshipPoints,
                                 "placingPoints": placeItem.placingPoints,
                                 "pointsTotal": ""
                             }]
@@ -93,7 +94,7 @@ export class showViewData {
                             "owner": placeItem.owner,
                             "dam": placeItem.dam,
                             "placing": placeItem.placing,
-                            "championshipPoints": placeItem.ChampionshipPoints,
+                            "championshipPoints": placeItem.championshipPoints,
                             "placingPoints": placeItem.placingPoints
                         })
                     }
@@ -109,7 +110,7 @@ export class showViewData {
                                 "owner": placeItem.owner,                                
                                 "dam": placeItem.dam,
                                 "placing": placeItem.placing,
-                                "championshipPoints": placeItem.ChampionshipPoints,
+                                "championshipPoints": placeItem.championshipPoints,
                                 "placingPoints": placeItem.placingPoints
                             }]
                         };
@@ -148,7 +149,7 @@ export class showViewData {
                             "owner": placeItem.owner,
                             "sire": placeItem.sire,
                             "placing": placeItem.placing,
-                            "championshipPoints": placeItem.ChampionshipPoints,
+                            "championshipPoints": placeItem.championshipPoints,
                             "placingPoints": placeItem.placingPoints
                         })
                     }
@@ -164,7 +165,7 @@ export class showViewData {
                                 "owner": placeItem.owner,
                                 "sire": placeItem.sire,
                                 "placing": placeItem.placing,
-                                "championshipPoints": placeItem.ChampionshipPoints,
+                                "championshipPoints": placeItem.championshipPoints,
                                 "placingPoints": placeItem.placingPoints
                             }]
                         };
@@ -203,7 +204,7 @@ export class showViewData {
                             "sire": placeItem.sire,
                             "dam": placeItem.dam,
                             "placing": placeItem.placing,
-                            "championshipPoints": placeItem.ChampionshipPoints,
+                            "championshipPoints": placeItem.championshipPoints,
                             "placingPoints": placeItem.placingPoints
                         })
                     }
@@ -219,7 +220,7 @@ export class showViewData {
                                 "sire": placeItem.sire,
                                 "dam": placeItem.dam,
                                 "placing": placeItem.placing,
-                                "championshipPoints": placeItem.ChampionshipPoints,
+                                "championshipPoints": placeItem.championshipPoints,
                                 "placingPoints": placeItem.placingPoints,
                                 "pointsTotal": ""
                             }]
@@ -259,7 +260,7 @@ export class showViewData {
                                 "horseCount": showItem.horseCount,
                                 "class": clsItem.class,
                                 "placing": placeItem.placing,
-                                "championshipPoints": placeItem.ChampionshipPoints,
+                                "championshipPoints": placeItem.championshipPoints,
                                 "placingPoints": placeItem.placingPoints
                             })
                         }
@@ -275,7 +276,7 @@ export class showViewData {
                                     "horseCount": showItem.horseCount,
                                     "class": clsItem.class,
                                     "placing": placeItem.placing,
-                                    "championshipPoints": placeItem.ChampionshipPoints,
+                                    "championshipPoints": placeItem.championshipPoints,
                                     "placingPoints": placeItem.placingPoints
                                 }]
 
@@ -296,7 +297,7 @@ export class showViewData {
                                     "horseCount": showItem.horseCount,
                                     "class": clsItem.class,
                                     "placing": placeItem.placing,
-                                    "championshipPoints": placeItem.ChampionshipPoints,
+                                    "championshipPoints": placeItem.championshipPoints,
                                     "placingPoints": placeItem.placingPoints
                                 }]
                             }]
@@ -340,6 +341,6 @@ class placings {
         this.placingTotal = this.PlacingTotal;
     }
     PlacingTotal() {
-        return (this.placingPoints * 4) + this.championshipPoints;
+        return (this.placingPoints * ShowIndex(4)) + this.championshipPoints;
     }
 }

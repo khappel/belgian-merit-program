@@ -90,6 +90,7 @@ export default {
                     to: '/damresultsview'
                 }
             ],
+            ACCESS_TOKEN: {},
         };
     },
     components: {
@@ -136,22 +137,27 @@ export default {
                     //this.horseDataList = this.horseData.map(d => Array.from(Object.values(d)))
                 ))*/
         },
-        getShowFiles() {
-            const ACCESS_TOKEN = 'sl.Bh97ZtdCHg_U-R2kt5luBO738ClLfdoinsorMQse-6X1YmDX4gmoJYQMXkfPv1A7iJ3oZY3zzQDHLY5s2mfDc-dm-DsiqVlJxB7q9SMLhAj3mVLywenZ-UZiCZTZxLQSXNeakaX_';
+        async getShowFiles() {
+            if (Object.keys(this.ACCESS_TOKEN).length === 0) {
+                await this.getAccessToken();
+            }
 
-            var dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
+            if (Object.keys(this.ACCESS_TOKEN).length > 0) {
+                var dbx = new Dropbox({ accessToken: this.ACCESS_TOKEN.access_token });
 
-            dbx.filesListFolder({ path: '/Master Files' })
-                .then((response) => {
-                    response.result.entries.forEach(entry => {
-                        this.fileYears.push({ year: entry.name, file: entry.id })
-                        this.fileYears.sort(function (a, b) { return a.name - b.name });
-                        this.defaultFileSelected = this.fileYears[0];
+                dbx.filesListFolder({ path: '/Master Files' })
+                    .then((response) => {
+                        response.result.entries.forEach(entry => {
+                            this.fileYears.push({ year: entry.name, file: entry.id })
+                            this.fileYears.sort(function (a, b) { return a.name - b.name });
+                            this.defaultFileSelected = this.fileYears[0];
+                        });
+                    })
+                    .catch((err) => {
+                        console.log(err);
                     });
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
+
+            }
 
             /*dbx.filesDownload({
                 path: "/MasterFiles/2022BelgianMeritPlacings.json"
@@ -160,9 +166,11 @@ export default {
             })*/
         },
         downloadFile() {
-            const ACCESS_TOKEN = 'sl.Bh97ZtdCHg_U-R2kt5luBO738ClLfdoinsorMQse-6X1YmDX4gmoJYQMXkfPv1A7iJ3oZY3zzQDHLY5s2mfDc-dm-DsiqVlJxB7q9SMLhAj3mVLywenZ-UZiCZTZxLQSXNeakaX_';
+            if (Object.keys(this.ACCESS_TOKEN).length === 0) {
+                this.getAccessToken();
+            }
 
-            var dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
+            var dbx = new Dropbox({ accessToken: this.ACCESS_TOKEN.access_token });
 
             dbx.filesDownload({ path: this.defaultFileSelected.file })
                 .then(function (response) {
@@ -171,13 +179,13 @@ export default {
 
                     reader.addEventListener("loadend", function () {
                         store.showData = JSON.parse(reader.result);
-                        
+
                     });
 
-                if (blob != undefined){
-                    reader.readAsText(blob);
-                }
-                    
+                    if (blob != undefined) {
+                        reader.readAsText(blob);
+                    }
+
 
                 })
                 .catch(function (error) {
@@ -186,9 +194,53 @@ export default {
         changeView() {
             this.$router.push({ path: this.defaultViewSelected.to })
             //this.$router.push('/')
+        },
+        async getAccessToken() {
+            const REFRESH_TOKEN = "qUeWkhRi2LkAAAAAAAAAAYOQK2eHCE3MZX3EIFoM9x4WxnglJcoHj7I_e-Z4Jkc1";
+            const CI = "54g6f5g8af25kk4";
+            const CS = "09b2xez7yiy40uj";
+
+            await fetch("https://api.dropbox.com/oauth2/token?refresh_token=qUeWkhRi2LkAAAAAAAAAAYOQK2eHCE3MZX3EIFoM9x4WxnglJcoHj7I_e-Z4Jkc1&grant_type=refresh_token&client_id=54g6f5g8af25kk4&client_secret=09b2xez7yiy40uj", {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            })
+                .then((response) => {
+                    if (response.status === 404) {
+                        throw new Error('404 (Not Found)');
+                    } else {
+                        return response.json().then((json) => {
+                            console.log('save poster response: ', json);
+                            this.ACCESS_TOKEN = json;
+                        });
+                    }
+                });
+
+            /*axios.get("https://api.dropbox.com/oauth2/token", {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                headers: {
+                    'Content-Type': 'text/plain; charset=dropbox-cors-hack'
+                },
+                params: {
+
+                    refresh_token: REFRESH_TOKEN,
+                    grant_type: "refresh_token",
+                    client_id: CI,
+                    client_secret: CS,
+                },
+            })
+                .then((response) => { this.ACCESS_TOKEN = response.data })*/
+
+
         }
     },
     created: function () {
+        this.getAccessToken();
         //defaultFileSelected = defaultFile;
         this.getShowData();
         //showDataList = showData

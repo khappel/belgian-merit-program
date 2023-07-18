@@ -17,21 +17,21 @@
                     <Column field="dam" header="Dam"></Column>
                     <Column field="HorsePointsSummary" header="Total Points" sortable>
                         <template #body="slotProps">
-                            {{ horsePointsSummary(slotProps.data.shows) }}
+                            {{ store.pointsSummary(slotProps.data.shows) }}
                         </template>
                     </Column>
                     <template #expansion="slotProps">
                         <div class="p-1">
                             <DataTable v-model:expandedRows="expandedShowRows" :value="slotProps.data.shows" @rowExpand="onRowExpand"
                 @rowCollapse="onRowCollapse" dataKey="show" :class="p-datatable-sm" tableStyle="min-width: 50rem">
-                                <Column field="show" header="Show" sortable></Column>
-                                <Column field="horseCount" header="HorseCount" sortable></Column>
+                                <Column field="show" header="Show" sortable></Column>                                
                                 <Column field="class" header="Class" sortable></Column>
+                                <Column field="placing" header="Placing" sortable></Column>
                                 <Column field="championshipPoints" header="Championship Points" sortable></Column>
                                 <Column field="placingPoints" header="Placing Points" sortable></Column>
                                 <Column field="pointsTotal" header="Points" sortable>
                                     <template #body="slotProps">
-                                        {{ sumTotalPoints(slotProps.data) }}
+                                        {{ store.sumTotalPoints(slotProps.data) }}
                                     </template>
                                 </Column>
                             </DataTable>
@@ -95,41 +95,10 @@ export default {
             return arr;
         },
         sumTotalPoints(item) {
-            return item.placingPoints + item.championshipPoints * this.showIndex(item.horseCount);
+            return item.placingPoints + (item.championshipPoints ?? 0) * store.showIndex(item.horseCount);
         },
         horsePointsSummary(itemClasses) {
             return itemClasses.reduce((partialSum, a) => partialSum + this.sumTotalPoints(a), 0);
-        },
-        showIndex(horseCount) {
-            switch (true) {
-                case horseCount >= 200:
-                    return 9;
-                    break;
-                case horseCount >= 175:
-                    return 8;
-                    break;
-                case horseCount >= 150:
-                    return 7;
-                    break;
-                case horseCount >= 125:
-                    return 6;
-                    break;
-                case horseCount >= 100:
-                    return 5;
-                    break;
-                case horseCount >= 75:
-                    return 4;
-                    break;
-                case horseCount >= 50:
-                    return 3;
-                    break;
-                case horseCount >= 25:
-                    return 2;
-                    break;
-
-                default:
-                    return 1;
-            }
         }
     },
     computed: {

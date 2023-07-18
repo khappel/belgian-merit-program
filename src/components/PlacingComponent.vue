@@ -14,7 +14,7 @@
                 <Column field="horseName" header="Horse"></Column>
                 <Column field="sire" header="Sire"></Column>
                 <Column field="dam" header="Dam"></Column>
-                <Column field="ChampionshipPoints" header="Championship Points"></Column>
+                <Column field="championshipPoints" header="Championship Points"></Column>
                 <Column field="placingPoints" header="Placing Points"></Column>
                 <Column field="pointsTotal" header="Total Points" sortable>
                         <template #body="slotProps">
@@ -36,7 +36,7 @@ export default {
     },
     methods:{
         sumTotalPoints(item) {
-            return item.placingPoints + item.ChampionshipPoints * this.showIndex(this.HorseCount);
+            return item.placingPoints + item.championshipPoints * this.showIndex(this.HorseCount);
         },
         ExhibitorPointsSummary(itemClasses) {
             return itemClasses.reduce((partialSum, a) => partialSum + this.sumTotalPoints(a), 0);
@@ -87,7 +87,7 @@ export default {
                         "owner": "smith, sam",
                         "sire": "tt",
                         "dam": "ff",
-                        "ChampionshipPoints": 6,
+                        "championshipPoints": 6,
                         "placingPoints": 10
                     }]
 -->

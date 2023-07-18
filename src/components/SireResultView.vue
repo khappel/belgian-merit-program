@@ -7,15 +7,15 @@
         <Column field="sire" header="Sire"></Column>        
         <Column field="HorsePointsSummary" header="Total Points" sortable>
             <template #body="slotProps">
-                {{ horsePointsSummary(slotProps.data.shows) }}
+                {{ store.pointsSummary(slotProps.data.shows) }}
             </template>
         </Column>
         <template #expansion="slotProps">
             <div class="p-3">
                 <DataTable :value="slotProps.data.shows" :class="p-datatable-sm">
-                    <Column field="show" header="Show" sortable></Column>
-                    <Column field="horseCount" header="HorseCount" sortable></Column>
+                    <Column field="show" header="Show" sortable></Column>                    
                     <Column field="class" header="Class" sortable></Column>
+                    <Column field="placing" header="Placing" sortable></Column>
                     <Column field="registrationNumber" header="Registraion"></Column>
                     <Column field="horseName" header="Horse"></Column>
                     <Column field="owner" header="Owner"></Column>
@@ -24,7 +24,7 @@
                     <Column field="placingPoints" header="Placing Points" sortable></Column>
                     <Column field="pointsTotal" header="Points" sortable>
                         <template #body="slotProps">
-                            {{ sumTotalPoints(slotProps.data) }}
+                            {{ store.sumTotalPoints(slotProps.data) }}
                         </template>
                     </Column>
                 </DataTable>
@@ -76,7 +76,7 @@ export default {
 
             return arr;
         },
-        sumTotalPoints(item) {
+        /*sumTotalPoints(item) {
             return item.placingPoints + item.championshipPoints * this.showIndex(item.horseCount);
         },
         horsePointsSummary(itemClasses) {
@@ -112,7 +112,7 @@ export default {
                 default:
                     return 1;
             }
-        }
+        }*/
     },
     computed: {
         horseData() {
