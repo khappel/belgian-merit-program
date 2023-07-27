@@ -16,7 +16,7 @@
                     <Column field="sire" header="Sire"></Column>
                     <Column field="dam" header="Dam"></Column>
                     <Column field="HorsePointsSummary" header="Total Points" sortable>
-                        <template #body="slotProps">
+                        <template #body="slotPropsn">
                             {{ store.pointsSummary(slotProps.data.shows) }}
                         </template>
                     </Column>
@@ -93,12 +93,6 @@ export default {
             }
 
             return arr;
-        },
-        sumTotalPoints(item) {
-            return item.placingPoints + (item.championshipPoints ?? 0) * store.showIndex(item.horseCount);
-        },
-        horsePointsSummary(itemClasses) {
-            return itemClasses.reduce((partialSum, a) => partialSum + this.sumTotalPoints(a), 0);
         }
     },
     computed: {
