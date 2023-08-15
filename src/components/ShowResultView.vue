@@ -4,7 +4,8 @@
 
         <Column expander style="width: 5rem" />
         <Column field="show" header="Show" sortable></Column>
-        <Column field="horseCount" header="Horse Count"></Column>
+        <Column field="halterHorseCount" header="Halter Count"></Column>
+        <Column field="hitchHorseCount" header="Hitch Count"></Column>
 
         <template #expansion="slotProps">
             <!--<div v-for="cls in slotProps.data.classes">
@@ -14,6 +15,7 @@
                 @rowCollapse="onRowCollapse" dataKey="class" :class="p-datatable-sm" tableStyle="min-width: 50rem">
                 <Column expander style="width: 5rem" />
                 <Column field="class" header="Classes" sortable></Column>
+                <Column field="classCount" header="Class Count" sortable></Column>
 
                 <template #expansion="slotProps">
                     <DataTable :value="slotProps.data.placings" stripedRows :class="p-datatable-sm"
@@ -24,6 +26,7 @@
                         <Column field="horseName" header="Horse"></Column>
                         <Column field="sire" header="Sire"></Column>
                         <Column field="dam" header="Dam"></Column>
+                        <Column field="owner" header="Owner"></Column>
                         <Column field="championshipPoints" header="Championship Points"></Column>
                         <Column field="placingPoints" header="Placing Points"></Column>
                         <Column field="pointsTotal" header="Total Points" sortable>

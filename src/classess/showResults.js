@@ -16,6 +16,37 @@ export class showViewData {
 
         return itemShows;
     }
+    CleanupShowData(){
+        //let shows = [];
+
+        if (this.showJSON.year != undefined) {
+            this.showJSON = this.showJSON.shows;
+        }
+
+        for (var i = this.showJSON.length - 1; i >= 0; i--) {
+            //let showItem = new showResults();
+            //showItem = this.showJSON[i];
+            for (var c = this.showJSON[i].classes.length -1; c >= 0; c--) { 
+                //let clsItem = new classes();
+                //clsItem =  this.showJSON[i].classes[c];
+
+                for (var p = this.showJSON[i].classes[c].placings.length -1; p >=  0; p--) {
+                    //let placeItem = new placings();
+                    //placeItem = this.showJSON[i].classes[c].placings[p];
+                    if (this.showJSON[i].classes[c].placings[p].registrationNumber == '' && this.showJSON[i].classes[c].placings[p].horseName == ''){
+                        //remove
+                        this.showJSON[i].classes[c].placings.splice(p,1);
+                    }
+                }
+                if (this.showJSON[i].classes[c].placings.length == 0){
+                    //remove class
+                    this.showJSON[i].classes.splice(c,1);
+                }
+            }
+        }
+        
+        return this.showJSON;
+    }
     ReturnHorseResults() {
         let itemHorses = new Map();
 
@@ -259,6 +290,7 @@ export class showViewData {
                                 "show": showItem.show,
                                 "horseCount": showItem.horseCount,
                                 "class": clsItem.class,
+                                "classCount": clsItem.classCount,
                                 "placing": placeItem.placing,
                                 "championshipPoints": placeItem.championshipPoints,
                                 "placingPoints": placeItem.placingPoints
@@ -275,6 +307,7 @@ export class showViewData {
                                     "show": showItem.show,
                                     "horseCount": showItem.horseCount,
                                     "class": clsItem.class,
+                                    "classCount": clsItem.classCount,
                                     "placing": placeItem.placing,
                                     "championshipPoints": placeItem.championshipPoints,
                                     "placingPoints": placeItem.placingPoints
@@ -296,6 +329,7 @@ export class showViewData {
                                     "show": showItem.show,
                                     "horseCount": showItem.horseCount,
                                     "class": clsItem.class,
+                                    "class": clsItem.classCount,
                                     "placing": placeItem.placing,
                                     "championshipPoints": placeItem.championshipPoints,
                                     "placingPoints": placeItem.placingPoints

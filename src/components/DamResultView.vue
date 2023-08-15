@@ -24,7 +24,7 @@
                     <Column field="placingPoints" header="Placing Points" sortable></Column>
                     <Column field="pointsTotal" header="Points" sortable>
                         <template #body="slotProps">
-                            {{ store.sumTotalPoints(slotProps.data) }}
+                            {{ store.sumTotalPoints(slotProps.data,slotProps.data.class) }}
                         </template>
                     </Column>
                 </DataTable>

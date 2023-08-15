@@ -27,6 +27,7 @@ import axios from 'axios'
 import { Dropbox } from 'dropbox';
 import PlacingComponent from './PlacingComponent.vue'
 import { store } from '../classess/store.js'
+import { showViewData } from '../classess/showResults.js'
 
 export default {
     name: "Results",
@@ -151,6 +152,7 @@ export default {
                             this.fileYears.push({ year: entry.name, file: entry.id })
                             this.fileYears.sort(function (a, b) { return a.name - b.name });
                             this.defaultFileSelected = this.fileYears[0];
+                            this.downloadFile();
                         });
                     })
                     .catch((err) => {
@@ -178,8 +180,9 @@ export default {
                     var reader = new FileReader();
 
                     reader.addEventListener("loadend", function () {
-                        store.showData = JSON.parse(reader.result);
-
+                        //clean up shows
+                        store.showData = new showViewData(JSON.parse(reader.result)).CleanupShowData();
+                        
                     });
 
                     if (blob != undefined) {
@@ -190,6 +193,9 @@ export default {
                 })
                 .catch(function (error) {
                 })
+        },
+        removeEmpty(obj){
+
         },
         changeView() {
             this.$router.push({ path: this.defaultViewSelected.to })

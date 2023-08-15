@@ -11,12 +11,12 @@
         <Column field="dam" header="Dam"></Column>
         <Column field="HorsePointsSummary" header="Total Points" sortable>
             <template #body="slotProps">
-                {{ store.pointsSummary(slotProps.data.shows) }}
+                {{ store.pointsSummary(slotProps.data.shows,slotProps.data.shows[0].class) }}
             </template>
         </Column>
-        <template #expansion="slotProps">
+        <template #expansion="slotExpansion">
             <div class="p-3">
-                <DataTable :value="slotProps.data.shows" :class="p-datatable-sm">
+                <DataTable :value="slotExpansion.data.shows" :class="p-datatable-sm">
                     <Column field="show" header="Show" sortable></Column>                    
                     <Column field="class" header="Class" sortable></Column>
                     <Column field="placing" header="Placing" sortable></Column>
@@ -24,7 +24,7 @@
                     <Column field="placingPoints" header="Placing Points" sortable></Column>
                     <Column field="pointsTotal" header="Points" sortable>
                         <template #body="slotProps">
-                            {{ store.sumTotalPoints(slotProps.data) }}
+                            {{ store.sumTotalPoints(slotProps.data,slotExpansion.data.class) }}
                         </template>
                     </Column>
                 </DataTable>

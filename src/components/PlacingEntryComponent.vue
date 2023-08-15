@@ -26,7 +26,7 @@
                         <td>
                             <div class="p-inputgroup flex-1">
                                 <InputText type="text" id="registrationNumber" v-model="placing.registrationNumber"
-                                class="p-inputtext-sm" @change="updateValue(Placings,ShowClass)" />
+                                class="p-inputtext-sm" @change="updateValue(Placings,ShowClass,ClassCount)" />
                                 <Button icon="pi pi-search" severity="warning" />
                             </div>
                             
@@ -68,6 +68,7 @@ export default {
     props: {
         Show: String,
         ShowClass: String,
+        ClassCount: Number,
         Placings: {
             type: Object,
             required: true,
@@ -134,8 +135,8 @@ export default {
         }
     },
     methods: {
-        updateValue: function (placing,show) {
-            this.$emit('input', placing, show);
+        updateValue: function (placing,show, classCount) {
+            this.$emit('input', placing, show, classCount);
     }
     },
 }

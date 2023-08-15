@@ -28,9 +28,9 @@
                     <InputNumber v-model="halterHorseCount" inputId="integeronly" required />
                 </div>
                 <div class="flex flex-row gap-2" style="align-items: center;">
-                            <label for="hitchHorseCount">Hitch Horse Count</label>
-                            <InputNumber v-model="hitchHorseCount" inputId="integeronly" required />
-                        </div>
+                    <label for="hitchHorseCount">Hitch Horse Count</label>
+                    <InputNumber v-model="hitchHorseCount" inputId="integeronly" required />
+                </div>
                 <Button label="New Class" icon="pi pi-plus" class="mr-2" @click="StartClassEntry" />
             </Sidebar>
 
@@ -39,11 +39,11 @@
                 <Accordion :multiple="true" :activeIndex="setAccordianCount()">
                     <AccordionTab v-for="cls in selectedShow?.classes" :key="cls.class" :header="cls.class">
                         <div class="flex flex-row gap-2" style="align-items: center;">
-                            <label for="classHorseCount">Class Horse Count</label>
-                            <InputNumber v-model="cls.classHorseCount" inputId="integeronly" />
+                            <label for="classCount">Class Count</label>
+                            <InputNumber v-model="cls.classCount" inputId="integeronly" />
                         </div>
-                        <PlacingEntryComponent :show="selectedShow.show" :ShowClass="cls" :Placings="cls.placings"
-                            @input="(e, c) => handleChange(e, c)"></PlacingEntryComponent>
+                        <PlacingEntryComponent :show="selectedShow.show" :ShowClass="cls" :ClassCount="cls.classCount" :Placings="cls.placings"
+                            @input="(e, c, d) => handleChange(e, c, d)"></PlacingEntryComponent>
                     </AccordionTab>
                 </Accordion>
                 <!--<button>Submit</button>-->
@@ -73,13 +73,15 @@ export default {
             defaultShowSelected: {},
             //showYear: { "year": "", "shows": currentShowList() },
             inputYear: "",
-            selectedShow: { "show": "", "horseCount": 0, "classes": [] },
+            selectedShow: { "show": "", "halterHorseCount": 0, "halterHitchCount": 0, "classes": [] },
             showList: [],
             enableForm: false,
             enableYearMode: false,
             visibleRight: false,
             horseCount: 0,
-            form: { "show": "", "horseCount": 0, "classes": [] },
+            halterHorseCount: 0,
+            hitchHorseCount: 0,
+            form: { "show": "", "halterHorseCount": 0, "halterHitchCount": 0, "classes": [] },
         };
     },
     components: {
@@ -101,10 +103,11 @@ export default {
                 reader.onload = (res) => {
                     var FileParse = JSON.parse(res.target.result);
 
-                    if (FileParse.year != undefined){
-                        this.showYear = FileParse;
+                    if (FileParse.year != undefined) {
+                        this.inputYear = FileParse.year;
+                        this.showList = FileParse.shows;
                     }
-                    else{
+                    else {
                         this.showList = FileParse;
                     }
 
@@ -127,7 +130,7 @@ export default {
         SetNewMode() { },
         StartClassEntry() {
             let showcls = JSON.parse(JSON.stringify(this.form.classes));
-            this.showList.push({ "show": this.defaultShowSelected.show, "horseCount": this.horseCount, "classes": showcls });
+            this.showList.push({ "show": this.defaultShowSelected.show, "halterHorseCount": this.halterHorseCount, "hitchHorseCount": this.hitchHorseCount, "classes": showcls });
             this.visibleRight = false;
 
             this.selectedShow = this.showList[this.showList.length - 1];
@@ -168,13 +171,14 @@ export default {
             window.localStorage.setItem('form', data);
             console.log(JSON.parse(window.localStorage.getItem('form')))
         },
-        handleChange(placing, showclass) {
+        handleChange(placing, showclass, classCount) {
             const foundClass = this.selectedShow.classes.find(c => c.class == showclass.class);
             if (foundClass != null) {
                 foundClass.placings = placing;
+                //foundClass.classCount = classCount;
             }
             else {
-                this.selectedShow.classes.push({ showclass, placing })
+                this.selectedShow.classes.push({ showclass, placing, classCount })
             }
 
         },
@@ -183,7 +187,7 @@ export default {
         }
     },
     computed: {
-        showYear(){
+        showYear() {
             return { year: this.inputYear, shows: this.showList };
         }
     },

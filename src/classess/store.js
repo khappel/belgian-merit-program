@@ -40,36 +40,35 @@ export const store = reactive({
   },
   hitchShowIndex: function (horseCount) {
     switch (true) {
-      case horseCount >= 200:
-        return 9;
-        break;
-      case horseCount >= 175:
-        return 8;
-        break;
-      case horseCount >= 150:
+      case horseCount >= 31:
         return 7;
         break;
-      case horseCount >= 125:
+      case horseCount >= 26:
         return 6;
         break;
-      case horseCount >= 100:
+      case horseCount >= 21:
         return 5;
         break;
-      case horseCount >= 75:
+      case horseCount >= 16:
         return 4;
         break;
-      case horseCount >= 50:
+      case horseCount >= 11:
         return 3;
         break;
-      case horseCount >= 25:
+      case horseCount >= 6:
         return 2;
         break;
-
       default:
         return 1;
     }
   },
   sumTotalPoints: function (item, classType) {
+    if (classType !="Hitch" && classType != "Halter"){
+      if (classType?.includes("Cart")){
+        classType = "Hitch";
+      }
+    }
+
     if (classType == "Hitch"){
       return (item.placingPoints + (item.championshipPoints ?? 0)) * this.hitchShowIndex(item.horseCount);
     }
@@ -79,6 +78,12 @@ export const store = reactive({
     
 },
   pointsSummary(itemClasses) {
-    return itemClasses.reduce((partialSum, a) => partialSum + this.sumTotalPoints(a), 0);
+    let classType = "Halter";
+    let classString = itemClasses[0].class;
+
+    if (classString.includes("Cart")){
+      classType = "Hitch";
+    }
+    return itemClasses.reduce((partialSum, a) => partialSum + this.sumTotalPoints(a,classType), 0);
   }
 })

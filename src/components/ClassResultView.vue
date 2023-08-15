@@ -5,9 +5,11 @@
 
         <Column expander style="width: 3rem" />
         <Column field="class" header="Class"></Column>
-        <template #expansion="slotProps">
+        <Column field="classCount" header="Class Count"></Column>
+
+        <template #expansion="slotExpansion">
             <div class="p-1">
-                <DataTable v-model:expandedRows="expandedHorseRows" :value="slotProps.data.horses" @rowExpand="onRowExpand"
+                <DataTable v-model:expandedRows="expandedHorseRows" :value="slotExpansion.data.horses" @rowExpand="onRowExpand"
                 @rowCollapse="onRowCollapse" dataKey="registrationNumber" :class="p-datatable-sm" tableStyle="min-width: 50rem">
                     <Column expander style="width: 3rem" />
                     <Column field="registrationNumber" header="Registraion"></Column>
@@ -16,7 +18,7 @@
                     <Column field="sire" header="Sire"></Column>
                     <Column field="dam" header="Dam"></Column>
                     <Column field="HorsePointsSummary" header="Total Points" sortable>
-                        <template #body="slotPropsn">
+                        <template #body="slotProps">
                             {{ store.pointsSummary(slotProps.data.shows) }}
                         </template>
                     </Column>
@@ -31,7 +33,7 @@
                                 <Column field="placingPoints" header="Placing Points" sortable></Column>
                                 <Column field="pointsTotal" header="Points" sortable>
                                     <template #body="slotProps">
-                                        {{ store.sumTotalPoints(slotProps.data) }}
+                                        {{ store.sumTotalPoints(slotProps.data,slotExpansion.data.class) }}
                                     </template>
                                 </Column>
                             </DataTable>
