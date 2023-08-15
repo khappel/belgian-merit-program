@@ -62,7 +62,7 @@ export const store = reactive({
         return 1;
     }
   },
-  sumTotalPoints: function (item, classType) {
+  sumTotalPoints: function (item, classType,horseCount) {
     if (classType !="Hitch" && classType != "Halter"){
       if (classType?.includes("Cart")){
         classType = "Hitch";
@@ -70,20 +70,20 @@ export const store = reactive({
     }
 
     if (classType == "Hitch"){
-      return (item.placingPoints + (item.championshipPoints ?? 0)) * this.hitchShowIndex(item.horseCount);
+      return (item.placingPoints + (item.championshipPoints ?? 0)) * this.hitchShowIndex(horseCount);
     }
     else{
-      return (item.placingPoints + (item.championshipPoints ?? 0)) * this.halterShowIndex(item.horseCount);
+      return (item.placingPoints + (item.championshipPoints ?? 0)) * this.halterShowIndex(horseCount);
     }
     
 },
   pointsSummary(itemClasses) {
-    let classType = "Halter";
-    let classString = itemClasses[0].class;
+    //let classType = "Halter";
+    //let classString = itemClasses[0].class;
 
-    if (classString.includes("Cart")){
-      classType = "Hitch";
-    }
-    return itemClasses.reduce((partialSum, a) => partialSum + this.sumTotalPoints(a,classType), 0);
+    //if (classString.includes("Cart")){
+    //  classType = "Hitch";
+    //}
+    return itemClasses.reduce((partialSum, a) => partialSum + a.pointsTotal,0); //this.sumTotalPoints(a,classType,a.horseCount), 0);
   }
 })

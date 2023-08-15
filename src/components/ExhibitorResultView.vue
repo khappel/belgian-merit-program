@@ -1,14 +1,16 @@
 <template>
     <DataTable v-model:expandedRows="expandedRows" :value="Array.from(ownerData.values())" stripedRows
         @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" dataKey="owner" :class="p-datatable-sm"
-        tableStyle="min-width: 50rem">
-
+        tableStyle="min-width: 50rem" sortField="showTotals" :sortOrder="-1">
+        <template #header>
+            <div class="flex flex-wrap justify-content-end gap-2">
+                <Button text icon="pi pi-plus" label="Expand" @click="expandAll" />
+                <Button text icon="pi pi-minus" label="Collapse" @click="collapseAll" />
+            </div>
+        </template>
         <Column expander style="width: 5rem" />
-        <Column field="owner" header="Owner"></Column>
-        <Column field="ExhibitorPointsSummary" header="Total Points" sortable>
-            <template #body="slotProps">
-                {{ store.pointsSummary(slotProps.data.shows) }}
-            </template>
+        <Column field="owner" header="Owner" sortable></Column>
+        <Column field="showTotals" header="Total Points" sortable>
         </Column>
         <template #expansion="slotProps">
             <div class="p-3">
@@ -16,16 +18,16 @@
                     <Column field="show" header="Show" sortable></Column>                    
                     <Column field="class" header="Class" sortable></Column>
                     <Column field="placing" header="Placing" sortable></Column>
-                    <Column field="registrationNumber" header="Registraion"></Column>
-                    <Column field="horseName" header="Horse"></Column>
-                    <Column field="sire" header="Sire"></Column>
-                    <Column field="dam" header="Dam"></Column>
+                    <Column field="registrationNumber" header="Registraion" sortable></Column>
+                    <Column field="horseName" header="Horse" sortable></Column>
+                    <Column field="sire" header="Sire" sortable></Column>
+                    <Column field="dam" header="Dam" sortable></Column>
                     <Column field="championshipPoints" header="Championship Points" sortable></Column>
                     <Column field="placingPoints" header="Placing Points" sortable></Column>
                     <Column field="pointsTotal" header="Points" sortable>
-                        <template #body="slotProps">
-                            {{ store.sumTotalPoints(slotProps.data) }}
-                        </template>
+                        <!--<template #body="slotProps">
+                            {{ store.sumTotalPoints(slotProps.data,slotProps.data.class.classType,slotProps.data.halterHorseCount) }}
+                        </template>-->
                     </Column>
                 </DataTable>
             </div>
@@ -55,59 +57,12 @@ export default {
     components: {
     },
     methods: {       
-        /*getOwnerData() {
-            fetch(this.defaultFileSelected.file)
-                .then(response => response.json())
-                .then(data => (                    
-                    this.ownerData = new showViewData(data).ReturnOwnerResults()                    
-                ))
-        },*/
-        setAccordianCount(length) {
-            let arr = [];
-            for (let i = 0; i < length; i++) {
-                arr.push(i);
-            }
-
-            return arr;
+        expandAll() {
+            this.expandedRows = Array.from(this.ownerData.values()).filter((p) => p.owner);
         },
-
-        /*sumTotalPoints(item) {
-            return item.placingPoints + item.championshipPoints * this.showIndex(item.horseCount);
+        collapseAll() {
+            this.expandedRows = null;
         },
-        ExhibitorPointsSummary(itemClasses) {
-            return itemClasses.reduce((partialSum, a) => partialSum + this.sumTotalPoints(a), 0);
-        },
-        showIndex(horseCount) {
-            switch (true) {
-                case horseCount >= 200:
-                    return 9;
-                    break;
-                case horseCount >= 175:
-                    return 8;
-                    break;
-                case horseCount >= 150:
-                    return 7;
-                    break;
-                case horseCount >= 125:
-                    return 6;
-                    break;
-                case horseCount >= 100:
-                    return 5;
-                    break;
-                case horseCount >= 75:
-                    return 4;
-                    break;
-                case horseCount >= 50:
-                    return 3;
-                    break;
-                case horseCount >= 25:
-                    return 2;
-                    break;
-
-                default:
-                    return 1;
-            }
-        }*/
     },
     computed:{
         ownerData() {

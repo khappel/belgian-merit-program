@@ -2,25 +2,31 @@
     <DataTable v-model:expandedRows="expandedRows" :value="Array.from(classData.values())" stripedRows
         @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" dataKey="class" :class="p-datatable-sm"
         tableStyle="min-width: 50rem">
-
+        <template #header>
+            <div class="flex flex-wrap justify-content-end gap-2">
+                <Button text icon="pi pi-plus" label="Expand" @click="expandAll" />
+                <Button text icon="pi pi-minus" label="Collapse" @click="collapseAll" />
+            </div>
+        </template>
         <Column expander style="width: 3rem" />
-        <Column field="class" header="Class"></Column>
-        <Column field="classCount" header="Class Count"></Column>
+        <Column field="class" header="Class" sortable></Column>
+        <Column field="classCount" header="Class Count" sortable></Column>
 
         <template #expansion="slotExpansion">
             <div class="p-1">
                 <DataTable v-model:expandedRows="expandedHorseRows" :value="slotExpansion.data.horses" @rowExpand="onRowExpand"
-                @rowCollapse="onRowCollapse" dataKey="registrationNumber" :class="p-datatable-sm" tableStyle="min-width: 50rem">
+                @rowCollapse="onRowCollapse" dataKey="registrationNumber" :class="p-datatable-sm" tableStyle="min-width: 50rem"
+                sortField="showTotals" :sortOrder="-1">
                     <Column expander style="width: 3rem" />
-                    <Column field="registrationNumber" header="Registraion"></Column>
-                    <Column field="horseName" header="Horse"></Column>
-                    <Column field="owner" header="Owner"></Column>
-                    <Column field="sire" header="Sire"></Column>
-                    <Column field="dam" header="Dam"></Column>
-                    <Column field="HorsePointsSummary" header="Total Points" sortable>
-                        <template #body="slotProps">
+                    <Column field="registrationNumber" header="Registraion" sortable></Column>
+                    <Column field="horseName" header="Horse" sortable></Column>
+                    <Column field="owner" header="Owner" sortable></Column>
+                    <Column field="sire" header="Sire" sortable></Column>
+                    <Column field="dam" header="Dam" sortable></Column>
+                    <Column field="showTotals" header="Total Points" sortable>
+                        <!--<template #body="slotProps">
                             {{ store.pointsSummary(slotProps.data.shows) }}
-                        </template>
+                        </template>-->
                     </Column>
                     <template #expansion="slotProps">
                         <div class="p-1">
@@ -32,9 +38,9 @@
                                 <Column field="championshipPoints" header="Championship Points" sortable></Column>
                                 <Column field="placingPoints" header="Placing Points" sortable></Column>
                                 <Column field="pointsTotal" header="Points" sortable>
-                                    <template #body="slotProps">
-                                        {{ store.sumTotalPoints(slotProps.data,slotExpansion.data.class) }}
-                                    </template>
+                                    <!--<template #body="slotProps">
+                                        {{ store.sumTotalPoints(slotProps.data,slotExpansion.data.classes[slotProps.index].classType,slotExpansion.data.halterHorseCount) }}
+                                    </template>-->
                                 </Column>
                             </DataTable>
                         </div>
@@ -67,7 +73,6 @@ export default {
             //storeShowData: store.showData,
             //horseData: refs(showViewData(store.showData).ReturnHorseResults()),
             //horseData: storeToRefs(showViewData(store.showData).ReturnHorseResults()),
-            accordianCount: [],
             expandedRows: [],
             expandedHorseRows: [],
             expandedClassRows: []
@@ -77,25 +82,12 @@ export default {
         PlacingComponent
     },
     methods: {
-        /*getShowData() {
-            fetch(this.defaultFileSelected.file)
-                .then(response => response.json())
-                .then(data => (
-                    //this.showDataList = data,
-                    //this.horseDataList = new showViewData(data).ReturnHorseResults()
-                    //this.horseDataList = Array.from(new showViewData(data).ReturnHorseResults()).map(([name, value]) => ({value}))
-                    this.horseData = new showViewData(data).ReturnHorseResults()
-                    //this.horseDataList = this.horseData.map(d => Array.from(Object.values(d)))
-                ))
-        },*/
-        setAccordianCount(length) {
-            let arr = [];
-            for (let i = 0; i < length; i++) {
-                arr.push(i);
-            }
-
-            return arr;
-        }
+        expandAll() {
+            this.expandedRows = Array.from(this.classData.values()).filter((p) => p.class);
+        },
+        collapseAll() {
+            this.expandedRows = null;
+        },
     },
     computed: {
         classData() {
