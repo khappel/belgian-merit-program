@@ -40,9 +40,9 @@ const items = ref([
     to: '/addview'
   },
   {
-    label: 'Settings',
-    icon: 'pi pi-fw pi-cog',
-    to: '/test'
+    label: 'Rules And Info',
+    icon: 'pi pi-fw pi-info-circle',
+    to: '/rulesandinfoview'
   }
 ])
 

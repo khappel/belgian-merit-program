@@ -89,6 +89,11 @@ export default {
                     label: 'Dam Results',
                     icon: 'fa-solid fa-horse',
                     to: '/damresultsview'
+                },
+                {
+                    label: 'Versatility Results',
+                    icon: 'fa-solid fa-horse',
+                    to: '/versatilityresultsview'
                 }
             ],
             ACCESS_TOKEN: {},

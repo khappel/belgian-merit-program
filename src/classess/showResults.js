@@ -40,26 +40,26 @@ export class showViewData {
                     }
                     else {
                         if (!this.showJSON[i].classes[c].placings[p].registrationNumber) {
-                            if(!this.showJSON[i].classes[c].placings[p].horseName){
+                            if (!this.showJSON[i].classes[c].placings[p].horseName) {
                                 this.showJSON[i].classes[c].placings[p].registrationNumber =
-                                "Pending (" + this.showJSON[i].classes[c].placings[p].owner + ")"
+                                    "Pending (" + this.showJSON[i].classes[c].placings[p].owner + ")"
                             }
-                            else{
+                            else {
                                 this.showJSON[i].classes[c].placings[p].registrationNumber =
-                                "Pending (" + this.showJSON[i].classes[c].placings[p].horseName + ")"
+                                    "Pending (" + this.showJSON[i].classes[c].placings[p].horseName + ")"
                             }
                         }
                         if (this.showJSON[i].classes[c].placings[p].registrationNumber.toLowerCase() == 'pending') {
-                            if(!this.showJSON[i].classes[c].placings[p].horseName){
+                            if (!this.showJSON[i].classes[c].placings[p].horseName) {
                                 this.showJSON[i].classes[c].placings[p].registrationNumber =
-                                this.showJSON[i].classes[c].placings[p].registrationNumber + "(" + this.showJSON[i].classes[c].placings[p].owner + ")"
+                                    this.showJSON[i].classes[c].placings[p].registrationNumber + "(" + this.showJSON[i].classes[c].placings[p].owner + ")"
                             }
-                            else{
+                            else {
                                 this.showJSON[i].classes[c].placings[p].registrationNumber =
-                                this.showJSON[i].classes[c].placings[p].registrationNumber + "(" + this.showJSON[i].classes[c].placings[p].horseName + ")"
+                                    this.showJSON[i].classes[c].placings[p].registrationNumber + "(" + this.showJSON[i].classes[c].placings[p].horseName + ")"
                             }
                         }
-                        
+
                         this.showJSON[i].classes[c].placings[p].pointsTotal = store.sumTotalPoints(
                             this.showJSON[i].classes[c].placings[p],
                             this.showJSON[i].classes[c].classType,
@@ -409,8 +409,85 @@ export class showViewData {
         return itemClasses;
 
     }
-}
+    ReturnVersatilityResults() {
+        let itemHorses = new Map();
 
+        let versatilityHorses = new Map();
+        for (var i = 0; i < this.showJSON.length; i++) {
+            let showItem = new showResults();
+            showItem = this.showJSON[i];
+
+            let hitchHorses = new Map();
+            let halterHorses = new Map();
+
+            showItem.classes.forEach(c => {
+                if (c.classType == "Hitch") {
+                    //grab all horses in the two hitch classes
+                    c.placings.forEach(p => {
+                        if (p.registrationNumber) {
+                            hitchHorses.set(p.registrationNumber, p)
+                        }
+                    })
+                }
+                else {
+                    //grab all the horses in the rest of the classes
+                    c.placings.forEach(p => {
+                        if (p.registrationNumber) {
+                            halterHorses.set(p.registrationNumber, p)
+                        }
+                    })
+                }
+            });
+
+            hitchHorses.forEach(hh => {
+                halterHorses.forEach(ah => {
+                    if (hh.registrationNumber == ah.registrationNumber) {
+                        if (itemHorses.has(placeItem.registrationNumber)) {
+                            var foundHorse = itemHorses.get(placeItem.registrationNumber);
+
+                            foundHorse.shows.push({
+                                "show": showItem.show,
+                                "horseCount": showItem.halterHorseCount,
+                                "class": clsItem.class,
+                                "placing": placeItem.placing,
+                                "championshipPoints": placeItem.championshipPoints,
+                                "placingPoints": placeItem.placingPoints,
+                                "pointsTotal": placeItem.pointsTotal
+                            })
+                        }
+                        else {
+                            var newHorse = {
+                                "registrationNumber": placeItem.registrationNumber,
+                                "horseName": placeItem.horseName,
+                                "owner": placeItem.owner,
+                                "sire": placeItem.sire,
+                                "dam": placeItem.dam,
+                                "showTotals": 0,
+                                "shows": [{
+                                    "show": showItem.show,
+                                    "horseCount": showItem.halterHorseCount,
+                                    "class": clsItem.class,
+                                    "placing": placeItem.placing,
+                                    "championshipPoints": placeItem.championshipPoints,
+                                    "placingPoints": placeItem.placingPoints,
+                                    "pointsTotal": placeItem.pointsTotal
+                                }]
+                            };
+
+                            versatilityHorses.set(hh.registrationNumber, newHorse)
+                        }
+                    }
+                })
+
+            })
+
+            itemHorses.forEach(h => h.showTotals = store.pointsSummary(h.shows));
+
+            return itemHorses;
+
+        }
+    }   
+}
 class showResults {
     constructor(show, horseCount, classes) {
         this.show = show;
@@ -420,8 +497,9 @@ class showResults {
 }
 
 class classes {
-    constructor(_class, placings) {
+    constructor(_class, classType, placings) {
         this._class = _class;
+        this.classType = classType;
         this.placings = placings;
     }
 }
