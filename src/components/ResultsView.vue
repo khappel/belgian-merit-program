@@ -75,11 +75,11 @@ export default {
                     icon: 'fa-solid fa-horse',
                     to: '/classresultsview'
                 },
-                {
+                /*{
                     label: 'Horse Results',
                     icon: 'fa-solid fa-horse',
                     to: '/horseresultsview'
-                },
+                },*/
                 {
                     label: 'Sire Results',
                     icon: 'fa-solid fa-horse',

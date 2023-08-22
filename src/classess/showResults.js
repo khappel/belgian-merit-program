@@ -60,10 +60,18 @@ export class showViewData {
                             }
                         }
 
+                        var horseCount = 0;
+                        if (this.showJSON[i].classes[c].classType == "Hitch") {
+                            horseCount = this.showJSON[i].hitchHorseCount
+                        }
+                        else {
+                            horseCount = this.showJSON[i].halterHorseCount;
+                        }
+
                         this.showJSON[i].classes[c].placings[p].pointsTotal = store.sumTotalPoints(
                             this.showJSON[i].classes[c].placings[p],
                             this.showJSON[i].classes[c].classType,
-                            this.showJSON[i].halterHorseCount
+                            horseCount
                         )
 
                     }
@@ -274,28 +282,11 @@ export class showViewData {
                     let placeItem = new placings();
                     placeItem = clsItem.placings[p];
 
-                    if (itemOwners.has(placeItem.owner)) {
-                        var foundOwner = itemOwners.get(placeItem.owner);
+                    if (placeItem.owner.length > 0) {
+                        if (itemOwners.has(placeItem.owner.replace(/ /g, ''))) {
+                            var foundOwner = itemOwners.get(placeItem.owner.replace(/ /g, ''));
 
-                        foundOwner.shows.push({
-                            "show": showItem.show,
-                            "horseCount": showItem.horseCount,
-                            "class": clsItem.class,
-                            "registrationNumber": placeItem.registrationNumber,
-                            "horseName": placeItem.horseName,
-                            "sire": placeItem.sire,
-                            "dam": placeItem.dam,
-                            "placing": placeItem.placing,
-                            "championshipPoints": placeItem.championshipPoints,
-                            "placingPoints": placeItem.placingPoints,
-                            "pointsTotal": placeItem.pointsTotal
-                        })
-                    }
-                    else {
-                        var newOwner = {
-                            "owner": placeItem.owner,
-                            "showTotals": 0,
-                            "shows": [{
+                            foundOwner.shows.push({
                                 "show": showItem.show,
                                 "horseCount": showItem.horseCount,
                                 "class": clsItem.class,
@@ -307,10 +298,29 @@ export class showViewData {
                                 "championshipPoints": placeItem.championshipPoints,
                                 "placingPoints": placeItem.placingPoints,
                                 "pointsTotal": placeItem.pointsTotal
-                            }]
-                        };
+                            })
+                        }
+                        else {
+                            var newOwner = {
+                                "owner": placeItem.owner,
+                                "showTotals": 0,
+                                "shows": [{
+                                    "show": showItem.show,
+                                    "horseCount": showItem.horseCount,
+                                    "class": clsItem.class,
+                                    "registrationNumber": placeItem.registrationNumber,
+                                    "horseName": placeItem.horseName,
+                                    "sire": placeItem.sire,
+                                    "dam": placeItem.dam,
+                                    "placing": placeItem.placing,
+                                    "championshipPoints": placeItem.championshipPoints,
+                                    "placingPoints": placeItem.placingPoints,
+                                    "pointsTotal": placeItem.pointsTotal
+                                }]
+                            };
 
-                        itemOwners.set(placeItem.owner, newOwner)
+                            itemOwners.set(placeItem.owner.replace(/ /g, ''), newOwner)
+                        }
                     }
                 }
             }
@@ -486,7 +496,7 @@ export class showViewData {
             return itemHorses;
 
         }
-    }   
+    }
 }
 class showResults {
     constructor(show, horseCount, classes) {
