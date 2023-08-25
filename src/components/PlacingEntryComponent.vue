@@ -7,13 +7,13 @@
     <Sidebar v-model:visible="visibleSearchRight" position="right">
         <textarea>test</textarea>        
     </Sidebar>
-    <Card>
+    <Card width="100%">
         <!--<template #title>{{ ShowClass }}</template>-->
 
         <template #content>
             <!--<form @submit.prevent="handleSubmit" class="placing-form">-->
-
-            <table width="100%">
+            <Button label="" icon="pi pi-plus" class="mr-2" @click="AddEmptyRow" />
+            <table id="{{this.showClass}}" width="100%">
                 <thead>
                     <tr>
                         <th style="text-align: left;">Placing</th>                        
@@ -24,7 +24,7 @@
                         <th style="text-align: left;">Dam</th>
                         <th style="text-align: left;">Championship Points</th>
                         <th style="text-align: left;">Points</th>
-                        <th style="text-align: left;">Calculated Points</th>
+                        <!--<th style="text-align: left;">Calculated Points</th>-->
                     </tr>
                 </thead>
                 <tbody>
@@ -67,9 +67,9 @@
                         <td>
                             {{ placing.placingPoints }}
                         </td>
-                        <td>
+                        <!--<td>
                             {{ calculatePoints(placing,this.classType,this.halterHorseCount) }}
-                        </td>
+                        </td>-->
                     </tr>
 
 
@@ -165,6 +165,10 @@ export default {
         }
     },
     methods: {
+        AddNewRow: function() {
+            var tr = '<tr><td></td><td>test</td></tr>'; // n.parentNode.parentNode.cloneNode(true);
+            document.getElementById('tblPlacings').appendChild(tr);
+        },
         calculatePoints: function(placing, classType, halterHorseCount){
             let points = store.sumTotalPoints(placing, classType, halterHorseCount);
             return points;

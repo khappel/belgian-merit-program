@@ -1,14 +1,14 @@
 <template>
     <DataTable v-model:expandedRows="expandedRows" :value="Array.from(classData.values())" stripedRows
         @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" dataKey="class" :class="p-datatable-sm"
-        tableStyle="min-width: 50rem">
+        tableStyle="min-width: 50rem" sortField="class" :sortOrder="1">
         <template #header>
             <div class="flex flex-wrap justify-content-end gap-2">
                 <Button text icon="pi pi-plus" label="Expand" @click="expandAll" />
                 <Button text icon="pi pi-minus" label="Collapse" @click="collapseAll" />
             </div>
         </template>
-        <Column expander style="width: 3rem" />
+        <Column expander style="width: 1rem" />
         <Column field="class" header="Class" sortable></Column>
         <Column field="classCount" header="Class Count" sortable></Column>
 
@@ -17,7 +17,7 @@
                 <DataTable v-model:expandedRows="expandedHorseRows" :value="slotExpansion.data.horses" @rowExpand="onRowExpand"
                 @rowCollapse="onRowCollapse" dataKey="registrationNumber" :class="p-datatable-sm" tableStyle="min-width: 50rem"
                 sortField="showTotals" :sortOrder="-1">
-                    <Column expander style="width: 3rem" />
+                    <Column expander style="width: 1rem" />
                     <Column field="registrationNumber" header="Registraion" sortable></Column>
                     <Column field="horseName" header="Horse" sortable></Column>
                     <Column field="owner" header="Owner" sortable></Column>

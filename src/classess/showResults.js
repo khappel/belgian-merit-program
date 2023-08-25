@@ -420,12 +420,12 @@ export class showViewData {
 
     }
     ReturnVersatilityResults() {
-        let itemHorses = new Map();
+        //let itemHorses = new Map();
 
         let versatilityHorses = new Map();
-        for (var i = 0; i < this.showJSON.length; i++) {
+        for (var s = 0; s < this.showJSON.length; s ++) {
             let showItem = new showResults();
-            showItem = this.showJSON[i];
+            showItem = this.showJSON[s];
 
             let hitchHorses = new Map();
             let halterHorses = new Map();
@@ -435,6 +435,11 @@ export class showViewData {
                     //grab all horses in the two hitch classes
                     c.placings.forEach(p => {
                         if (p.registrationNumber) {
+                            p.show = showItem.show;
+                            p.halterHorseCount = showItem.halterHorseCount;
+                            p.hitchHorseCount = showItem.hitchHorseCount;
+                            p.class = c.class;
+                            p.classType = c.classType;
                             hitchHorses.set(p.registrationNumber, p)
                         }
                     })
@@ -443,59 +448,90 @@ export class showViewData {
                     //grab all the horses in the rest of the classes
                     c.placings.forEach(p => {
                         if (p.registrationNumber) {
+                            p.show = showItem.show;
+                            p.halterHorseCount = showItem.halterHorseCount;
+                            p.hitchHorseCount = showItem.hitchHorseCount;
+                            p.class = c.class;
+                            p.classType = c.classType;
                             halterHorses.set(p.registrationNumber, p)
                         }
                     })
                 }
             });
 
-            hitchHorses.forEach(hh => {
-                halterHorses.forEach(ah => {
-                    if (hh.registrationNumber == ah.registrationNumber) {
-                        if (itemHorses.has(placeItem.registrationNumber)) {
-                            var foundHorse = itemHorses.get(placeItem.registrationNumber);
+            hitchHorses.forEach(hitch => {
+                halterHorses.forEach(halter => {
+                    if (hitch.registrationNumber == halter.registrationNumber) {
+                        if (versatilityHorses.has(halter.registrationNumber)) {
+                            var foundHorse = versatilityHorses.get(halter.registrationNumber);
 
+                            //see if found horse shows contains this hitch class  
+                            let foundShowClass = foundHorse.shows.find(s => s.show == hitch.show && s.class == hitch.class)                          
+                            if (foundShowClass == undefined){
+                                foundHorse.shows.push({
+                                    "show": hitch.show,
+                                    "halterHorseCount": hitch.halterHorseCount,
+                                    "hitchHorseCount": hitch.hitchHorseCount,
+                                    "class": hitch.class,
+                                    "placing": hitch.placing,
+                                    "championshipPoints": hitch.championshipPoints,
+                                    "placingPoints": hitch.placingPoints,
+                                    "pointsTotal": hitch.pointsTotal
+                                })    
+                            }
                             foundHorse.shows.push({
-                                "show": showItem.show,
-                                "horseCount": showItem.halterHorseCount,
-                                "class": clsItem.class,
-                                "placing": placeItem.placing,
-                                "championshipPoints": placeItem.championshipPoints,
-                                "placingPoints": placeItem.placingPoints,
-                                "pointsTotal": placeItem.pointsTotal
+                                "show": halter.show,
+                                "halterHorseCount": halter.halterHorseCount,
+                                "hitchHorseCount": halter.hitchHorseCount,
+                                "class": halter.class,
+                                "placing": halter.placing,
+                                "championshipPoints": halter.championshipPoints,
+                                "placingPoints": halter.placingPoints,
+                                "pointsTotal": halter.pointsTotal
                             })
                         }
                         else {
                             var newHorse = {
-                                "registrationNumber": placeItem.registrationNumber,
-                                "horseName": placeItem.horseName,
-                                "owner": placeItem.owner,
-                                "sire": placeItem.sire,
-                                "dam": placeItem.dam,
+                                "registrationNumber": hitch.registrationNumber,
+                                "horseName": hitch.horseName,
+                                "owner": hitch.owner,
+                                "sire": hitch.sire,
+                                "dam": hitch.dam,
                                 "showTotals": 0,
                                 "shows": [{
-                                    "show": showItem.show,
-                                    "horseCount": showItem.halterHorseCount,
-                                    "class": clsItem.class,
-                                    "placing": placeItem.placing,
-                                    "championshipPoints": placeItem.championshipPoints,
-                                    "placingPoints": placeItem.placingPoints,
-                                    "pointsTotal": placeItem.pointsTotal
+                                    "show": hitch.show,
+                                    "halterHorseCount": hitch.halterHorseCount,
+                                    "hitchHorseCount": hitch.hitchHorseCount,
+                                    "class": hitch.class,
+                                    "placing": hitch.placing,
+                                    "championshipPoints": hitch.championshipPoints,
+                                    "placingPoints": hitch.placingPoints,
+                                    "pointsTotal": hitch.pointsTotal
+                                },
+                                {
+                                    "show": halter.show,
+                                    "halterHorseCount": halter.halterHorseCount,
+                                    "hitchHorseCount": halter.hitchHorseCount,
+                                    "class": halter.class,
+                                    "placing": halter.placing,
+                                    "championshipPoints": halter.championshipPoints,
+                                    "placingPoints": halter.placingPoints,
+                                    "pointsTotal": halter.pointsTotal
                                 }]
                             };
 
-                            versatilityHorses.set(hh.registrationNumber, newHorse)
+                            versatilityHorses.set(hitch.registrationNumber, newHorse)
                         }
                     }
                 })
 
             })
 
-            itemHorses.forEach(h => h.showTotals = store.pointsSummary(h.shows));
-
-            return itemHorses;
+            versatilityHorses.forEach(h => h.showTotals = store.pointsSummary(h.shows));
 
         }
+
+        return versatilityHorses;
     }
 }
 class showResults {

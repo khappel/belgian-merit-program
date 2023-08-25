@@ -8,7 +8,7 @@
                 <Button text icon="pi pi-minus" label="Collapse" @click="collapseAll" />
             </div>
         </template>
-        <Column expander style="width: 5rem" />
+        <Column expander style="width: 1rem" />
         <Column field="registrationNumber" header="Registraion" sortable></Column>
         <Column field="horseName" header="Horse" sortable></Column>
         <Column field="owner" header="Owner" sortable></Column>

@@ -48,9 +48,9 @@
                             <label for="classCount">Class Count</label>
                             <InputNumber v-model="cls.classCount" inputId="integeronly" @change="componentChange()" />
                         </div>
-                        <PlacingEntryComponent :show="selectedShow.show" :ShowClass="cls" :ClassCount="cls.classCount"
-                            :halterHorseCount="selectedShow.halterHorseCount" :hitchHorseCount="selectedShow.hitchHorseCount" 
-                            :classType="cls.classType"
+                        <PlacingEntryComponent :Show="selectedShow.show" :ShowClass="cls" :ClassCount="cls.classCount"
+                            :HalterHorseCount="selectedShow.halterHorseCount" :HitchHorseCount="selectedShow.hitchHorseCount" 
+                            :ClassType="cls.classType"
                             :Placings="cls.placings" @input="(e, c, d) => handleChange(e, c, d)"
                             @valueChange="() => componentChange()"></PlacingEntryComponent>
                         

@@ -7,7 +7,7 @@
                 <Button text icon="pi pi-minus" label="Collapse" @click="collapseAll" />
             </div>
         </template>
-        <Column expander style="width: 5rem" />
+        <Column expander style="width: 1rem" />
         <Column field="show" header="Show" sortable></Column>
         <Column field="halterHorseCount" header="Halter Count"></Column>
         <Column field="hitchHorseCount" header="Hitch Count"></Column>
@@ -18,7 +18,7 @@
             </div>-->
             <DataTable v-model:expandedRows="expandedClassRows" :value="slotPropsClass.data.classes" @rowExpand="onRowExpand"
                 @rowCollapse="onRowCollapse" dataKey="class" :class="p-datatable-sm" tableStyle="min-width: 50rem">
-                <Column expander style="width: 5rem" />
+                <Column expander style="width: 1rem" />
                 <Column field="class" header="Classes" sortable></Column>
                 <Column field="classCount" header="Class Count" sortable></Column>
 

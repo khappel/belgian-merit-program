@@ -8,7 +8,7 @@
                 <Button text icon="pi pi-minus" label="Collapse" @click="collapseAll" />
             </div>
         </template>
-        <Column expander style="width: 5rem" />        
+        <Column expander style="width: 1rem" />
         <Column field="sire" header="Sire" sortable></Column>        
         <Column field="showTotals" header="Total Points" sortable>
         </Column>

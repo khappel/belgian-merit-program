@@ -12,7 +12,11 @@
         "region": "State"
     },
     {
-        "show": "Indiana State Fair (National Belgian Show and National Belgian Futurity)",
+        "show": "National Belgian Show (Indiana State Fair)",
+        "region": "State"
+    },
+    {
+        "show": "National Belgian Futurity (Indiana State Fair)",
         "region": "State"
     },
     {
