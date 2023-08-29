@@ -12,8 +12,8 @@
 
         <template #content>
             <!--<form @submit.prevent="handleSubmit" class="placing-form">-->
-            <Button label="" icon="pi pi-plus" class="mr-2" @click="AddEmptyRow" />
-            <table id="{{this.showClass}}" width="100%">
+            <Button label="" icon="pi pi-plus" class="mr-2" @click="AddNewRow" />
+            <table :id="ShowClass.class" width="100%">
                 <thead>
                     <tr>
                         <th style="text-align: left;">Placing</th>                        
@@ -34,11 +34,11 @@
                             {{ placing.placing }}
                         </td>
                         <td>
-                            <InputText type="text" id="owner" v-model="placing.owner" class="p-inputtext-sm"
+                            <InputText type="text" v-model="placing.owner" class="p-inputtext-sm"
                                 @change="valueChange()" />
                         </td>
                         <td>
-                            <InputText type="text" id="horseName" v-model="placing.horseName" class="p-inputtext-sm"
+                            <InputText type="text" v-model="placing.horseName" class="p-inputtext-sm"
                                 @change="valueChange()" />
                         </td>
                         <td>
@@ -53,15 +53,15 @@
 
                         </td>
                         <td>
-                            <InputText type="text" id="sire" v-model="placing.sire" class="p-inputtext-sm"
+                            <InputText type="text" v-model="placing.sire" class="p-inputtext-sm"
                                 @change="valueChange()" />
                         </td>
                         <td>
-                            <InputText type="text" id="dam" v-model="placing.dam" class="p-inputtext-sm"
+                            <InputText type="text" v-model="placing.dam" class="p-inputtext-sm"
                                 @change="valueChange()" />
                         </td>
                         <td>
-                            <InputNumber v-model="placing.championshipPoints" inputId="integeronly" id="championshipPoints"
+                            <InputNumber v-model.number="placing.championshipPoints"
                                 @change="valueChange()" />
                         </td>
                         <td>
@@ -153,7 +153,7 @@ export default {
                     "sire": "",
                     "dam": "",
                     "championshipPoints": "",
-                    "placingPoints": 1
+                    "placingPoints": 2
                 }
             ],
             visibleSearchRight: false,
@@ -161,13 +161,15 @@ export default {
             filteredRegistrationItems: null,
             halterHorseCount: this.HalterHorseCount,
             hitchHorseCount: this.HitchHorseCount,
-            classType: this.classType
+            classType: this.classType,
+            showClass: this.ShowClass
         }
     },
     methods: {
         AddNewRow: function() {
+
             var tr = '<tr><td></td><td>test</td></tr>'; // n.parentNode.parentNode.cloneNode(true);
-            document.getElementById('tblPlacings').appendChild(tr);
+            document.getElementById(this.ShowClass.class).appendChild(tr);
         },
         calculatePoints: function(placing, classType, halterHorseCount){
             let points = store.sumTotalPoints(placing, classType, halterHorseCount);

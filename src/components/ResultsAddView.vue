@@ -17,13 +17,13 @@
                 <Listbox v-model="selectedShow" :options="showList" optionLabel="show" class="w-full mb-1" listStyle="max-height:300px" />
                 <Button label="Add Show" icon="pi pi-plus" @click="visibleRight = true" />
                 <div class="flex flex-row gap-2" style="align-items: center;">
-                    <label for="halterHorseCount">Halter Horse Count</label>
-                    <InputNumber v-model="selectedShow.halterHorseCount" inputId="integeronly" @change="componentChange()"
+                    <label :for="selectedShow.halterHorseCount">Halter Horse Count</label>
+                    <InputNumber v-model.number="selectedShow.halterHorseCount" @change="componentChange()"
                         required />
                 </div>
                 <div class="flex flex-row gap-2" style="align-items: center;">
-                    <label for="hitchHorseCount">Hitch Horse Count</label>
-                    <InputNumber v-model="selectedShow.hitchHorseCount" inputId="integeronly" @change="componentChange()"
+                    <label :for="selectedShow.hitchHorseCount">Hitch Horse Count</label>
+                    <InputNumber v-model.number="selectedShow.hitchHorseCount" @change="componentChange()"
                         required />
                 </div>
             </Fieldset>
@@ -45,8 +45,8 @@
                     <AccordionTab v-for="cls in selectedShow?.classes" :key="cls.class" :header="cls.class">
                         
                             <div class="flex flex-row gap-2" style="align-items: center;">
-                            <label for="classCount">Class Count</label>
-                            <InputNumber v-model="cls.classCount" inputId="integeronly" @change="componentChange()" />
+                            <label :for="cls.classCount">Class Count</label>
+                            <InputNumber v-model.number="cls.classCount" @change="componentChange()" />
                         </div>
                         <PlacingEntryComponent :Show="selectedShow.show" :ShowClass="cls" :ClassCount="cls.classCount"
                             :HalterHorseCount="selectedShow.halterHorseCount" :HitchHorseCount="selectedShow.hitchHorseCount" 
