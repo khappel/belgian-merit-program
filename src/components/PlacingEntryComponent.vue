@@ -11,9 +11,8 @@
         <!--<template #title>{{ ShowClass }}</template>-->
 
         <template #content>
-            <!--<form @submit.prevent="handleSubmit" class="placing-form">-->
-            <Button label="" icon="pi pi-plus" class="mr-2" @click="AddNewRow" />
-            <table :id="ShowClass.class" width="100%">
+            <!--<form @submit.prevent="handleSubmit" class="placing-form">-->            
+            <table style="border: 1px" :id="ShowClass.class" width="100%">
                 <thead>
                     <tr>
                         <th style="text-align: left;">Placing</th>                        
@@ -24,6 +23,7 @@
                         <th style="text-align: left;">Dam</th>
                         <th style="text-align: left;">Championship Points</th>
                         <th style="text-align: left;">Points</th>
+                        <th></th>
                         <!--<th style="text-align: left;">Calculated Points</th>-->
                     </tr>
                 </thead>
@@ -67,6 +67,9 @@
                         <td>
                             {{ placing.placingPoints }}
                         </td>
+                        <td v-if="index > 4 && index === Placings.length -1">
+                            <Button label="" icon="pi pi-minus-circle" class="mr-1" @click="RemoveRow(index)" />
+                        </td>
                         <!--<td>
                             {{ calculatePoints(placing,this.classType,this.halterHorseCount) }}
                         </td>-->
@@ -75,6 +78,7 @@
 
                 </tbody>
             </table>
+            <Button label="" icon="pi pi-plus" class="mr-2" @click="AddNewRow" />
             <!--</form>-->
         </template>
         <template #footer>
@@ -168,8 +172,35 @@ export default {
     methods: {
         AddNewRow: function() {
 
-            var tr = '<tr><td></td><td>test</td></tr>'; // n.parentNode.parentNode.cloneNode(true);
-            document.getElementById(this.ShowClass.class).appendChild(tr);
+            var placingNew = {
+                        "placing": 6,
+                        "registrationNumber": "",
+                        "horseName": "",
+                        "owner": "",
+                        "sire": "",
+                        "dam": "",
+                        "championshipPoints": 0,
+                        "placingPoints": 0
+                    }
+
+            var tbodyRef = document.getElementById(this.ShowClass.class).getElementsByTagName('tbody')[0];
+            placingNew.placing = tbodyRef.rows.length + 1;
+
+            // Insert a row at the end of table
+            //var newRow = tbodyRef.insertRow();
+            //newRow.key = placingNew;
+            // Insert a cell at the end of the row
+            //var newCell = newRow.insertCell();
+            
+            // Append a text node to the cell
+            //var newText = document.createTextNode(placingNew.placing);
+            //newCell.appendChild(newText);
+
+            this.Placings.push(placingNew);
+
+        },
+        RemoveRow: function(index){
+            this.Placings.splice(index,1);
         },
         calculatePoints: function(placing, classType, halterHorseCount){
             let points = store.sumTotalPoints(placing, classType, halterHorseCount);
