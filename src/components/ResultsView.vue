@@ -96,7 +96,7 @@ export default {
                     to: '/versatilityresultsview'
                 }
             ],
-            ACCESS_TOKEN: {},
+            //ACCESS_TOKEN: {},
         };
     },
     components: {
@@ -144,18 +144,18 @@ export default {
                 ))*/
         },
         async getShowFiles() {
-            if (Object.keys(this.ACCESS_TOKEN).length === 0) {
-                await this.getAccessToken();
+            if (Object.keys(store.ACCESS_TOKEN).length === 0) {
+                await store.getAccessToken();
             }
 
-            if (Object.keys(this.ACCESS_TOKEN).length > 0) {
-                var dbx = new Dropbox({ accessToken: this.ACCESS_TOKEN.access_token });
+            if (Object.keys(store.ACCESS_TOKEN).length > 0) {
+                var dbx = new Dropbox({ accessToken: store.ACCESS_TOKEN.access_token });
 
                 dbx.filesListFolder({ path: '/Master Files' })
                     .then((response) => {
                         response.result.entries.forEach(entry => {
                             this.fileYears.push({ year: entry.name, file: entry.id })
-                            this.fileYears.sort(function (a, b) { return a.name - b.name });
+                            this.fileYears.sort(function (a, b) { return a.name - b.name }).reverse();
                             this.defaultFileSelected = this.fileYears[0];
                             this.downloadFile();
                         });
@@ -173,11 +173,11 @@ export default {
             })*/
         },
         downloadFile() {
-            if (Object.keys(this.ACCESS_TOKEN).length === 0) {
-                this.getAccessToken();
+            if (Object.keys(store.ACCESS_TOKEN).length === 0) {
+                store.getAccessToken();
             }
 
-            var dbx = new Dropbox({ accessToken: this.ACCESS_TOKEN.access_token });
+            var dbx = new Dropbox({ accessToken: store.ACCESS_TOKEN.access_token });
 
             dbx.filesDownload({ path: this.defaultFileSelected.file })
                 .then(function (response) {
@@ -206,52 +206,52 @@ export default {
             this.$router.push({ path: this.defaultViewSelected.to })
             //this.$router.push('/')
         },
-        async getAccessToken() {
-            const REFRESH_TOKEN = "qUeWkhRi2LkAAAAAAAAAAYOQK2eHCE3MZX3EIFoM9x4WxnglJcoHj7I_e-Z4Jkc1";
-            const CI = "54g6f5g8af25kk4";
-            const CS = "09b2xez7yiy40uj";
+        //async getAccessToken() {
+        //    const REFRESH_TOKEN = "qUeWkhRi2LkAAAAAAAAAAYOQK2eHCE3MZX3EIFoM9x4WxnglJcoHj7I_e-Z4Jkc1";
+        //    const CI = "54g6f5g8af25kk4";
+        //    const CS = "09b2xez7yiy40uj";
 
-            await fetch("https://api.dropbox.com/oauth2/token?refresh_token=qUeWkhRi2LkAAAAAAAAAAYOQK2eHCE3MZX3EIFoM9x4WxnglJcoHj7I_e-Z4Jkc1&grant_type=refresh_token&client_id=54g6f5g8af25kk4&client_secret=09b2xez7yiy40uj", {
-                method: 'POST',
-                mode: 'cors',
-                cache: 'no-cache',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-            })
-                .then((response) => {
-                    if (response.status === 404) {
-                        throw new Error('404 (Not Found)');
-                    } else {
-                        return response.json().then((json) => {
-                            console.log('save poster response: ', json);
-                            this.ACCESS_TOKEN = json;
-                        });
-                    }
-                });
+        //    await fetch("https://api.dropbox.com/oauth2/token?refresh_token=qUeWkhRi2LkAAAAAAAAAAYOQK2eHCE3MZX3EIFoM9x4WxnglJcoHj7I_e-Z4Jkc1&grant_type=refresh_token&client_id=54g6f5g8af25kk4&client_secret=09b2xez7yiy40uj", {
+        //        method: 'POST',
+        //        mode: 'cors',
+        //        cache: 'no-cache',
+        //        headers: {
+        //            'Content-Type': 'application/json'
+        //        },
+        //    })
+        //        .then((response) => {
+        //            if (response.status === 404) {
+        //                throw new Error('404 (Not Found)');
+        //            } else {
+        //                return response.json().then((json) => {
+        //                    console.log('save poster response: ', json);
+        //                    this.ACCESS_TOKEN = json;
+        //                });
+        //            }
+        //        });
 
-            /*axios.get("https://api.dropbox.com/oauth2/token", {
-                method: 'POST',
-                mode: 'cors',
-                cache: 'no-cache',
-                headers: {
-                    'Content-Type': 'text/plain; charset=dropbox-cors-hack'
-                },
-                params: {
+        //    /*axios.get("https://api.dropbox.com/oauth2/token", {
+        //        method: 'POST',
+        //        mode: 'cors',
+        //        cache: 'no-cache',
+        //        headers: {
+        //            'Content-Type': 'text/plain; charset=dropbox-cors-hack'
+        //        },
+        //        params: {
 
-                    refresh_token: REFRESH_TOKEN,
-                    grant_type: "refresh_token",
-                    client_id: CI,
-                    client_secret: CS,
-                },
-            })
-                .then((response) => { this.ACCESS_TOKEN = response.data })*/
+        //            refresh_token: REFRESH_TOKEN,
+        //            grant_type: "refresh_token",
+        //            client_id: CI,
+        //            client_secret: CS,
+        //        },
+        //    })
+        //        .then((response) => { this.ACCESS_TOKEN = response.data })*/
 
 
-        }
+        //} 
     },
     created: function () {
-        this.getAccessToken();
+        store.getAccessToken();
         //defaultFileSelected = defaultFile;
         this.getShowData();
         //showDataList = showData

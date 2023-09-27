@@ -85,7 +85,40 @@ export class showViewData {
 
         return this.showJSON;
     }
+    ReturnDistinctHorseList() {
+        let itemHorses = new Map();
 
+        for (var i = 0; i < this.showJSON.length; i++) {
+            let showItem = new showResults();
+            showItem = this.showJSON[i];
+            for (var c = 0; c < showItem.classes.length; c++) {
+                let clsItem = new classes();
+                clsItem = showItem.classes[c];
+
+                for (var p = 0; p < clsItem.placings.length; p++) {
+                    let placeItem = new placings();
+                    placeItem = clsItem.placings[p];
+
+                    if (itemHorses.has(placeItem.registrationNumber)) {
+                        //var foundHorse = itemHorses.get(placeItem.registrationNumber)
+                    }
+                    else {
+                        var newHorse = {
+                            "registrationNumber": placeItem.registrationNumber,
+                            "horseName": placeItem.horseName,
+                            "owner": placeItem.owner,
+                            "sire": placeItem.sire,
+                            "dam": placeItem.dam,
+                        };
+                        itemHorses.set(placeItem.registrationNumber, newHorse)
+                    }
+                }
+            }
+        }
+
+        return itemHorses;
+
+    }
     ReturnHorseResults() {
         let itemHorses = new Map();
 
