@@ -64,7 +64,8 @@
                         <td>
                             <div class="p-inputgroup flex-1">
                                 <AutoComplete v-model="placing.owner" optionLabel="value.owner" class="p-inputtext-sm"
-                                    :suggestions="filteredOwnerItems" @complete="searchOwner" @change="valueChange()" />
+                                    :suggestions="filteredOwnerItems" @complete="searchOwner" 
+                                    @item-select="selectedOwner(placing)" />
                                 <!--<InputText type="text" id="registrationNumber" v-model="placing.registrationNumber"
                                     class="p-inputtext-sm" @change="updateValue(Placings, ShowClass, ClassCount)" />
                                 <Button icon="pi pi-search" severity="warning" @click="SearchRegistry" />-->
@@ -271,6 +272,12 @@ export default {
                     this.filteredRegistrationItems = filteredItems;
                 }
             }, 250);
+        },
+        selectedOwner(originalEvent,value){
+            var selectedValue = originalEvent.owner;
+            
+            originalEvent.owner = selectedValue.name;
+            this.valueChange();
         },
         searchOwner(event) {
             setTimeout(() => {

@@ -1,12 +1,9 @@
 <template>
     <Card class="m-0">
         <template #title>
-            <h1>Merit Results</h1>
-            <Button label="New" icon="pi pi-plus" class="mr-2" @click="SetNewMode" />
+            <Menubar :model="items" />
             <input type="file" accept=".json" ref="file" style="display:none" @change="ReadFile" />
-            <Button label="Open" icon="pi pi-upload" severity="success" class="mr-2" @click="OpenFile" />
-            <Button label="Save" icon="" class="mr-2" @click="SaveFile" />
-
+            
         </template>
         <template #content class="m-0">
             <Fieldset legend="Show" class="w-full m-1 p-1" :toggleable="true">
@@ -45,10 +42,11 @@
                 <Accordion :multiple="true" :activeIndex="setAccordianCount()">
                     <AccordionTab v-for="cls in selectedShow?.classes" :key="cls.class" :header="cls.class">
                         
-                            <div class="flex flex-row gap-2" style="align-items: center;">
+                        <div class="flex flex-row gap-2" style="align-items: center;">
                             <label :for="cls.classCount">Class Count</label>
                             <InputNumber v-model.number="cls.classCount" @change="componentChange()" />
                         </div>
+                        
                         <PlacingEntryComponent :Show="selectedShow.show" :ShowClass="cls" :ClassCount="cls.classCount"
                             :HalterHorseCount="selectedShow.halterHorseCount" :HitchHorseCount="selectedShow.hitchHorseCount" 
                             :ClassType="cls.classType"
@@ -84,15 +82,41 @@ export default {
             defaultShowSelected: [],
             //showYear: { "year": "", "shows": currentShowList() },
             inputYear: "",
-            selectedShow: { "show": "", "halterHorseCount": 0, "halterHitchCount": 0, "classes": [] },
+            selectedShow: { "show": "", "YouthCount": 0, "classes": [] },
             showList: [],
             enableForm: false,
             enableYearMode: false,
             visibleRight: false,
-            horseCount: 0,
-            halterHorseCount: 0,
-            hitchHorseCount: 0,
-            form: { "show": "", "halterHorseCount": 0, "halterHitchCount": 0, "classes": [] },
+            youthCount: 0,
+            form: { "show": "", "YouthCount": 0, "classes": [] },
+            items: [
+                {                    
+                    label: 'New',
+                    icon: '"pi pi-plus',
+                    command: () => {this.SetNewMode}
+                },
+                {
+                    label: 'Open',
+                    icon:'pi pi-upload',
+                    severity:'success',
+                    command: () => {this.OpenFile}
+                },
+                {
+                    label: 'Save',
+                    icon:'',
+                    command: () => {this.SaveFile}
+                }
+            ]
+
+
+
+            
+             //<Button label="New" icon="pi pi-plus" class="mr-2" @click="SetNewMode" />
+            //<input type="file" accept=".json" ref="file" style="display:none" @change="ReadFile" />
+            //<Button label="Open" icon="pi pi-upload" severity="success" class="mr-2" @click="OpenFile" />
+            //<Button label="Save" icon="" class="mr-2" @click="SaveFile" />
+
+            
         };
     },
     components: {
@@ -133,7 +157,7 @@ export default {
             a.href = URL.createObjectURL(new Blob([JSON.stringify(this.showYear)], {
                 type: "text/plain"
             }));
-            a.setAttribute("download", this.showYear.year + " Belgian Merit Program.json");
+            a.setAttribute("download", this.showYear.year + " Belgian Youth Merit Program.json");
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -143,7 +167,7 @@ export default {
             this.showList = [];
             this.selectedShow = form;
             
-            localStorage.removeItem("showData");
+            localStorage.removeItem("showYouthData");
 
         },
         StartClassEntry() {
@@ -152,7 +176,7 @@ export default {
                 const foundShow = this.showList.find(({ show }) => show === showItem.show)
                 //if (foundClass.has(placeItem.registrationNumber)) 
                 if (foundShow == undefined) {
-                    this.showList.push({ "show": showItem.show, "halterHorseCount": 0, "hitchHorseCount": 0, "classes": showcls });
+                    this.showList.push({ "show": showItem.show, "youthCount": 0, "classes": showcls });
                 }
             })
 
@@ -160,20 +184,13 @@ export default {
             this.visibleRight = false;
             this.selectedShow = this.showList[this.showList.length - 1];
         },
-        /*getShowData() {
-    
-             this.showDataList = store.showData;
-             if (this.showDataList.classes != null) {
-                 this.form.showClasses = this.showDataList.classsess
-             }
-         },*/
         getShowDef() {
             fetch("Definition Files/Shows.json")
                 .then(response => response.json())
                 .then(data => (this.shows = data));
         },
         getClassDef() {
-            fetch("Definition Files/Classes.json")
+            fetch("Definition Files/YouthClasses.json")
                 .then(response => response.json())
                 .then(data => (this.form.classes = data));
         },
@@ -207,11 +224,11 @@ export default {
             }
 
             const parsed = JSON.stringify(this.showYear);
-            localStorage.setItem('showData', parsed);
+            localStorage.setItem('showYouthData', parsed);
         },
         componentChange() {
             const parsed = JSON.stringify(this.showYear);
-            localStorage.setItem('showData', parsed);
+            localStorage.setItem('showYouthData', parsed);
         },
         addResults() {
 
@@ -222,39 +239,14 @@ export default {
             return { year: this.inputYear, shows: this.showList };
         }
     },
-    /*setup() {
-    const form: reactive([
-                {"show": "",
-                "horseCount": 0,
-                "classes": [
-                    {
-                        "class": "",
-                        "placings": [
-                            {
-                                "placing": 0,
-                                "registrationNumber": "",
-                                "horseName": "",
-                                "owner": "",
-                                "sire": "",
-                                "dam": "",
-                                "championshipPoints": 0,
-                                "placingPoints": 0
-                            }
-                        ]
-                    }
-                ]}]);
-    return {
-      form
-    };
-    },*/
     created: function () {
         this.getShowDef();
         this.getClassDef();
     },
     mounted() {
-        if (localStorage.getItem('showData')) {
+        if (localStorage.getItem('showYouthData')) {
             try {
-                var FileParse = JSON.parse(localStorage.getItem('showData'));
+                var FileParse = JSON.parse(localStorage.getItem('showYouthData'));
 
                 if (FileParse.year != undefined) {
                     this.inputYear = FileParse.year;
@@ -268,20 +260,11 @@ export default {
             }
         }
     },
-    watch: {
-        //showList(newName) {
-        //    const parsed = JSON.stringify(this.showYear);
-        //    localStorage.setItem('showData', parsed);
-        //},
+    watch: {      
         inputYear(newYear) {
             const parsed = JSON.stringify(this.showYear);
-            localStorage.setItem('showData', parsed);
-        }
-        //selectedShow(newShow) {
-        //    const parsed = JSON.stringify(this.showYear);
-        //    localStorage.setItem('showData', parsed);
-        //},
-        //deep:true
+            localStorage.setItem('showYouthData', parsed);
+        }      
     }
 };
 </script>

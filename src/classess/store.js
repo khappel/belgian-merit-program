@@ -4,16 +4,23 @@ import { reactive } from 'vue'
 export const store = reactive({
   /*count: 0,*/
   showData: [],
+  youthShowdata: [],
   ACCESS_TOKEN: {},
   /*increment() {
     this.count++
   }*/
-  async getAccessToken() {
+  /*async getAccessToken() {
     const REFRESH_TOKEN = "qUeWkhRi2LkAAAAAAAAAAYOQK2eHCE3MZX3EIFoM9x4WxnglJcoHj7I_e-Z4Jkc1";
     const CI = "54g6f5g8af25kk4";
-    const CS = "09b2xez7yiy40uj";
+    const CS = "09b2xez7yiy40uj";*/
+    async getAccessToken() {
+      const REFRESH_TOKEN = "o1chJiRKhNEAAAAAAAAAAR731QCUZWqjdMj2mAcbKsTLw8W02Vcr6-XKh-YMy7fj";
+      const CI = "p81l8agjkz0mxbz";
+      const CS = "v9l639z4bv9qsp4";
+    
 
-    await fetch("https://api.dropbox.com/oauth2/token?refresh_token=qUeWkhRi2LkAAAAAAAAAAYOQK2eHCE3MZX3EIFoM9x4WxnglJcoHj7I_e-Z4Jkc1&grant_type=refresh_token&client_id=54g6f5g8af25kk4&client_secret=09b2xez7yiy40uj", {
+    //await fetch("https://api.dropbox.com/oauth2/token?refresh_token=qUeWkhRi2LkAAAAAAAAAAYOQK2eHCE3MZX3EIFoM9x4WxnglJcoHj7I_e-Z4Jkc1&grant_type=refresh_token&client_id=54g6f5g8af25kk4&client_secret=09b2xez7yiy40uj", {
+      await fetch("https://api.dropbox.com/oauth2/token?refresh_token=o1chJiRKhNEAAAAAAAAAAR731QCUZWqjdMj2mAcbKsTLw8W02Vcr6-XKh-YMy7fj&grant_type=refresh_token&client_id=p81l8agjkz0mxbz&client_secret=v9l639z4bv9qsp4", {
       method: 'POST',
       mode: 'cors',
       cache: 'no-cache',
@@ -83,6 +90,30 @@ export const store = reactive({
     }
   },
   hitchShowIndex: function (horseCount) {
+    switch (true) {
+      case horseCount >= 31:
+        return 7;
+        break;
+      case horseCount >= 26:
+        return 6;
+        break;
+      case horseCount >= 21:
+        return 5;
+        break;
+      case horseCount >= 16:
+        return 4;
+        break;
+      case horseCount >= 11:
+        return 3;
+        break;
+      case horseCount >= 6:
+        return 2;
+        break;
+      default:
+        return 1;
+    }
+  },
+  youthShowIndex: function (horseCount) {
     switch (true) {
       case horseCount >= 31:
         return 7;

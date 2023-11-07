@@ -35,6 +35,11 @@ const items = ref([
     to: '/'
   },
   {
+    label: 'Youth Results',
+    icon: 'pi pi-fw pi-star',
+    to: '/youthresultsview'
+  },
+  {
     label: 'Add Results',
     icon: 'pi pi-fw pi-plus-circle',
     to: '/addview'
