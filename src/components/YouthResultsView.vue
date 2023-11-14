@@ -37,7 +37,7 @@ export default {
             defaultViewSelected: {
                 label: 'Show Results',
                 icon: 'pi pi-fw pi-home',
-                to: '/showresultsview'
+                to: '/youthresultsview'
             },
             /*placingDataList: [],*/
             placingFile: 'Placings/2023BelgianMeritPlacings.json',
@@ -125,7 +125,7 @@ export default {
 
                     reader.addEventListener("loadend", function () {
                         //clean up shows
-                        store.youthShowData = new showViewData(JSON.parse(reader.result)).CleanupShowData();
+                        store.youthShowData = new showViewData(JSON.parse(reader.result)).CleanupYouthShowData();
                         
                     });
 

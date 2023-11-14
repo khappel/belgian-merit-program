@@ -15,24 +15,16 @@
                 <Listbox v-model="selectedShow" :options="showList" optionLabel="show" class="w-full mb-1" listStyle="max-height:300px" />
                 <Button label="Add Show" icon="pi pi-plus" @click="visibleRight = true" />
                 <div class="flex flex-row gap-2" style="align-items: center;">
-                    <label :for="selectedShow.halterHorseCount">Halter Horse Count</label>
-                    <InputNumber v-model.number="selectedShow.halterHorseCount" @change="componentChange()"
-                        required />
-                </div>
-                <div class="flex flex-row gap-2" style="align-items: center;">
-                    <label :for="selectedShow.hitchHorseCount">Hitch Horse Count</label>
-                    <InputNumber v-model.number="selectedShow.hitchHorseCount" @change="componentChange()"
+                    <label :for="selectedShow.youthCount">Youth Count</label>
+                    <InputNumber v-model.number="selectedShow.youthCount" @change="componentChange()"
                         required />
                 </div>
             </Fieldset>
 
             <Sidebar v-model:visible="visibleRight" position="right">
                 <Listbox v-model="defaultShowSelected" :options="shows" multiple optionLabel="show" class="w-full mb-1"
-                    listStyle="max-height:300px" />
-                <!--<Dropdown v-model="defaultShowSelected" :options="shows" optionLabel="show" placeholder="Select show"
-                    class="w-full mb-1" />-->
-
-
+                    listStyle="max-height:350px" />
+               
                 <Button label="Add Show" icon="pi pi-plus" class="mr-2" @click="StartClassEntry" />
 
             </Sidebar>
@@ -47,20 +39,16 @@
                             <InputNumber v-model.number="cls.classCount" @change="componentChange()" />
                         </div>
                         
-                        <PlacingEntryComponent :Show="selectedShow.show" :ShowClass="cls" :ClassCount="cls.classCount"
-                            :HalterHorseCount="selectedShow.halterHorseCount" :HitchHorseCount="selectedShow.hitchHorseCount" 
+                        <PlacingEntryComponent :EntryMode="entryMode" :Show="selectedShow.show" :ShowClass="cls"
+                            :YouthCount="selectedShow.youthCount" 
                             :ClassType="cls.classType"
                             :Placings="cls.placings" @input="(e, c, d) => handleChange(e, c, d)"
                             @valueChange="() => componentChange()"></PlacingEntryComponent>
                         
                     </AccordionTab>
                 </Accordion>
-                <!--<button>Submit</button>-->
+                
             </form>
-
-            <!-- {{ selectedShow }} -->
-
-
         </template>
     </Card>
 </template>
@@ -75,6 +63,7 @@ export default {
     data() {
         return {
             store,
+            entryMode: "Youth",
             shows: [],
             showClasses: [],
             showDataList: [],
@@ -92,19 +81,19 @@ export default {
             items: [
                 {                    
                     label: 'New',
-                    icon: '"pi pi-plus',
-                    command: () => {this.SetNewMode}
+                    icon: 'pi pi-plus',
+                    command: () => this.SetNewMode()
                 },
                 {
                     label: 'Open',
                     icon:'pi pi-upload',
                     severity:'success',
-                    command: () => {this.OpenFile}
+                    command: () => this.OpenFile()
                 },
                 {
                     label: 'Save',
                     icon:'',
-                    command: () => {this.SaveFile}
+                    command: () => this.SaveFile()
                 }
             ]
 

@@ -4,7 +4,7 @@ import { reactive } from 'vue'
 export const store = reactive({
   /*count: 0,*/
   showData: [],
-  youthShowdata: [],
+  youthShowData: [],
   ACCESS_TOKEN: {},
   /*increment() {
     this.count++
@@ -113,42 +113,58 @@ export const store = reactive({
         return 1;
     }
   },
-  youthShowIndex: function (horseCount) {
+  youthShowIndex: function (youthCount) {
     switch (true) {
-      case horseCount >= 31:
+      case youthCount >= 17:
+        return 9;
+        break;
+      case youthCount >= 15:
+        return 8;
+        break;
+      case youthCount >= 13:
         return 7;
         break;
-      case horseCount >= 26:
+      case youthCount >= 11:
         return 6;
         break;
-      case horseCount >= 21:
+      case youthCount >= 9:
         return 5;
         break;
-      case horseCount >= 16:
+      case youthCount >= 7:
         return 4;
         break;
-      case horseCount >= 11:
+      case youthCount >= 5:
         return 3;
         break;
-      case horseCount >= 6:
+      case youthCount >= 3:
         return 2;
         break;
       default:
         return 1;
     }
   },
-  sumTotalPoints: function (item, classType, horseCount) {
+  sumTotalPoints: function (item, classType, itemCount) {
     if (classType != "Hitch" && classType != "Halter") {
-      if (classType?.includes("Cart")) {
+      if (classType?.includes("Cart") && classType != "Youth") {
         classType = "Hitch";
       }
     }
-
+  
+    var champPoints = item.championshipPoints*1;
+    var placePoints = item.placingPoints*1;
+    
     if (classType == "Hitch") {
-      return (item.placingPoints + (item.championshipPoints ?? 0)) * this.hitchShowIndex(horseCount);
+      return (placePoints + (champPoints ?? 0)) * this.hitchShowIndex(itemCount);
+    }
+    else if (classType == "Youth" || classType == "YouthDecorating"){
+      //if(classType == "YouthDecorating"){
+      //  placePoints = placePoints * 2;
+      //}
+
+      return (placePoints + (champPoints ?? 0)) * this.youthShowIndex(itemCount);
     }
     else {
-      return (item.placingPoints + (item.championshipPoints ?? 0)) * this.halterShowIndex(horseCount);
+      return (placePoints + (champPoints ?? 0)) * this.halterShowIndex(itemCount);
     }
 
   },

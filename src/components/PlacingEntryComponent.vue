@@ -10,16 +10,22 @@
         <!--<template #title>{{ ShowClass }}</template>-->
 
         <template #content>
+            {{ entryMode }}
             <!--<form @submit.prevent="handleSubmit" class="placing-form">-->
             <table style="border: 1px" :id="ShowClass.class" width="100%">
                 <thead>
                     <tr>
                         <th style="text-align: left;">Placing</th>
-                        <th style="text-align: left;">Registration Number</th>
-                        <th style="text-align: left;">Horse</th>                        
-                        <th style="text-align: left;">Owner</th>
-                        <th style="text-align: left;">Sire</th>
-                        <th style="text-align: left;">Dam</th>
+                        <th v-if="this.entryMode == 'Youth'" style="text-align: left;">Exhibitor</th>
+                        
+                        <div v-else>
+                            <th style="text-align: left;">Registration Number</th>
+                            <th style="text-align: left;">Horse</th>
+                            <th style="text-align: left;">Owner</th>
+                            <th style="text-align: left;">Sire</th>
+                            <th style="text-align: left;">Dam</th>
+                        </div>
+
                         <th style="text-align: left;">Championship Points</th>
                         <th style="text-align: left;">Points</th>
                         <th></th>
@@ -31,74 +37,87 @@
                     <tr v-for="(placing, index) in Placings" :key="placing" style="text-align: left;">
                         <td>
                             <div v-if="index > 4">
-                                <InputText type="text" v-model="placing.placing" class="p-inputtext-sm" 
-                                style="width:40px;" 
-                                @change="valueChange()" />
+                                <InputText type="text" v-model="placing.placing" class="p-inputtext-sm" style="width:40px;"
+                                    @change="valueChange()" />
                             </div>
                             <div v-else>
                                 {{ placing.placing }}
-                            </div>                            
+                            </div>
                         </td>
-                        <td>
-                            <div class="p-inputgroup flex-1">
-                                <AutoComplete v-model="placing.registrationNumber" optionLabel="name" class="p-inputtext-sm"
-                                    :suggestions="filteredRegistrationItems" 
-                                    style="width:200x;" 
-                                    @complete="searchRegistration" 
-                                    @item-select="selectedRegistration(placing)"/>
-                                <!--<InputText type="text" id="registrationNumber" v-model="placing.registrationNumber"
+                        
+                            <td v-if="this.entryMode == 'Youth'">
+                                <div class="p-inputgroup flex-1">
+                                    <AutoComplete v-model="placing.exhibitor" optionLabel="value.exhibitor" class="p-inputtext-sm"
+                                        :suggestions="filteredOwnerItems" @complete="searchOwner"
+                                        @item-select="selectedOwner(placing)" />
+                                    <!--<InputText type="text" id="registrationNumber" v-model="placing.registrationNumber"
                                     class="p-inputtext-sm" @change="updateValue(Placings, ShowClass, ClassCount)" />
                                 <Button icon="pi pi-search" severity="warning" @click="SearchRegistry" />-->
-                            </div>
-
-                        </td>
-                        <td>
-                            <div class="p-inputgroup flex-1">
-                                <AutoComplete v-model="placing.horseName" optionLabel="value.horseName" class="p-inputtext-sm"
-                                    :suggestions="filteredHorseItems" @complete="searchHorse" 
-                                    @item-select="selectedHorse(placing)" />
-                                <!--<InputText type="text" v-model="placing.horseName" class="p-inputtext-sm"
-                                @change="valueChange()" />-->
-                            </div>                            
-                        </td>
-                        <td>
-                            <div class="p-inputgroup flex-1">
-                                <AutoComplete v-model="placing.owner" optionLabel="value.owner" class="p-inputtext-sm"
-                                    :suggestions="filteredOwnerItems" @complete="searchOwner" 
-                                    @item-select="selectedOwner(placing)" />
-                                <!--<InputText type="text" id="registrationNumber" v-model="placing.registrationNumber"
-                                    class="p-inputtext-sm" @change="updateValue(Placings, ShowClass, ClassCount)" />
-                                <Button icon="pi pi-search" severity="warning" @click="SearchRegistry" />-->
-                            </div>
-                            <!--<InputText type="text" v-model="placing.owner" class="p-inputtext-sm"
+                                </div>
+                                <!--<InputText type="text" v-model="placing.owner" class="p-inputtext-sm"
                                 @change="valueChange()" /> -->
-                        </td>
+                            </td>
+                        
+                        <span v-else>
+                            <td>
+                                <div class="p-inputgroup flex-1">
+                                    <AutoComplete v-model="placing.registrationNumber" optionLabel="name"
+                                        class="p-inputtext-sm" :suggestions="filteredRegistrationItems" style="width:200x;"
+                                        @complete="searchRegistration" @item-select="selectedRegistration(placing)" />
+                                    <!--<InputText type="text" id="registrationNumber" v-model="placing.registrationNumber"
+                                    class="p-inputtext-sm" @change="updateValue(Placings, ShowClass, ClassCount)" />
+                                <Button icon="pi pi-search" severity="warning" @click="SearchRegistry" />-->
+                                </div>
+
+                            </td>
+                            <td>
+                                <div class="p-inputgroup flex-1">
+                                    <AutoComplete v-model="placing.horseName" optionLabel="value.horseName"
+                                        class="p-inputtext-sm" :suggestions="filteredHorseItems" @complete="searchHorse"
+                                        @item-select="selectedHorse(placing)" />
+                                    <!--<InputText type="text" v-model="placing.horseName" class="p-inputtext-sm"
+                                @change="valueChange()" />-->
+                                </div>
+                            </td>
+                            <td>
+                                <div class="p-inputgroup flex-1">
+                                    <AutoComplete v-model="placing.owner" optionLabel="value.owner" class="p-inputtext-sm"
+                                        :suggestions="filteredOwnerItems" @complete="searchOwner"
+                                        @item-select="selectedOwner(placing)" />
+                                    <!--<InputText type="text" id="registrationNumber" v-model="placing.registrationNumber"
+                                    class="p-inputtext-sm" @change="updateValue(Placings, ShowClass, ClassCount)" />
+                                <Button icon="pi pi-search" severity="warning" @click="SearchRegistry" />-->
+                                </div>
+                                <!--<InputText type="text" v-model="placing.owner" class="p-inputtext-sm"
+                                @change="valueChange()" /> -->
+                            </td>
+                            <td>
+                                <div class="p-inputgroup flex-1">
+                                    <InputText type="text" v-model="placing.sire" class="p-inputtext-sm"
+                                        @change="valueChange()" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="p-inputgroup flex-1">
+                                    <InputText type="text" v-model="placing.dam" class="p-inputtext-sm"
+                                        @change="valueChange()" />
+                                </div>
+                            </td>
+                        </span>
                         <td>
                             <div class="p-inputgroup flex-1">
-                                <InputText type="text" v-model="placing.sire" class="p-inputtext-sm" @change="valueChange()" />
-                            </div>
-                        </td>
-                        <td>
-                            <div class="p-inputgroup flex-1">
-                                <InputText type="text" v-model="placing.dam" class="p-inputtext-sm" @change="valueChange()" />
-                            </div>
-                        </td>
-                        <td>
-                            <div class="p-inputgroup flex-1">
-                            <InputNumber v-model.number="placing.championshipPoints"                            
-                            @change="valueChange()" />
+                                <InputNumber v-model.number="placing.championshipPoints" @change="valueChange()" />
                             </div>
                         </td>
                         <td>
                             <div v-if="index > 4">
                                 <InputText type="text" v-model="placing.placingPoints" class="p-inputtext-sm"
-                                style="width:40px;" 
-                                @change="valueChange()" />
+                                    style="width:40px;" @change="valueChange()" />
                             </div>
                             <div v-else>
                                 {{ placing.placingPoints }}
-                            </div>   
-                            
+                            </div>
+
                         </td>
                         <td v-if="index > 4 && index === Placings.length - 1">
                             <Button label="" icon="pi pi-minus-circle" class="mr-1" @click="RemoveRow(index)" />
@@ -126,10 +145,12 @@ import { showViewData } from '../classess/showResults.js'
 
 export default {
     props: {
+        EntryMode: String,
         Show: String,
         ShowClass: String,
         HalterHorseCount: Number,
         HitchHorseCount: Number,
+        YouthCount: Number,
         ClassType: String,
         ClassCount: Number,
         Placings: {
@@ -142,6 +163,7 @@ export default {
         ['input', 'valueChange'],
     data() {
         return {
+            entryMode: this.EntryMode,
             placings: [
                 {
                     "placing": 1,
@@ -201,23 +223,35 @@ export default {
             filteredHorseItems: null,
             halterHorseCount: this.HalterHorseCount,
             hitchHorseCount: this.HitchHorseCount,
+            youthCount: this.YouthCount,
             classType: this.classType,
             showClass: this.ShowClass
         }
     },
     methods: {
         AddNewRow: function () {
-
-            var placingNew = {
-                "placing": 6,
-                "registrationNumber": "",
-                "horseName": "",
-                "owner": "",
-                "sire": "",
-                "dam": "",
-                "championshipPoints": 0,
-                "placingPoints": 0
+            var placingNew = {};
+            if (this.entryMode == "Youth"){
+                placingNew = {
+                    "placing": 6,                    
+                    "exhibitor": "",                    
+                    "championshipPoints": 0,
+                    "placingPoints": 0
+                }
             }
+            else{
+                placingNew = {
+                    "placing": 6,
+                    "registrationNumber": "",
+                    "horseName": "",
+                    "owner": "",
+                    "sire": "",
+                    "dam": "",
+                    "championshipPoints": 0,
+                    "placingPoints": 0
+                }
+            }
+            
 
             var tbodyRef = document.getElementById(this.ShowClass.class).getElementsByTagName('tbody')[0];
             placingNew.placing = tbodyRef.rows.length + 1;
@@ -240,18 +274,18 @@ export default {
         valueChange: function () {
             this.$emit('valueChange')
         },
-        selectedRegistration(originalEvent,value){
+        selectedRegistration(originalEvent, value) {
             var selectedValue = originalEvent.registrationNumber;
-            if (!originalEvent.sire && selectedValue.value.sire){
+            if (!originalEvent.sire && selectedValue.value.sire) {
                 originalEvent.sire = selectedValue.value.sire;
             }
-            if (!originalEvent.horseName && selectedValue.value.horseName){
+            if (!originalEvent.horseName && selectedValue.value.horseName) {
                 originalEvent.horseName = selectedValue.value.horseName;
             }
-            if (!originalEvent.dam && selectedValue.value.dam){
+            if (!originalEvent.dam && selectedValue.value.dam) {
                 originalEvent.dam = selectedValue.value.dam;
             }
-            if (!originalEvent.owner && selectedValue.value.owner){
+            if (!originalEvent.owner && selectedValue.value.owner) {
                 originalEvent.owner = selectedValue.value.owner;
             }
             originalEvent.registrationNumber = selectedValue.name;
@@ -273,9 +307,9 @@ export default {
                 }
             }, 250);
         },
-        selectedOwner(originalEvent,value){
+        selectedOwner(originalEvent, value) {
             var selectedValue = originalEvent.owner;
-            
+
             originalEvent.owner = selectedValue.name;
             this.valueChange();
         },
@@ -322,18 +356,18 @@ export default {
                 }
             }, 250);
         },
-        selectedHorse(originalEvent,value){
+        selectedHorse(originalEvent, value) {
             var selectedValue = originalEvent.horseName;
-            if (!originalEvent.sire && selectedValue.value.sire){
+            if (!originalEvent.sire && selectedValue.value.sire) {
                 originalEvent.sire = selectedValue.value.sire;
             }
-            if (!originalEvent.registrationNumber && selectedValue.value.registrationNumber){
+            if (!originalEvent.registrationNumber && selectedValue.value.registrationNumber) {
                 originalEvent.registrationNumber = selectedValue.value.registrationNumber;
             }
-            if (!originalEvent.dam && selectedValue.value.dam){
+            if (!originalEvent.dam && selectedValue.value.dam) {
                 originalEvent.dam = selectedValue.value.dam;
             }
-            if (!originalEvent.owner && selectedValue.value.owner){
+            if (!originalEvent.owner && selectedValue.value.owner) {
                 originalEvent.owner = selectedValue.value.owner;
             }
             originalEvent.horseName = selectedValue.name;
@@ -357,11 +391,11 @@ export default {
                         }
                         else {
                             var newHorse = {
-                                    "registrationNumber": x.value.registrationNumber,
-                                    "horseName": x.value.horseName,
-                                    "owner": x.value.owner,
-                                    "sire": x.value.sire,
-                                    "dam": x.value.dam,
+                                "registrationNumber": x.value.registrationNumber,
+                                "horseName": x.value.horseName,
+                                "owner": x.value.owner,
+                                "sire": x.value.sire,
+                                "dam": x.value.dam,
                             };
                             newFilteredItems.set(x.value.horseName, newHorse)
                         }

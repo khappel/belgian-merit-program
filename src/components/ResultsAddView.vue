@@ -1,12 +1,8 @@
 <template>
     <Card class="m-0">
         <template #title>
-            <h1>Merit Results</h1>
-            <Button label="New" icon="pi pi-plus" class="mr-2" @click="SetNewMode" />
-            <input type="file" accept=".json" ref="file" style="display:none" @change="ReadFile" />
-            <Button label="Open" icon="pi pi-upload" severity="success" class="mr-2" @click="OpenFile" />
-            <Button label="Save" icon="" class="mr-2" @click="SaveFile" />
-
+            <Menubar :model="items" />            
+            <input type="file" accept=".json" ref="file" style="display:none" @change="ReadFile" />            
         </template>
         <template #content class="m-0">
             <Fieldset legend="Show" class="w-full m-1 p-1" :toggleable="true">
@@ -93,6 +89,24 @@ export default {
             halterHorseCount: 0,
             hitchHorseCount: 0,
             form: { "show": "", "halterHorseCount": 0, "halterHitchCount": 0, "classes": [] },
+            items: [
+                {                    
+                    label: 'New',
+                    icon: 'pi pi-plus',
+                    command: () => this.SetNewMode()
+                },
+                {
+                    label: 'Open',
+                    icon:'pi pi-upload',
+                    severity:'success',
+                    command: () => this.OpenFile()
+                },
+                {
+                    label: 'Save',
+                    icon:'',
+                    command: () => this.SaveFile()
+                }
+            ],
         };
     },
     components: {

@@ -34,6 +34,7 @@ export class showViewData {
                 for (var p = this.showJSON[i].classes[c].placings.length - 1; p >= 0; p--) {
                     //let placeItem = new placings();
                     //placeItem = this.showJSON[i].classes[c].placings[p];
+                    //todo: if youth need to account for owner not registraiton and horse
                     if (this.showJSON[i].classes[c].placings[p].registrationNumber == '' && this.showJSON[i].classes[c].placings[p].horseName == '') {
                         //remove
                         this.showJSON[i].classes[c].placings.splice(p, 1);
@@ -72,6 +73,52 @@ export class showViewData {
                             this.showJSON[i].classes[c].placings[p],
                             this.showJSON[i].classes[c].classType,
                             horseCount
+                        )
+
+                    }
+                    if (this.showJSON[i].classes[c].placings.length == 0) {
+                        //remove class
+                        this.showJSON[i].classes.splice(c, 1);
+                    }
+                }
+            }
+        }
+
+        return this.showJSON;
+    }
+    CleanupYouthShowData() {
+        //let shows = [];
+
+        if (this.showJSON.year != undefined) {
+            this.showJSON = this.showJSON.shows;
+        }
+
+        for (var i = this.showJSON.length - 1; i >= 0; i--) {
+            //let showItem = new showResults();
+            //showItem = this.showJSON[i];
+            for (var c = this.showJSON[i].classes.length - 1; c >= 0; c--) {
+                //let clsItem = new classes();
+                //clsItem =  this.showJSON[i].classes[c];
+
+                for (var p = this.showJSON[i].classes[c].placings.length - 1; p >= 0; p--) {
+                    //let placeItem = new placings();
+                    //placeItem = this.showJSON[i].classes[c].placings[p];
+                    //todo: if youth need to account for owner not registraiton and horse
+                    if (this.showJSON[i].classes[c].placings[p].exhibitor == '') {
+                        //remove
+                        this.showJSON[i].classes[c].placings.splice(p, 1);
+                    }
+                    else {
+                        var youthCount = this.showJSON[i].youthCount;
+                        //var classType = (this.showJSON[i].classes[c].class.includes("Decorating"))? "YouthDecorating" :"Youth";
+
+                        //if (classType == "YouthDecorating"){
+                        //     this.showJSON[i].classes[c].placings[p].placingPoints = this.showJSON[i].classes[c].placings[p].placingPoints * 2;                            
+                        //}
+                        this.showJSON[i].classes[c].placings[p].pointsTotal = store.sumTotalPoints(
+                            this.showJSON[i].classes[c].placings[p],
+                            "Youth",
+                            youthCount
                         )
 
                     }
@@ -452,6 +499,156 @@ export class showViewData {
         return itemClasses;
 
     }
+    ReturnYouthClassResults() {
+        let itemClasses = new Map();
+
+        for (var i = 0; i < this.showJSON.length; i++) {
+            let showItem = new youthShowResults();
+            showItem = this.showJSON[i];
+            for (var c = 0; c < showItem.classes.length; c++) {
+                let clsItem = new classes();
+                clsItem = showItem.classes[c];
+
+                for (var p = 0; p < clsItem.placings.length; p++) {
+                    let placeItem = new placings();
+                    placeItem = clsItem.placings[p];
+
+                    if (itemClasses.has(clsItem.class)) {
+                        var foundClass = itemClasses.get(clsItem.class);
+
+                        const foundYouth = foundClass.youth.find(({ exhibitor }) =>
+                            exhibitor === placeItem.exhibitor)
+                        //if (foundClass.has(placeItem.registrationNumber)) 
+                        if (foundYouth) {
+                            //var foundHorse = placeItem.get(placeItem.registrationNumber)
+                            foundYouth.shows.push({
+                                "show": showItem.show,
+                                "youthCount": showItem.youthCount,
+                                "class": clsItem.class,
+                                "classCount": clsItem.classCount,
+                                "placing": placeItem.placing,
+                                "championshipPoints": placeItem.championshipPoints,
+                                "placingPoints": placeItem.placingPoints,
+                                "pointsTotal": placeItem.pointsTotal
+                            })
+                        }
+                        else {
+                            foundClass.classCount += 1
+                            foundClass.youth.push({                                
+                                "exhibitor": placeItem.exhibitor,
+                                "showTotals": 0,
+                                "shows": [{
+                                    "show": showItem.show,
+                                    "youthCount": showItem.youthCount,
+                                    "class": clsItem.class,
+                                    "classCount": clsItem.classCount,
+                                    "placing": placeItem.placing,
+                                    "championshipPoints": placeItem.championshipPoints,
+                                    "placingPoints": placeItem.placingPoints,
+                                    "pointsTotal": placeItem.pointsTotal
+                                }]
+
+                            })
+                        }
+                    }
+                    else {
+                        var newClass = {
+                            "class": clsItem.class,
+                            "classCount": 1,
+                            "youth": [{                                
+                                "exhibitor": placeItem.exhibitor,                                
+                                "showTotals": 0,
+                                "shows": [{
+                                    "show": showItem.show,
+                                    "youthCount": showItem.youthCount,
+                                    "class": clsItem.class,
+                                    "classCount": clsItem.classCount,
+                                    "placing": placeItem.placing,
+                                    "championshipPoints": placeItem.championshipPoints,
+                                    "placingPoints": placeItem.placingPoints,
+                                    "pointsTotal": placeItem.pointsTotal
+                                }]
+                            }]
+                        };
+                        itemClasses.set(clsItem.class, newClass)
+                    }
+                }
+            }
+        }
+
+        itemClasses.forEach(c => c.youth.forEach(h => h.showTotals = store.pointsSummary(h.shows)));
+        return itemClasses;
+
+    }
+    ReturnYouthExhibitorResults() {
+        let itemExhibitors = new Map();
+        let youthExhibitors = new Map();
+
+        for (var i = 0; i < this.showJSON.length; i++) {
+            let showItem = new showResults();
+            showItem = this.showJSON[i];
+            for (var c = 0; c < showItem.classes.length; c++) {
+                let clsItem = new classes();
+                clsItem = showItem.classes[c];
+
+                for (var p = 0; p < clsItem.placings.length; p++) {
+                    let placeItem = new placings();
+                    placeItem = clsItem.placings[p];
+
+                    if (placeItem.exhibitor.length > 0) {
+                        if (itemExhibitors.has(placeItem.exhibitor.replace(/ /g, ''))) {
+                            var foundExhibitor = itemExhibitors.get(placeItem.exhibitor.replace(/ /g, ''));
+
+                            foundExhibitor.shows.push({
+                                "show": showItem.show,
+                                "youthCount": showItem.youthCount,
+                                "class": clsItem.class,                                
+                                "placing": placeItem.placing,
+                                "championshipPoints": placeItem.championshipPoints,
+                                "placingPoints": placeItem.placingPoints,
+                                "pointsTotal": placeItem.pointsTotal
+                            })
+                        }
+                        else {
+                            var newExhibitor = {
+                                "exhibitor": placeItem.exhibitor,
+                                "showTotals": 0,
+                                "shows": [{
+                                    "show": showItem.show,
+                                    "youthCount": showItem.youthCount,
+                                    "class": clsItem.class,                                    
+                                    "placing": placeItem.placing,
+                                    "championshipPoints": placeItem.championshipPoints,
+                                    "placingPoints": placeItem.placingPoints,
+                                    "pointsTotal": placeItem.pointsTotal
+                                }]
+                            };
+
+                            itemExhibitors.set(placeItem.exhibitor.replace(/ /g, ''), newExhibitor)
+                        }
+                    }
+                }
+            }
+        }
+        
+        itemExhibitors.forEach(h => h.showTotals = store.pointsSummary(h.shows));
+
+        //split into youth 10-14 and 15-18
+        var youngYouth = {"title":"Youth 10-14",
+            "youth": []
+        }
+        var olderYouth = {"title":"Youth 15-18",
+            "youth": []
+        };
+        
+        itemExhibitors.forEach(h => (h.shows[0].class.includes("10-14")) ? youngYouth.youth.push(h): olderYouth.youth.push(h));
+
+        youthExhibitors.set(youngYouth.title, youngYouth);
+        youthExhibitors.set(olderYouth.title, olderYouth);
+
+        return youthExhibitors;
+
+    }
     ReturnVersatilityResults() {
         //let itemHorses = new Map();
 
@@ -571,6 +768,14 @@ class showResults {
     constructor(show, horseCount, classes) {
         this.show = show;
         this.horseCount = horseCount;
+        this.classes = classes;
+    }
+}
+
+class youthShowResults {
+    constructor(show, youthCount, classes) {
+        this.show = show;
+        this.youthCount = youthCount;
         this.classes = classes;
     }
 }
