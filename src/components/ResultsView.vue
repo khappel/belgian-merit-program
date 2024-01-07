@@ -2,9 +2,9 @@
     <card>
         <template #title class="flexrow">
             <Dropdown v-model="defaultFileSelected" :options="fileYears" optionLabel="year" placeholder="Select a year"
-                class="w-full md:w-14rem" @change="downloadFile()" />
+                class="w-full md:w-27rem" @change="downloadFile()" />
             <Dropdown v-model="defaultViewSelected" :options="items" optionLabel="label" placeholder="Select a view"
-                class="w-full md:w-14rem" @change="changeView()" />
+                class="w-full md:w-12rem" @change="changeView()" />
         </template>
         <template #content>
             <!--<TabMenu :model="items" />-->

@@ -2,9 +2,9 @@
     <card>
         <template #title class="flexrow">
             <Dropdown v-model="defaultFileSelected" :options="fileYears" optionLabel="year" placeholder="Select a year"
-                class="w-full md:w-14rem" @change="downloadFile()" />
+                class="w-full md:w-27rem" @change="downloadFile()" />
             <Dropdown v-model="defaultViewSelected" :options="items" optionLabel="label" placeholder="Select a view"
-                class="w-full md:w-14rem" @change="changeView()" />
+                class="w-full md:w-12rem" @change="changeView()" />
         </template>
         <template #content>
             <!--<TabMenu :model="items" />-->
@@ -37,7 +37,7 @@ export default {
             defaultViewSelected: {
                 label: 'Show Results',
                 icon: 'pi pi-fw pi-home',
-                to: '/youthresultsview'
+                to: '/youthshowresultsview'
             },
             /*placingDataList: [],*/
             placingFile: 'Placings/2023BelgianMeritPlacings.json',
@@ -99,10 +99,11 @@ export default {
                 dbx.filesListFolder({ path: '/Youth Master Files' })
                     .then((response) => {
                         response.result.entries.forEach(entry => {
-                            this.fileYears.push({ year: entry.name, file: entry.id })
+                            this.fileYears.push({ year: entry.name.trim(".json"), file: entry.id })
                             this.fileYears.sort(function (a, b) { return a.name - b.name }).reverse();
                             this.defaultFileSelected = this.fileYears[0];
                             this.downloadFile();
+                            this.changeView();
                         });
                     })
                     .catch((err) => {
@@ -125,8 +126,7 @@ export default {
 
                     reader.addEventListener("loadend", function () {
                         //clean up shows
-                        store.youthShowData = new showViewData(JSON.parse(reader.result)).CleanupYouthShowData();
-                        
+                        store.youthShowData = new showViewData(JSON.parse(reader.result)).CleanupYouthShowData();                        
                     });
 
                     if (blob != undefined) {
@@ -137,6 +137,7 @@ export default {
                 })
                 .catch(function (error) {
                 })
+
         },
         removeEmpty(obj){
 

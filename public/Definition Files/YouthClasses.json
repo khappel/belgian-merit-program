@@ -378,31 +378,13 @@
                 "placing": 1,
                 "owner": "",
                 "championshipPoints": "",
-                "placingPoints": 10
+                "placingPoints": 2
             },
             {
                 "placing": 2,
                 "owner": "",
                 "championshipPoints": "",
-                "placingPoints": 7
-            },
-            {
-                "placing": 3,
-                "owner": "",
-                "championshipPoints": "",
-                "placingPoints": 5
-            },
-            {
-                "placing": 4,
-                "owner": "",
-                "championshipPoints": "",
-                "placingPoints": 3
-            },
-            {
-                "placing": 5,
-                "owner": "",
-                "championshipPoints": "",
-                "placingPoints": 2
+                "placingPoints": 1
             }
         ]
     },
@@ -415,31 +397,13 @@
                 "placing": 1,
                 "owner": "",
                 "championshipPoints": "",
-                "placingPoints": 10
+                "placingPoints": 2
             },
             {
                 "placing": 2,
                 "owner": "",
                 "championshipPoints": "",
-                "placingPoints": 7
-            },
-            {
-                "placing": 3,
-                "owner": "",
-                "championshipPoints": "",
-                "placingPoints": 5
-            },
-            {
-                "placing": 4,
-                "owner": "",
-                "championshipPoints": "",
-                "placingPoints": 3
-            },
-            {
-                "placing": 5,
-                "owner": "",
-                "championshipPoints": "",
-                "placingPoints": 2
+                "placingPoints": 1
             }
         ]
     }

@@ -104,7 +104,8 @@ export class showViewData {
                     //let placeItem = new placings();
                     //placeItem = this.showJSON[i].classes[c].placings[p];
                     //todo: if youth need to account for owner not registraiton and horse
-                    if (this.showJSON[i].classes[c].placings[p].exhibitor == '') {
+                    if (this.showJSON[i].classes[c].placings[p].exhibitor == '' ||
+                    this.showJSON[i].classes[c].placings[p].exhibitor == undefined) {
                         //remove
                         this.showJSON[i].classes[c].placings.splice(p, 1);
                     }
