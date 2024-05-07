@@ -16,26 +16,26 @@ export default {
         return {
             active: 1,
             items: [
-                {
-                    label: 'Merit Rules and Info',
+                {                    
+                    label: 'Merit Results',
                     icon: 'pi pi-fw pi-home',
-                    to: '/meritrulesandinfo'
+                    to: '/resultsview'
                 },
                 {
-                    label: 'Youth Merit Rules and Info',
+                    label: 'Youth Merit Results',
                     icon: 'pi pi-fw pi-star',
-                    to: '/youthmeritrulesandinfo'
+                    to: '/youthresultsview'
                 },
                 {
-                    label: 'Hitch Merit Rules and Info',
+                    label: 'Hitch Merit Results',
                     icon: 'pi pi-fw pi-bookmark',
-                    to: '/hitchmeritrulesandinfo'
+                    to: '/hitchresultsview'
                 }
             ]
         }
     },    
     onMounted() {
-        router.push({ path: 'meritrulesandinfo' })
+        router.push({ path: 'resultsview' })
     }
 }
 </script>

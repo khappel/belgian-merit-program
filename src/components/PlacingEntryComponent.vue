@@ -15,20 +15,35 @@
             <table style="border: 1px" :id="ShowClass.class" width="100%">
                 <thead>
                     <tr>
-                        <th style="text-align: left;">Placing</th>
-                        <th v-if="this.entryMode == 'Youth'" style="text-align: left;">Exhibitor</th>
-                        
-                        <div v-else>
+
+                        <template v-if="this.entryMode == 'Youth'">
+                            <th style="text-align: left;">Placing</th>
+                            <th style="text-align: left;">Exhibitor</th>
+                            <th style="text-align: left;">Championship Points</th>
+                            <th style="text-align: left;">Points</th>
+                            <th></th>
+                        </template>
+                        <template v-else-if="this.entryMode == 'Hitch'">
+                            <th style="text-align: left;">Placing</th>
+                            <th style="text-align: left;">Hitch/Farm Name</th>
+                            <th style="text-align: left;">Membership #</th>
+                            <th style="text-align: left;">Championship Points</th>
+                            <th style="text-align: left;">Points</th>
+                            <th></th>
+                        </template>
+                        <template v-else>
+                            <th style="text-align: left;">Placing</th>
                             <th style="text-align: left;">Registration Number</th>
                             <th style="text-align: left;">Horse</th>
                             <th style="text-align: left;">Owner</th>
                             <th style="text-align: left;">Sire</th>
                             <th style="text-align: left;">Dam</th>
-                        </div>
+                            <th style="text-align: left;">Championship Points</th>
+                            <th style="text-align: left;">Points</th>
+                            <th></th>
+                        </template>
 
-                        <th style="text-align: left;">Championship Points</th>
-                        <th style="text-align: left;">Points</th>
-                        <th></th>
+
                         <!--<th style="text-align: left;">Calculated Points</th>-->
                     </tr>
                 </thead>
@@ -44,21 +59,44 @@
                                 {{ placing.placing }}
                             </div>
                         </td>
-                        
-                            <td v-if="this.entryMode == 'Youth'">
+
+                        <td v-if="this.entryMode == 'Youth'">
+                            <div class="p-inputgroup flex-1">
+                                <AutoComplete v-model="placing.exhibitor" optionLabel="value.exhibitor"
+                                    class="p-inputtext-sm" :suggestions="filteredOwnerItems" @complete="searchOwner"
+                                    @item-select="selectedOwner(placing)" />
+                                <!--<InputText type="text" id="registrationNumber" v-model="placing.registrationNumber"
+                                    class="p-inputtext-sm" @change="updateValue(Placings, ShowClass, ClassCount)" />
+                                <Button icon="pi pi-search" severity="warning" @click="SearchRegistry" />-->
+                            </div>
+                            <!--<InputText type="text" v-model="placing.owner" class="p-inputtext-sm"
+                                @change="valueChange()" /> -->
+                        </td>
+                        <template v-else-if="this.entryMode == 'Hitch'">
+                            <td>
                                 <div class="p-inputgroup flex-1">
-                                    <AutoComplete v-model="placing.exhibitor" optionLabel="value.exhibitor" class="p-inputtext-sm"
-                                        :suggestions="filteredOwnerItems" @complete="searchOwner"
-                                        @item-select="selectedOwner(placing)" />
+                                    <AutoComplete v-model="placing.hitchFarmName" optionLabel="farm name"
+                                        class="p-inputtext-sm" :suggestions="filteredRegistrationItems" style="width:200x;"
+                                        @complete="searchRegistration" @item-select="selectedRegistration(placing)" />
                                     <!--<InputText type="text" id="registrationNumber" v-model="placing.registrationNumber"
                                     class="p-inputtext-sm" @change="updateValue(Placings, ShowClass, ClassCount)" />
                                 <Button icon="pi pi-search" severity="warning" @click="SearchRegistry" />-->
                                 </div>
-                                <!--<InputText type="text" v-model="placing.owner" class="p-inputtext-sm"
-                                @change="valueChange()" /> -->
+
                             </td>
-                        
-                        <span v-else>
+                            <td>
+                                <div class="p-inputgroup flex-1">
+                                    <AutoComplete v-model="placing.membershipNum" optionLabel="membership number"
+                                        class="p-inputtext-sm" :suggestions="filteredRegistrationItems" style="width:200x;"
+                                        @complete="searchRegistration" @item-select="selectedRegistration(placing)" />
+                                    <!--<InputText type="text" id="registrationNumber" v-model="placing.registrationNumber"
+                                    class="p-inputtext-sm" @change="updateValue(Placings, ShowClass, ClassCount)" />
+                                <Button icon="pi pi-search" severity="warning" @click="SearchRegistry" />-->
+                                </div>
+
+                            </td>
+                        </template>
+                        <template v-else>
                             <td>
                                 <div class="p-inputgroup flex-1">
                                     <AutoComplete v-model="placing.registrationNumber" optionLabel="name"
@@ -103,7 +141,7 @@
                                         @change="valueChange()" />
                                 </div>
                             </td>
-                        </span>
+                        </template>
                         <td>
                             <div class="p-inputgroup flex-1">
                                 <InputNumber v-model.number="placing.championshipPoints" @change="valueChange()" />
@@ -231,15 +269,24 @@ export default {
     methods: {
         AddNewRow: function () {
             var placingNew = {};
-            if (this.entryMode == "Youth"){
+            if (this.entryMode == "Youth") {
                 placingNew = {
-                    "placing": 6,                    
-                    "exhibitor": "",                    
+                    "placing": 6,
+                    "exhibitor": "",
                     "championshipPoints": 0,
                     "placingPoints": 0
                 }
             }
-            else{
+            else if (this.entryMode == "Hitch") {
+                placingNew = {
+                    "placing": 6,
+                    "hitchFarmName": "",
+                    "membershipNum": "",
+                    "championshipPoints": 0,
+                    "placingPoints": 0
+                }
+            }
+            else {
                 placingNew = {
                     "placing": 6,
                     "registrationNumber": "",
@@ -251,7 +298,7 @@ export default {
                     "placingPoints": 0
                 }
             }
-            
+
 
             var tbodyRef = document.getElementById(this.ShowClass.class).getElementsByTagName('tbody')[0];
             placingNew.placing = tbodyRef.rows.length + 1;

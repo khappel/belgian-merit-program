@@ -26,6 +26,11 @@ export default {
                     label: 'Youth Merit Results Entry',
                     icon: 'pi pi-fw pi-star',
                     to: '/addyouthview'
+                },
+                {
+                    label: 'Hitch Merit Results Entry',
+                    icon: 'pi pi-fw pi-bookmark',
+                    to: '/addhitchview'
                 }
             ]
         }

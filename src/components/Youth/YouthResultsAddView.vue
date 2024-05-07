@@ -54,8 +54,8 @@
 </template>
 
 <script>
-import PlacingEntryComponent from './PlacingEntryComponent.vue'
-import { store } from '../classess/store.js'
+import PlacingEntryComponent from '../PlacingEntryComponent.vue'
+import { store } from '../../classess/store.js'
 import { ref } from "vue";
 
 export default {

@@ -1,6 +1,6 @@
 <template>
     <DataTable v-model:expandedRows="expandedRows" :value="Array.from(horseData.values())" stripedRows
-        @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" dataKey="sire" :class="p-datatable-sm"
+        @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" dataKey="registrationNumber" :class="p-datatable-sm"
         tableStyle="min-width: 50rem" sortField="showTotals" :sortOrder="-1">
         <template #header>
             <div class="flex flex-wrap justify-content-end gap-2">
@@ -9,24 +9,27 @@
             </div>
         </template>
         <Column expander style="width: 1rem" />
-        <Column field="sire" header="Sire" sortable></Column>        
+        <Column field="registrationNumber" header="Registraion" sortable></Column>
+        <Column field="horseName" header="Horse" sortable></Column>
+        <Column field="owner" header="Owner" sortable></Column>
+        <Column field="sire" header="Sire" sortable></Column>
+        <Column field="dam" header="Dam" sortable></Column>
         <Column field="showTotals" header="Total Points" sortable>
+            <!--<template #body="slotProps">
+                {{ store.pointsSummary(slotProps.data.shows,slotProps.data.shows[0].class) }}
+            </template>-->
         </Column>
-        <template #expansion="slotProps">
+        <template #expansion="slotExpansion">
             <div class="p-3">
-                <DataTable :value="slotProps.data.shows" :class="p-datatable-sm">
+                <DataTable :value="slotExpansion.data.shows" :class="p-datatable-sm">
                     <Column field="show" header="Show" sortable></Column>                    
                     <Column field="class" header="Class" sortable></Column>
                     <Column field="placing" header="Placing" sortable></Column>
-                    <Column field="registrationNumber" header="Registraion"></Column>
-                    <Column field="horseName" header="Horse" sortable></Column>
-                    <Column field="owner" header="Owner" sortable></Column>
-                    <Column field="dam" header="Dam" sortable></Column>
                     <Column field="championshipPoints" header="Championship Points" sortable></Column>
                     <Column field="placingPoints" header="Placing Points" sortable></Column>
                     <Column field="pointsTotal" header="Points" sortable>
                         <!--<template #body="slotProps">
-                            {{ store.sumTotalPoints(slotProps.data,slotProps.class.classType,slotProps.data.halterHorseCount) }}
+                            {{ store.sumTotalPoints(slotProps.data,slotExpansion.data.class) }}
                         </template>-->
                     </Column>
                 </DataTable>
@@ -36,9 +39,10 @@
 </template>
 
 <script>
-import PlacingComponent from './PlacingComponent.vue'
-import { showViewData } from '../classess/showResults.js'
-import { store } from '../classess/store.js'
+
+import PlacingComponent from '../PlacingComponent.vue'
+import { showViewData } from '../../classess/showResults.js'
+import { store } from '../../classess/store.js'
 
 export default {
     name: "Results",
@@ -60,7 +64,7 @@ export default {
     },
     methods: {
         expandAll() {
-            this.expandedRows = Array.from(this.horseData.values()).filter((p) => p.sire);
+            this.expandedRows = Array.from(this.horseData.values()).filter((p) => p.registrationNumber);
         },
         collapseAll() {
             this.expandedRows = null;
@@ -68,7 +72,8 @@ export default {
     },
     computed: {
         horseData() {
-            return new showViewData(store.showData).ReturnSireResults()
+            //var x = showViewData.showIndex(45);
+            return new showViewData(store.showData).ReturnHorseResults()
         },
 
     },

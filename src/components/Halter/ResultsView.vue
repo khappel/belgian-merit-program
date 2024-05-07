@@ -5,9 +5,6 @@
                 class="w-full md:w-27rem" @change="downloadFile()" />
             <Dropdown v-model="defaultViewSelected" :options="items" optionLabel="label" placeholder="Select a view"
                 class="w-full md:w-12rem" @change="changeView()" />
-        </template>
-        <template #content>
-            <!--<TabMenu :model="items" />-->
             <router-view />
         </template>
     </card>
@@ -25,9 +22,9 @@
 <script>
 import axios from 'axios'
 import { Dropbox } from 'dropbox';
-import PlacingComponent from './PlacingComponent.vue'
-import { store } from '../classess/store.js'
-import { showViewData } from '../classess/showResults.js'
+import PlacingComponent from '../PlacingComponent.vue'
+import { store } from '../../classess/store.js'
+import { showViewData } from '../../classess/showResults.js'
 
 export default {
     name: "Results",
@@ -155,10 +152,13 @@ export default {
                     .then((response) => {
                         response.result.entries.forEach(entry => {
                             this.fileYears.push({ year: entry.name, file: entry.id })
-                            this.fileYears.sort(function (a, b) { return a.name - b.name }).reverse();
+                            this.fileYears.sort(function (a, b) { return a.name - b.name });                            
+                        });
+                        if (this.fileYears.length > 0) {
                             this.defaultFileSelected = this.fileYears[0];
                             this.downloadFile();
-                        });
+                            this.changeView();
+                        }
                     })
                     .catch((err) => {
                         console.log(err);

@@ -41,8 +41,8 @@
 
 <script>
 
-import { showViewData } from '../classess/showResults.js'
-import { store } from '../classess/store.js'
+import { showViewData } from '../../classess/showResults.js'
+import { store } from '../../classess/store.js'
 
 export default {
     name: "Results",

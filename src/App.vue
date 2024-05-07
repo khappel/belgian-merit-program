@@ -3,14 +3,18 @@
     <template #start>
       <div class="flexrow">
         <img alt="logo" src="/belgian-draft-horse-alliance-clear.webp" height="40" class="mr-2" />
-        <h3>Belgian Merit Program</h3>
+        <h3>Belgian Alliance - Program Points</h3>
       </div>
     </template>
     <template #end>
-     
+      <Button icon="pi pi-fw pi-plus-circle" text rounded severity="primary" @click="$router.push('/addview')" aria-label="Add Results" />
     </template>
-  </Menubar>
+  </Menubar>  
   <router-view />
+  <footer class="text-center">
+    <br/>
+      &copy;{{ new Date().getFullYear() }} Belgian Draft Horse Corporation. All Rights Reserved. Website Design and Development by KLH.
+  </footer>
 </template>
 
 <style scoped>
@@ -29,21 +33,26 @@ import { onMounted, ref } from "vue";
 
 
 const items = ref([
+  //{
+  //  label: 'Merit Results',
+  //  icon: 'pi pi-fw pi-home',
+  //  to: '/'
+  //},
+  //{
+  //  label: 'Youth Results',
+  //  icon: 'pi pi-fw pi-star',
+  //  to: '/youthresultsview'
+  //},
+  //{
+  //  label: 'Hitch Results',
+  //  icon: 'pi pi-fw pi-bookmark',
+  //  to: '/hitchresultsview'
+  //},
   {
     label: 'Results',
-    icon: 'pi pi-fw pi-home',
-    to: '/'
-  },
-  {
-    label: 'Youth Results',
-    icon: 'pi pi-fw pi-star',
-    to: '/youthresultsview'
-  },
-  {
-    label: 'Add Results',
-    icon: 'pi pi-fw pi-plus-circle',
-    to: '/addview'
-  },
+    icon: 'pi pi-fw pi-bookmark',
+    to: '/meritresultsview'
+  },  
   {
     label: 'Rules And Info',
     icon: 'pi pi-fw pi-info-circle',

@@ -1,0 +1,506 @@
+[
+    {
+        "class": "Ladies Cart",
+        "classType": "Hitch",
+        "classCount": 0,
+        "placings": [
+            {
+                "placing": 1,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 10
+            },
+            {
+                "placing": 2,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 7
+            },
+            {
+                "placing": 3,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 5
+            },
+            {
+                "placing": 4,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 3
+            },
+            {
+                "placing": 5,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 2
+            }
+        ]
+    },
+    {
+        "class": "Men’s Cart",
+        "classType": "Hitch",
+        "classCount": 0,
+        "placings": [
+            {
+                "placing": 1,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 10
+            },
+            {
+                "placing": 2,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 7
+            },
+            {
+                "placing": 3,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 5
+            },
+            {
+                "placing": 4,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 3
+            },
+            {
+                "placing": 5,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 2
+            }
+        ]
+    },
+    {
+        "class": "Mare Team",
+        "classType": "Hitch",
+        "classCount": 0,
+        "placings": [
+            {
+                "placing": 1,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 10
+            },
+            {
+                "placing": 2,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 7
+            },
+            {
+                "placing": 3,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 5
+            },
+            {
+                "placing": 4,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 3
+            },
+            {
+                "placing": 5,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 2
+            }
+        ]
+    },
+    {
+        "class": "Open Team",
+        "classType": "Hitch",
+        "classCount": 0,
+        "placings": [
+            {
+                "placing": 1,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 10
+            },
+            {
+                "placing": 2,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 7
+            },
+            {
+                "placing": 3,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 5
+            },
+            {
+                "placing": 4,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 3
+            },
+            {
+                "placing": 5,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 2
+            }
+        ]
+    },
+    {
+        "class": "Mare Unicorn",
+        "classType": "Hitch",
+        "classCount": 0,
+        "placings": [
+            {
+                "placing": 1,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 10
+            },
+            {
+                "placing": 2,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 7
+            },
+            {
+                "placing": 3,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 5
+            },
+            {
+                "placing": 4,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 3
+            },
+            {
+                "placing": 5,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 2
+            }
+        ]
+    },
+    {
+        "class": "Open Unicorn",
+        "classType": "Hitch",
+        "classCount": 0,
+        "placings": [
+            {
+                "placing": 1,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 10
+            },
+            {
+                "placing": 2,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 7
+            },
+            {
+                "placing": 3,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 5
+            },
+            {
+                "placing": 4,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 3
+            },
+            {
+                "placing": 5,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 2
+            }
+        ]
+    },
+    {
+        "class": "Mare Four",
+        "classType": "Hitch",
+        "classCount": 0,
+        "placings": [
+            {
+                "placing": 1,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 20
+            },
+            {
+                "placing": 2,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 14
+            },
+            {
+                "placing": 3,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 10
+            },
+            {
+                "placing": 4,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 6
+            },
+            {
+                "placing": 5,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 4
+            }
+        ]
+    },
+    {
+        "class": "Open Four",
+        "classType": "Hitch",
+        "classCount": 0,
+        "placings": [
+            {
+                "placing": 1,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 20
+            },
+            {
+                "placing": 2,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 14
+            },
+            {
+                "placing": 3,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 10
+            },
+            {
+                "placing": 4,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 6
+            },
+            {
+                "placing": 5,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 4
+            }
+        ]
+    },
+    {
+        "class": "Mare Six",
+        "classType": "Hitch",
+        "classCount": 0,
+        "placings": [
+            {
+                "placing": 1,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 20
+            },
+            {
+                "placing": 2,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 14
+            },
+            {
+                "placing": 3,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 10
+            },
+            {
+                "placing": 4,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 6
+            },
+            {
+                "placing": 5,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 4
+            }
+        ]
+    },
+    {
+        "class": "Open Six",
+        "classType": "Hitch",
+        "classCount": 0,
+        "placings": [
+            {
+                "placing": 1,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 10
+            },
+            {
+                "placing": 2,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 7
+            },
+            {
+                "placing": 3,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 5
+            },
+            {
+                "placing": 4,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 3
+            },
+            {
+                "placing": 5,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 2
+            }
+        ]
+    },
+    {
+        "class": "Western Riding",
+        "classType": "Hitch",
+        "classCount": 0,
+        "placings": [
+            {
+                "placing": 1,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 10
+            },
+            {
+                "placing": 2,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 7
+            },
+            {
+                "placing": 3,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 5
+            },
+            {
+                "placing": 4,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 3
+            },
+            {
+                "placing": 5,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 2
+            }
+        ]
+    },
+    {
+        "class": "English Riding",
+        "classType": "Hitch",
+        "classCount": 0,
+        "placings": [
+            {
+                "placing": 1,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 10
+            },
+            {
+                "placing": 2,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 7
+            },
+            {
+                "placing": 3,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 5
+            },
+            {
+                "placing": 4,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 3
+            },
+            {
+                "placing": 5,
+                "hitchFarmName": "",
+                "membershipNum": "",
+                "championshipPoints": "",
+                "placingPoints": 2
+            }
+        ]
+    }
+]

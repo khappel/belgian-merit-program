@@ -5,6 +5,7 @@ export const store = reactive({
   /*count: 0,*/
   showData: [],
   youthShowData: [],
+  hitchShowData: [],
   ACCESS_TOKEN: {},
   /*increment() {
     this.count++

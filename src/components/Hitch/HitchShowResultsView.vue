@@ -9,7 +9,7 @@
         </template>
         <Column expander style="width: 1rem" />
         <Column field="show" header="Show" sortable></Column>
-        <Column field="youthCount" header="Youth Count"></Column>
+        <Column field="hitchCount" header="Hitch Count"></Column>
 
         <template #expansion="slotPropsClass">
             <!--<div v-for="cls in slotProps.data.classes">
@@ -26,7 +26,8 @@
                         tableStyle="min-width: 50rem">
                         
                         <Column field="placing" header="Placing"></Column>
-                        <Column field="exhibitor" header="Exhibitor"></Column>
+                        <Column field="hitchFarmName" header="Hitch/Farm Name"></Column>
+                        <Column field="membershipNum" header="Membership #"></Column>
                         <Column field="championshipPoints" header="Championship Points"></Column>
                         <Column field="placingPoints" header="Placing Points"></Column>
                         <Column field="pointsTotal" header="Total Points" sortable>
@@ -42,8 +43,8 @@
 </template>
 
 <script>
-import PlacingComponent from './PlacingComponent.vue'
-import { store } from '../classess/store.js'
+import PlacingComponent from '../PlacingComponent.vue'
+import { store } from '../../classess/store.js'
 
 export default {
     name: "Results",
@@ -68,7 +69,7 @@ export default {
     },
     computed: {
         showDataList() {
-            return store.youthShowData
+            return store.hitchShowData
             //this.showDataList = store.showData
         }
     },

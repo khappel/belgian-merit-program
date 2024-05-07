@@ -36,9 +36,9 @@
 </template>
 
 <script>
-import PlacingComponent from './PlacingComponent.vue'
-import { showViewData } from '../classess/showResults.js'
-import { store } from '../classess/store.js'
+import PlacingComponent from '../PlacingComponent.vue'
+import { showViewData } from '../../classess/showResults.js'
+import { store } from '../../classess/store.js'
 
 export default {
     name: "Results",

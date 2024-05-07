@@ -66,8 +66,8 @@
 </template>
 
 <script>
-import PlacingComponent from './PlacingComponent.vue'
-import { store } from '../classess/store.js'
+import PlacingComponent from '../PlacingComponent.vue'
+import { store } from '../../classess/store.js'
 
 export default {
     name: "Results",

@@ -133,6 +133,53 @@ export class showViewData {
 
         return this.showJSON;
     }
+    CleanupHitchShowData() {
+        //let shows = [];
+
+        if (this.showJSON.year != undefined) {
+            this.showJSON = this.showJSON.shows;
+        }
+
+        for (var i = this.showJSON.length - 1; i >= 0; i--) {
+            //let showItem = new showResults();
+            //showItem = this.showJSON[i];
+            for (var c = this.showJSON[i].classes.length - 1; c >= 0; c--) {
+                //let clsItem = new classes();
+                //clsItem =  this.showJSON[i].classes[c];
+
+                for (var p = this.showJSON[i].classes[c].placings.length - 1; p >= 0; p--) {
+                    //let placeItem = new placings();
+                    //placeItem = this.showJSON[i].classes[c].placings[p];
+                    //todo: if youth need to account for owner not registraiton and horse
+                    if (this.showJSON[i].classes[c].placings[p].membershipNum == '' ||
+                    this.showJSON[i].classes[c].placings[p].membershipNum == undefined) {
+                        //remove
+                        this.showJSON[i].classes[c].placings.splice(p, 1);
+                    }
+                    else {
+                        var hitchCount = this.showJSON[i].hitchCount;
+                        //var classType = (this.showJSON[i].classes[c].class.includes("Decorating"))? "YouthDecorating" :"Youth";
+
+                        //if (classType == "YouthDecorating"){
+                        //     this.showJSON[i].classes[c].placings[p].placingPoints = this.showJSON[i].classes[c].placings[p].placingPoints * 2;                            
+                        //}
+                        this.showJSON[i].classes[c].placings[p].pointsTotal = store.sumTotalPoints(
+                            this.showJSON[i].classes[c].placings[p],
+                            "Hitch",
+                            hitchCount
+                        )
+
+                    }
+                    if (this.showJSON[i].classes[c].placings.length == 0) {
+                        //remove class
+                        this.showJSON[i].classes.splice(c, 1);
+                    }
+                }
+            }
+        }
+
+        return this.showJSON;
+    }
     ReturnDistinctHorseList() {
         let itemHorses = new Map();
 
@@ -650,6 +697,145 @@ export class showViewData {
         return youthExhibitors;
 
     }
+    ReturnHitchClassResults() {
+        let itemClasses = new Map();
+
+        for (var i = 0; i < this.showJSON.length; i++) {
+            let showItem = new hitchShowResults();
+            showItem = this.showJSON[i];
+            for (var c = 0; c < showItem.classes.length; c++) {
+                let clsItem = new classes();
+                clsItem = showItem.classes[c];
+
+                for (var p = 0; p < clsItem.placings.length; p++) {
+                    let placeItem = new placings();
+                    placeItem = clsItem.placings[p];
+
+                    if (itemClasses.has(clsItem.class)) {
+                        var foundClass = itemClasses.get(clsItem.class);
+
+                        const foundHitch = foundClass.hitch.find(({ membershipNum }) =>
+                            membershipNum === placeItem.membershipNum)
+                        //if (foundClass.has(placeItem.registrationNumber)) 
+                        if (foundHitch) {
+                            //var foundHorse = placeItem.get(placeItem.registrationNumber)
+                            foundHitch.shows.push({
+                                "show": showItem.show,
+                                "hitchCount": showItem.youthCount,
+                                "class": clsItem.class,
+                                "classCount": clsItem.classCount,
+                                "placing": placeItem.placing,
+                                "championshipPoints": placeItem.championshipPoints,
+                                "placingPoints": placeItem.placingPoints,
+                                "pointsTotal": placeItem.pointsTotal
+                            })
+                        }
+                        else {
+                            foundClass.classCount += 1
+                            foundClass.hitch.push({
+                                "hitchFarmName": placeItem.hitchFarmName,                                
+                                "membershipNum": placeItem.membershipNum,
+                                "showTotals": 0,
+                                "shows": [{
+                                    "show": showItem.show,
+                                    "hitchCount": showItem.youthCount,
+                                    "class": clsItem.class,
+                                    "classCount": clsItem.classCount,
+                                    "placing": placeItem.placing,
+                                    "championshipPoints": placeItem.championshipPoints,
+                                    "placingPoints": placeItem.placingPoints,
+                                    "pointsTotal": placeItem.pointsTotal
+                                }]
+
+                            })
+                        }
+                    }
+                    else {
+                        var newClass = {
+                            "class": clsItem.class,
+                            "classCount": 1,
+                            "hitch": [{                                
+                                "hitchFarmName": placeItem.hitchFarmName,                                
+                                "membershipNum": placeItem.membershipNum,
+                                "showTotals": 0,
+                                "shows": [{
+                                    "show": showItem.show,
+                                    "hitchCount": showItem.youthCount,
+                                    "class": clsItem.class,
+                                    "classCount": clsItem.classCount,
+                                    "placing": placeItem.placing,
+                                    "championshipPoints": placeItem.championshipPoints,
+                                    "placingPoints": placeItem.placingPoints,
+                                    "pointsTotal": placeItem.pointsTotal
+                                }]
+                            }]
+                        };
+                        itemClasses.set(clsItem.class, newClass)
+                    }
+                }
+            }
+        }
+
+        itemClasses.forEach(c => c.hitch.forEach(h => h.showTotals = store.pointsSummary(h.shows)));
+        return itemClasses;
+
+    }
+    ReturnHitchExhibitorResults() {
+        let itemExhibitors = new Map();
+
+        for (var i = 0; i < this.showJSON.length; i++) {
+            let showItem = new showResults();
+            showItem = this.showJSON[i];
+            for (var c = 0; c < showItem.classes.length; c++) {
+                let clsItem = new classes();
+                clsItem = showItem.classes[c];
+
+                for (var p = 0; p < clsItem.placings.length; p++) {
+                    let placeItem = new placings();
+                    placeItem = clsItem.placings[p];
+
+                    if (placeItem.membershipNum.length > 0) {
+                        if (itemExhibitors.has(placeItem.membershipNum.replace(/ /g, ''))) {
+                            var foundExhibitor = itemExhibitors.get(placeItem.membershipNum.replace(/ /g, ''));
+
+                            foundExhibitor.shows.push({
+                                "show": showItem.show,
+                                "hitchCount": showItem.hitchCount,
+                                "class": clsItem.class,                                
+                                "placing": placeItem.placing,
+                                "championshipPoints": placeItem.championshipPoints,
+                                "placingPoints": placeItem.placingPoints,
+                                "pointsTotal": placeItem.pointsTotal
+                            })
+                        }
+                        else {
+                            var newExhibitor = {
+                                "hitchFarmName": placeItem.hitchFarmName,                                
+                                "membershipNum": placeItem.membershipNum,
+                                "showTotals": 0,
+                                "shows": [{
+                                    "show": showItem.show,
+                                    "hitchCount": showItem.hitchCount,
+                                    "class": clsItem.class,                                    
+                                    "placing": placeItem.placing,
+                                    "championshipPoints": placeItem.championshipPoints,
+                                    "placingPoints": placeItem.placingPoints,
+                                    "pointsTotal": placeItem.pointsTotal
+                                }]
+                            };
+
+                            itemExhibitors.set(placeItem.membershipNum.replace(/ /g, ''), newExhibitor)
+                        }
+                    }
+                }
+            }
+        }
+        
+        itemExhibitors.forEach(h => h.showTotals = store.pointsSummary(h.shows));
+
+        return itemExhibitors;
+
+    }
     ReturnVersatilityResults() {
         //let itemHorses = new Map();
 
@@ -781,6 +967,13 @@ class youthShowResults {
     }
 }
 
+class hitchShowResults {
+    constructor(show, hitchCount, classes) {
+        this.show = show;
+        this.hitchCount = hitchCount;
+        this.classes = classes;
+    }
+}
 class classes {
     constructor(_class, classType, placings) {
         this._class = _class;
