@@ -168,7 +168,7 @@ export const store = reactive({
         return 1;
     }
   },
-  sumTotalPoints: function (item, classType, itemCount) {
+  sumTotalPoints: function (item, classType, itemClass, itemCount) {
     if (classType != "Hitch" && classType != "Halter") {
       if (classType?.includes("Cart") && classType != "Youth") {
         classType = "Hitch";
@@ -179,7 +179,7 @@ export const store = reactive({
     var placePoints = item.placingPoints*1;
     
     if (classType == "Hitch") {
-      if (item.class == "English Riding" || item.class == "Western Riding"){
+      if (itemClass == "English Riding" || itemClass == "Western Riding"){
         return (placePoints + (champPoints ?? 0)) * this.ridingClassShowIndex(itemCount);
       }
       else{

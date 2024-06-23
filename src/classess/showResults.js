@@ -72,6 +72,7 @@ export class showViewData {
                         this.showJSON[i].classes[c].placings[p].pointsTotal = store.sumTotalPoints(
                             this.showJSON[i].classes[c].placings[p],
                             this.showJSON[i].classes[c].classType,
+                            this.showJSON[i].classes[c].class,
                             horseCount
                         )
 
@@ -119,6 +120,7 @@ export class showViewData {
                         this.showJSON[i].classes[c].placings[p].pointsTotal = store.sumTotalPoints(
                             this.showJSON[i].classes[c].placings[p],
                             "Youth",
+                            this.showJSON[i].classes[c].class,
                             youthCount
                         )
 
@@ -166,6 +168,7 @@ export class showViewData {
                         this.showJSON[i].classes[c].placings[p].pointsTotal = store.sumTotalPoints(
                             this.showJSON[i].classes[c].placings[p],
                             "Hitch",
+                            this.showJSON[i].classes[c].class,
                             hitchCount
                         )
 
