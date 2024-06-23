@@ -114,6 +114,30 @@ export const store = reactive({
         return 1;
     }
   },
+  ridingClassShowIndex: function (horseCount){
+    switch (true) {
+      case horseCount >= 31:
+        return 7;
+        break;
+      case horseCount >= 26:
+        return 6;
+        break;
+      case horseCount >= 19:
+        return 5;
+        break;
+      case horseCount >= 13:
+        return 4;
+        break;
+      case horseCount >= 8:
+        return 3;
+        break;
+      case horseCount >= 4:
+        return 2;
+        break;
+      default:
+        return 1;
+    }
+  },
   youthShowIndex: function (youthCount) {
     switch (true) {
       case youthCount >= 17:
@@ -155,7 +179,13 @@ export const store = reactive({
     var placePoints = item.placingPoints*1;
     
     if (classType == "Hitch") {
-      return (placePoints + (champPoints ?? 0)) * this.hitchShowIndex(itemCount);
+      if (item.class == "English Riding" || item.class == "Western Riding"){
+        return (placePoints + (champPoints ?? 0)) * this.ridingClassShowIndex(itemCount);
+      }
+      else{
+        return (placePoints + (champPoints ?? 0)) * this.hitchShowIndex(itemCount);
+      }     
+      
     }
     else if (classType == "Youth" || classType == "YouthDecorating"){
       //if(classType == "YouthDecorating"){

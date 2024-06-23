@@ -1,12 +1,6 @@
 <template>
-    <card>
-        <template #content>
-            <TabMenu v-model:activeIndex="active" :model="items">                
-            </TabMenu>
-            
-            <router-view/>
-        </template>
-    </card>
+    <TabMenu v-model:activeIndex="activeMerit" :model="items" /> 
+    <router-view/>
 </template>
 <script>
 
@@ -14,7 +8,7 @@ import { onMounted } from 'vue';
 export default {
     data() {
         return {
-            active: 1,
+            activeMerit: 1,
             items: [
                 {                    
                     label: 'Merit Results',

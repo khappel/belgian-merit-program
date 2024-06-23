@@ -71,9 +71,9 @@ const routes = [
       },
       { path: "/youthresultsview", name: YouthResults, component: YouthResults,
         children: [
-          { path: "/youthshowresultsview", name: YouthShowResults, component: YouthShowResults, alias: "/" },
-          { path: "/youthexhibitorresultsview", name: YouthExhibitorResults, component: YouthExhibitorResults },
-          { path: "/youthclassresultsview", name: YouthClassResults, component: YouthClassResults },
+          { path: "/youthresultsview/youthshowresultsview", name: YouthShowResults, component: YouthShowResults, alias: "/" },
+          { path: "/youthresultsview/youthexhibitorresultsview", name: YouthExhibitorResults, component: YouthExhibitorResults },
+          { path: "/youthresultsview/youthclassresultsview", name: YouthClassResults, component: YouthClassResults },
         ]
       },
       { path: "/hitchresultsview", name: HitchResults, component: HitchResults,

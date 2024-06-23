@@ -38,7 +38,7 @@ export default {
             defaultViewSelected: {
                 label: 'Show Results',
                 icon: 'pi pi-fw pi-home',
-                to: '/youthshowresultsview'
+                to: '/youthresultsview/youthshowresultsview'
             },
             /*placingDataList: [],*/
             placingFile: 'Placings/2023BelgianMeritPlacings.json',
@@ -64,17 +64,17 @@ export default {
                 {
                     label: 'Show Results',
                     icon: 'pi pi-fw pi-home',
-                    to: '/youthshowresultsview'
+                    to: '/youthresultsview/youthshowresultsview'
                 },
                 {
                     label: 'Exhibitor Results',
                     icon: 'pi pi-fw pi-plus-circle',
-                    to: '/youthexhibitorresultsview'
+                    to: '/youthresultsview/youthexhibitorresultsview'
                 },
                 {
                     label: 'Class Results',
                     icon: 'fa-solid fa-horse',
-                    to: '/youthclassresultsview'
+                    to: '/youthresultsview/youthclassresultsview'
                 },                
             ],
             //ACCESS_TOKEN: {},
