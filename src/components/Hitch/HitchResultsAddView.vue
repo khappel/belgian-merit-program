@@ -18,12 +18,15 @@
                     <label :for="selectedShow.hitchCount">Hitch Count</label>
                     <InputNumber v-model.number="selectedShow.hitchCount" @change="componentChange()"
                         required />
+                    <label :for="selectedShow.ridingCount">Riding Count</label>
+                    <InputNumber v-model.number="selectedShow.ridingCount" @change="componentChange()"
+                        required />
                 </div>
             </Fieldset>
 
-            <Sidebar v-model:visible="visibleRight" position="right">
+            <Sidebar v-model:visible="visibleRight" position="right" style="height:99vh">
                 <Listbox v-model="defaultShowSelected" :options="shows" multiple optionLabel="show" class="w-full mb-1"
-                    listStyle="max-height:350px" />
+                listStyle="max-height:80vh" />
                
                 <Button label="Add Show" icon="pi pi-plus" class="mr-2" @click="StartClassEntry" />
 
@@ -41,6 +44,7 @@
                         
                         <PlacingEntryComponent :EntryMode="entryMode" :Show="selectedShow?.show" :ShowClass="cls"
                             :HitchCount="selectedShow?.hitchCount" 
+                            :RidingCount="selectedShow?.ridingCount"
                             :ClassType="cls.classType"
                             :Placings="cls.placings" @input="(e, c, d) => handleChange(e, c, d)"
                             @valueChange="() => componentChange()"></PlacingEntryComponent>
@@ -56,28 +60,29 @@
 <script>
 import PlacingEntryComponent from '../PlacingEntryComponent.vue'
 import { store } from '../../classess/store.js'
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 
 export default {
     name: "Results",
     data() {
         return {
-            store,
+            //store,
             entryMode: "Hitch",
-            shows: [],
-            showClasses: [],
+            shows: ref(''), // store.showListData, // [],
+            //showListData: ref([]),
+            //showListData: showListData(),
             showDataList: [],
             accordianCount: [],
             defaultShowSelected: [],
             //showYear: { "year": "", "shows": currentShowList() },
             inputYear: "",
-            selectedShow: { "show": "", "hitchCount": 0, "classes": [] },
+            selectedShow: { "show": "", "hitchCount": 0, "ridingCount":0, "classes": [] },
             showList: [],
             enableForm: false,
             enableYearMode: false,
             visibleRight: false,
             youthCount: 0,
-            form: { "show": "", "hitchCount": 0, "classes": [] },
+            form: { "show": "", "hitchCount": 0, "ridingCount":0, "classes": [] },
             items: [
                 {                    
                     label: 'New',
@@ -107,6 +112,22 @@ export default {
 
             
         };
+    },
+    setup() {
+
+    onMounted(() => {
+        store.getAccessToken();
+        store.getShowDef();
+
+        //this.showListData = store.showListData;
+        //store.getClassDef();
+    });
+
+    //function submitForm() {
+    //  alert(`Selected state: ${selectedState.value}`);
+    //}
+
+    //return { store, selectedState, submitForm };
     },
     components: {
         PlacingEntryComponent
@@ -165,7 +186,7 @@ export default {
                 const foundShow = this.showList.find(({ show }) => show === showItem.show)
                 //if (foundClass.has(placeItem.registrationNumber)) 
                 if (foundShow == undefined) {
-                    this.showList.push({ "show": showItem.show, "hitchCount": 0, "classes": showcls });
+                    this.showList.push({ "show": showItem.show, "hitchCount": 0, "ridingCount":0, "classes": showcls });
                 }
             })
 
@@ -173,12 +194,12 @@ export default {
             this.visibleRight = false;
             this.selectedShow = this.showList[this.showList.length - 1];
         },
-        getShowDef() {
+        depgetShowDef() {
             fetch("Definition Files/Shows.json")
                 .then(response => response.json())
                 .then(data => (this.shows = data));
         },
-        getClassDef() {
+        depgetClassDef() {
             fetch("Definition Files/HitchClasses.json")
                 .then(response => response.json())
                 .then(data => (this.form.classes = data));
@@ -226,11 +247,20 @@ export default {
     computed: {
         showYear() {
             return { year: this.inputYear, shows: this.showList };
+        },
+        shows() {
+            return store.showListData;
         }
     },
     created: function () {
-        this.getShowDef();
-        this.getClassDef();
+        //store.getAccessToken();
+        //store.getShowDef();
+
+        //store.getClassDef();
+        //this.getShowDef();
+        //this.getClassDef();
+        //this.showListData = store.showListData;
+        
     },
     mounted() {
         if (localStorage.getItem('showHitchData')) {
@@ -248,12 +278,18 @@ export default {
                 //localStorage.removeItem('showData');
             }
         }
+
+       
+        //store.getShowDef();
     },
     watch: {      
         inputYear(newYear) {
             const parsed = JSON.stringify(this.showYear);
             localStorage.setItem('showHitchData', parsed);
-        }      
+        },
+        shows(showList){
+            shows = store.showListData;
+        }
     }
 };
 </script>

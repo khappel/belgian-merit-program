@@ -10,7 +10,7 @@
                     </div>
                 </template>
                 <Column field="placing" header="Placing"></Column>
-                <Column field="registrationNumber" header="Registraion"></Column>
+                <Column field="registrationNumber" header="Registration"></Column>
                 <Column field="horseName" header="Horse"></Column>
                 <Column field="sire" header="Sire"></Column>
                 <Column field="dam" header="Dam"></Column>

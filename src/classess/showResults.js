@@ -2,15 +2,18 @@ import { store } from '../classess/store.js'
 
 export class showViewData {
     constructor(showJSON) {
-        this.showJSON = showJSON;
+        this.data = showJSON;
         //this.shows = this.GetShowsData();
+        //if (this.data.shows.year != undefined) {
+        //    this.showYear = this.data.shows.year;
+        //}
     }
     GetShowsData() {
         let itemShows = new Map();
 
-        for (var i = 0; i < this.showJSON.length; i++) {
+        for (var i = 0; i < this.data.shows.length; i++) {
             let showItem = new showResults();
-            showItem = this.showJSON[i];
+            showItem = this.data.shows[i];
             itemShows.set(showItem.show, showItem);
         }
 
@@ -20,175 +23,189 @@ export class showViewData {
     CleanupShowData() {
         //let shows = [];
 
-        if (this.showJSON.year != undefined) {
-            this.showJSON = this.showJSON.shows;
-        }
+        //if (this.data.shows.year != undefined) {
+        //    this.showYear = this.data.shows.year;
+        //    this.data.shows = this.data.shows.shows;
+        //}
 
-        for (var i = this.showJSON.length - 1; i >= 0; i--) {
+        for (var i = this.data.shows.length - 1; i >= 0; i--) {
             //let showItem = new showResults();
-            //showItem = this.showJSON[i];
-            for (var c = this.showJSON[i].classes.length - 1; c >= 0; c--) {
+            //showItem = this.data.shows[i];
+            for (var c = this.data.shows[i].classes.length - 1; c >= 0; c--) {
                 //let clsItem = new classes();
-                //clsItem =  this.showJSON[i].classes[c];
+                //clsItem =  this.data.shows[i].classes[c];
 
-                for (var p = this.showJSON[i].classes[c].placings.length - 1; p >= 0; p--) {
+                for (var p = this.data.shows[i].classes[c].placings.length - 1; p >= 0; p--) {
                     //let placeItem = new placings();
-                    //placeItem = this.showJSON[i].classes[c].placings[p];
+                    //placeItem = this.data.shows[i].classes[c].placings[p];
                     //todo: if youth need to account for owner not registraiton and horse
-                    if (this.showJSON[i].classes[c].placings[p].registrationNumber == '' && this.showJSON[i].classes[c].placings[p].horseName == '') {
+                    if (this.data.shows[i].classes[c].placings[p].registrationNumber == '' && this.data.shows[i].classes[c].placings[p].horseName == '') {
                         //remove
-                        this.showJSON[i].classes[c].placings.splice(p, 1);
+                        this.data.shows[i].classes[c].placings.splice(p, 1);
                     }
                     else {
-                        if (!this.showJSON[i].classes[c].placings[p].registrationNumber) {
-                            if (!this.showJSON[i].classes[c].placings[p].horseName) {
-                                this.showJSON[i].classes[c].placings[p].registrationNumber =
-                                    "Pending (" + this.showJSON[i].classes[c].placings[p].owner + ")"
+                        if (!this.data.shows[i].classes[c].placings[p].registrationNumber) {
+                            if (!this.data.shows[i].classes[c].placings[p].horseName) {
+                                this.data.shows[i].classes[c].placings[p].registrationNumber =
+                                    "Pending (" + this.data.shows[i].classes[c].placings[p].owner + ")"
                             }
                             else {
-                                this.showJSON[i].classes[c].placings[p].registrationNumber =
-                                    "Pending (" + this.showJSON[i].classes[c].placings[p].horseName + ")"
+                                this.data.shows[i].classes[c].placings[p].registrationNumber =
+                                    "Pending (" + this.data.shows[i].classes[c].placings[p].horseName + ")"
                             }
                         }
-                        if (this.showJSON[i].classes[c].placings[p].registrationNumber.toLowerCase() == 'pending') {
-                            if (!this.showJSON[i].classes[c].placings[p].horseName) {
-                                this.showJSON[i].classes[c].placings[p].registrationNumber =
-                                    this.showJSON[i].classes[c].placings[p].registrationNumber + "(" + this.showJSON[i].classes[c].placings[p].owner + ")"
+                        if (this.data.shows[i].classes[c].placings[p].registrationNumber.toLowerCase() == 'pending') {
+                            if (!this.data.shows[i].classes[c].placings[p].horseName) {
+                                this.data.shows[i].classes[c].placings[p].registrationNumber =
+                                    this.data.shows[i].classes[c].placings[p].registrationNumber + "(" + this.data.shows[i].classes[c].placings[p].owner + ")"
                             }
                             else {
-                                this.showJSON[i].classes[c].placings[p].registrationNumber =
-                                    this.showJSON[i].classes[c].placings[p].registrationNumber + "(" + this.showJSON[i].classes[c].placings[p].horseName + ")"
+                                this.data.shows[i].classes[c].placings[p].registrationNumber =
+                                    this.data.shows[i].classes[c].placings[p].registrationNumber + "(" + this.data.shows[i].classes[c].placings[p].horseName + ")"
                             }
                         }
 
                         var horseCount = 0;
-                        if (this.showJSON[i].classes[c].classType == "Hitch") {
-                            horseCount = this.showJSON[i].hitchHorseCount
+                        if (this.data.shows[i].classes[c].classType == "Hitch") {
+                            if (this.data.shows[i].classes[c].class == "English Riding" ||
+                                this.data.shows[i].classes[c].class == "Western Riding") {
+                                //horseCount = this.data.shows[i].classes[c].classCount;
+                                horseCount = this.data.shows[i].ridingCount
+                            }
+                            else {
+                                horseCount = this.data.shows[i].hitchHorseCount;
+                            }
+
                         }
                         else {
-                            horseCount = this.showJSON[i].halterHorseCount;
+                            horseCount = this.data.shows[i].halterHorseCount;
                         }
 
-                        this.showJSON[i].classes[c].placings[p].pointsTotal = store.sumTotalPoints(
-                            this.showJSON[i].classes[c].placings[p],
-                            this.showJSON[i].classes[c].classType,
-                            this.showJSON[i].classes[c].class,
+                        this.data.shows[i].classes[c].placings[p].pointsTotal = store.sumTotalPoints(
+                            this.data.shows[i].classes[c].placings[p],
+                            this.data.shows[i].classes[c].classType,
+                            this.data.shows[i].classes[c].class,
                             horseCount
                         )
 
                     }
-                    if (this.showJSON[i].classes[c].placings.length == 0) {
+                    if (this.data.shows[i].classes[c].placings.length == 0) {
                         //remove class
-                        this.showJSON[i].classes.splice(c, 1);
+                        this.data.shows[i].classes.splice(c, 1);
                     }
                 }
             }
         }
 
-        return this.showJSON;
+        return this.data; // this.data.shows;
     }
     CleanupYouthShowData() {
         //let shows = [];
 
-        if (this.showJSON.year != undefined) {
-            this.showJSON = this.showJSON.shows;
-        }
+        //if (this.data.shows.year != undefined) {
+        //    this.data.shows = this.data.shows.shows;
+        //}
 
-        for (var i = this.showJSON.length - 1; i >= 0; i--) {
+        for (var i = this.data.shows.length - 1; i >= 0; i--) {
             //let showItem = new showResults();
-            //showItem = this.showJSON[i];
-            for (var c = this.showJSON[i].classes.length - 1; c >= 0; c--) {
+            //showItem = this.data.shows[i];
+            for (var c = this.data.shows[i].classes.length - 1; c >= 0; c--) {
                 //let clsItem = new classes();
-                //clsItem =  this.showJSON[i].classes[c];
+                //clsItem =  this.data.shows[i].classes[c];
 
-                for (var p = this.showJSON[i].classes[c].placings.length - 1; p >= 0; p--) {
+                for (var p = this.data.shows[i].classes[c].placings.length - 1; p >= 0; p--) {
                     //let placeItem = new placings();
-                    //placeItem = this.showJSON[i].classes[c].placings[p];
+                    //placeItem = this.data.shows[i].classes[c].placings[p];
                     //todo: if youth need to account for owner not registraiton and horse
-                    if (this.showJSON[i].classes[c].placings[p].exhibitor == '' ||
-                    this.showJSON[i].classes[c].placings[p].exhibitor == undefined) {
+                    if (this.data.shows[i].classes[c].placings[p].exhibitor == '' ||
+                        this.data.shows[i].classes[c].placings[p].exhibitor == undefined) {
                         //remove
-                        this.showJSON[i].classes[c].placings.splice(p, 1);
+                        this.data.shows[i].classes[c].placings.splice(p, 1);
                     }
                     else {
-                        var youthCount = this.showJSON[i].youthCount;
-                        //var classType = (this.showJSON[i].classes[c].class.includes("Decorating"))? "YouthDecorating" :"Youth";
+                        var youthCount = this.data.shows[i].youthCount;
+                        //var classType = (this.data.shows[i].classes[c].class.includes("Decorating"))? "YouthDecorating" :"Youth";
 
                         //if (classType == "YouthDecorating"){
-                        //     this.showJSON[i].classes[c].placings[p].placingPoints = this.showJSON[i].classes[c].placings[p].placingPoints * 2;                            
+                        //     this.data.shows[i].classes[c].placings[p].placingPoints = this.data.shows[i].classes[c].placings[p].placingPoints * 2;                            
                         //}
-                        this.showJSON[i].classes[c].placings[p].pointsTotal = store.sumTotalPoints(
-                            this.showJSON[i].classes[c].placings[p],
+                        this.data.shows[i].classes[c].placings[p].pointsTotal = store.sumTotalPoints(
+                            this.data.shows[i].classes[c].placings[p],
                             "Youth",
-                            this.showJSON[i].classes[c].class,
+                            this.data.shows[i].classes[c].class,
                             youthCount
                         )
 
                     }
-                    if (this.showJSON[i].classes[c].placings.length == 0) {
+                    if (this.data.shows[i].classes[c].placings.length == 0) {
                         //remove class
-                        this.showJSON[i].classes.splice(c, 1);
+                        this.data.shows[i].classes.splice(c, 1);
                     }
                 }
             }
         }
 
-        return this.showJSON;
+        return this.data; //.shows;
     }
     CleanupHitchShowData() {
         //let shows = [];
 
-        if (this.showJSON.year != undefined) {
-            this.showJSON = this.showJSON.shows;
-        }
+        //if (this.data.shows.year != undefined) {
+        //    this.data.shows = this.data.shows.shows;
+        //}
 
-        for (var i = this.showJSON.length - 1; i >= 0; i--) {
+        for (var i = this.data.shows.length - 1; i >= 0; i--) {
             //let showItem = new showResults();
-            //showItem = this.showJSON[i];
-            for (var c = this.showJSON[i].classes.length - 1; c >= 0; c--) {
+            //showItem = this.data.shows[i];
+            for (var c = this.data.shows[i].classes.length - 1; c >= 0; c--) {
                 //let clsItem = new classes();
-                //clsItem =  this.showJSON[i].classes[c];
+                //clsItem =  this.data.shows[i].classes[c];
 
-                for (var p = this.showJSON[i].classes[c].placings.length - 1; p >= 0; p--) {
+                for (var p = this.data.shows[i].classes[c].placings.length - 1; p >= 0; p--) {
                     //let placeItem = new placings();
-                    //placeItem = this.showJSON[i].classes[c].placings[p];
+                    //placeItem = this.data.shows[i].classes[c].placings[p];
                     //todo: if youth need to account for owner not registraiton and horse
-                    if (this.showJSON[i].classes[c].placings[p].membershipNum == '' ||
-                    this.showJSON[i].classes[c].placings[p].membershipNum == undefined) {
+                    if (this.data.shows[i].classes[c].placings[p].membershipNum == '' ||
+                        this.data.shows[i].classes[c].placings[p].membershipNum == undefined) {
                         //remove
-                        this.showJSON[i].classes[c].placings.splice(p, 1);
+                        this.data.shows[i].classes[c].placings.splice(p, 1);
                     }
                     else {
-                        var hitchCount = this.showJSON[i].hitchCount;
-                        //var classType = (this.showJSON[i].classes[c].class.includes("Decorating"))? "YouthDecorating" :"Youth";
+                        var hitchCount = 0;
+                        if (this.data.shows[i].classes[c].class == "English Riding" ||
+                            this.data.shows[i].classes[c].class == "Western Riding") {
+                            //hitchCount = this.data.shows[i].classes[c].classCount;
+                            hitchCount = this.data.shows[i].ridingCount;
+                        }
+                        else {
+                            hitchCount = this.data.shows[i].hitchCount;
+                        }
 
-                        //if (classType == "YouthDecorating"){
-                        //     this.showJSON[i].classes[c].placings[p].placingPoints = this.showJSON[i].classes[c].placings[p].placingPoints * 2;                            
-                        //}
-                        this.showJSON[i].classes[c].placings[p].pointsTotal = store.sumTotalPoints(
-                            this.showJSON[i].classes[c].placings[p],
+
+                        this.data.shows[i].classes[c].placings[p].pointsTotal = store.sumTotalPoints(
+                            this.data.shows[i].classes[c].placings[p],
                             "Hitch",
-                            this.showJSON[i].classes[c].class,
+                            this.data.shows[i].classes[c].class,
                             hitchCount
                         )
 
                     }
-                    if (this.showJSON[i].classes[c].placings.length == 0) {
+                    if (this.data.shows[i].classes[c].placings.length == 0) {
                         //remove class
-                        this.showJSON[i].classes.splice(c, 1);
+                        this.data.shows[i].classes.splice(c, 1);
                     }
                 }
             }
         }
 
-        return this.showJSON;
+        return this.data; //.shows;
     }
     ReturnDistinctHorseList() {
         let itemHorses = new Map();
 
-        for (var i = 0; i < this.showJSON.length; i++) {
+        for (var i = 0; i < this.data.shows.length; i++) {
             let showItem = new showResults();
-            showItem = this.showJSON[i];
+            showItem = this.data.shows[i];
             for (var c = 0; c < showItem.classes.length; c++) {
                 let clsItem = new classes();
                 clsItem = showItem.classes[c];
@@ -217,12 +234,93 @@ export class showViewData {
         return itemHorses;
 
     }
+    ReturnDistinctHitchList() {
+        let itemExhibitors = new Map();
+        let hitchExhibitors = new Map();
+
+        for (var i = 0; i < this.data?.shows?.length; i++) {
+            let showItem = new showResults();
+            showItem = this.data.shows[i];
+            for (var c = 0; c < showItem.classes.length; c++) {
+                let clsItem = new classes();
+                clsItem = showItem.classes[c];
+
+                for (var p = 0; p < clsItem.placings.length; p++) {
+                    let placeItem = new placings();
+                    placeItem = clsItem.placings[p];
+
+                    if (placeItem.hitchFarmName.length > 0) {
+                        if (itemExhibitors.has(placeItem.hitchFarmName.replace(/ /g, ''))) {
+
+                        }
+                        else {
+                            var newExhibitor = {
+                                "exhibitor": placeItem.hitchFarmName,
+                                "membershipNum": placeItem.membershipNum,
+                            };
+
+                            itemExhibitors.set(placeItem.hitchFarmName.replace(/ /g, ''), newExhibitor)
+                        }
+                    }
+                }
+            }
+        }
+
+        
+        return itemExhibitors; //hitchExhibitors; 
+    }
+    ReturnDistinctYouthList() {
+        let itemExhibitors = new Map();
+        let youthExhibitors = new Map();
+
+        for (var i = 0; i < this.data?.shows?.length; i++) {
+            let showItem = new showResults();
+            showItem = this.data.shows[i];
+            for (var c = 0; c < showItem.classes.length; c++) {
+                let clsItem = new classes();
+                clsItem = showItem.classes[c];
+
+                for (var p = 0; p < clsItem.placings.length; p++) {
+                    let placeItem = new placings();
+                    placeItem = clsItem.placings[p];
+
+                    if (placeItem.exhibitor.length > 0) {
+                        if (itemExhibitors.has(placeItem.exhibitor.replace(/ /g, ''))) {
+
+                        }
+                        else {
+                            var newExhibitor = {
+                                "exhibitor": placeItem.exhibitor
+                            };
+
+                            itemExhibitors.set(placeItem.exhibitor.replace(/ /g, ''), newExhibitor)
+                        }
+                    }
+                }
+            }
+        }
+
+        //split into youth 10-14 and 15-18
+        //var youngYouth = {"title":"Youth 10-14",
+        //    "youth": []
+        //}
+        //var olderYouth = {"title":"Youth 15-18",
+        //    "youth": []
+        //};
+
+        //itemExhibitors.forEach(h => (h.shows[0].class.includes("10-14")) ? youngYouth.youth.push(h): olderYouth.youth.push(h));
+
+        //youthExhibitors.set(youngYouth.title, youngYouth);
+        //youthExhibitors.set(olderYouth.title, olderYouth);
+
+        return itemExhibitors; //youthExhibitors; 
+    }
     ReturnHorseResults() {
         let itemHorses = new Map();
 
-        for (var i = 0; i < this.showJSON.length; i++) {
+        for (var i = 0; i < this.data.shows.length; i++) {
             let showItem = new showResults();
-            showItem = this.showJSON[i];
+            showItem = this.data.shows[i];
             for (var c = 0; c < showItem.classes.length; c++) {
                 let clsItem = new classes();
                 clsItem = showItem.classes[c];
@@ -276,9 +374,9 @@ export class showViewData {
     ReturnSireResults() {
         let itemHorses = new Map();
 
-        for (var i = 0; i < this.showJSON.length; i++) {
+        for (var i = 0; i < this.data.shows.length; i++) {
             let showItem = new showResults();
-            showItem = this.showJSON[i];
+            showItem = this.data.shows[i];
             for (var c = 0; c < showItem.classes.length; c++) {
                 let clsItem = new classes();
                 clsItem = showItem.classes[c];
@@ -339,9 +437,9 @@ export class showViewData {
     ReturnDamResults() {
         let itemHorses = new Map();
 
-        for (var i = 0; i < this.showJSON.length; i++) {
+        for (var i = 0; i < this.data.shows.length; i++) {
             let showItem = new showResults();
-            showItem = this.showJSON[i];
+            showItem = this.data.shows[i];
             for (var c = 0; c < showItem.classes.length; c++) {
                 let clsItem = new classes();
                 clsItem = showItem.classes[c];
@@ -395,6 +493,35 @@ export class showViewData {
             }
         }
 
+        //check for flag to include only dams with >1 horses
+        if (this.data.year > '2023') {
+            itemHorses.forEach(h => {
+                var registrations = [];
+
+                h.shows.forEach(s => {
+                    if (!registrations.includes(s.registrationNumber)) {
+                        registrations.push(s.registrationNumber);
+                    }
+                })
+                if (registrations.length < 2) {
+                    itemHorses.delete(h.dam);
+                }
+            })
+        }
+
+        //for (var c = itemHorses.size - 1; c >= 0; c--){
+        //    var registration = [];
+
+        //itemHorses[c].shows.forEach(s => {
+        //    if (!registration.has(s.registrationNumber)) {
+        //        registrations.push(s.registrationNumber);
+        //    }
+        //})
+        //if (registration.length < 1){
+        //    itemHorses.splice[c,1];
+        //}
+        //}
+
         itemHorses.forEach(h => h.showTotals = store.pointsSummary(h.shows));
         return itemHorses;
 
@@ -402,9 +529,9 @@ export class showViewData {
     ReturnOwnerResults() {
         let itemOwners = new Map();
 
-        for (var i = 0; i < this.showJSON.length; i++) {
+        for (var i = 0; i < this.data.shows.length; i++) {
             let showItem = new showResults();
-            showItem = this.showJSON[i];
+            showItem = this.data.shows[i];
             for (var c = 0; c < showItem.classes.length; c++) {
                 let clsItem = new classes();
                 clsItem = showItem.classes[c];
@@ -464,9 +591,9 @@ export class showViewData {
     ReturnClassResults() {
         let itemClasses = new Map();
 
-        for (var i = 0; i < this.showJSON.length; i++) {
+        for (var i = 0; i < this.data.shows.length; i++) {
             let showItem = new showResults();
-            showItem = this.showJSON[i];
+            showItem = this.data.shows[i];
             for (var c = 0; c < showItem.classes.length; c++) {
                 let clsItem = new classes();
                 clsItem = showItem.classes[c];
@@ -553,9 +680,9 @@ export class showViewData {
     ReturnYouthClassResults() {
         let itemClasses = new Map();
 
-        for (var i = 0; i < this.showJSON.length; i++) {
+        for (var i = 0; i < this.data.shows.length; i++) {
             let showItem = new youthShowResults();
-            showItem = this.showJSON[i];
+            showItem = this.data.shows[i];
             for (var c = 0; c < showItem.classes.length; c++) {
                 let clsItem = new classes();
                 clsItem = showItem.classes[c];
@@ -585,7 +712,7 @@ export class showViewData {
                         }
                         else {
                             foundClass.classCount += 1
-                            foundClass.youth.push({                                
+                            foundClass.youth.push({
                                 "exhibitor": placeItem.exhibitor,
                                 "showTotals": 0,
                                 "shows": [{
@@ -606,8 +733,8 @@ export class showViewData {
                         var newClass = {
                             "class": clsItem.class,
                             "classCount": 1,
-                            "youth": [{                                
-                                "exhibitor": placeItem.exhibitor,                                
+                            "youth": [{
+                                "exhibitor": placeItem.exhibitor,
                                 "showTotals": 0,
                                 "shows": [{
                                     "show": showItem.show,
@@ -635,9 +762,9 @@ export class showViewData {
         let itemExhibitors = new Map();
         let youthExhibitors = new Map();
 
-        for (var i = 0; i < this.showJSON.length; i++) {
+        for (var i = 0; i < this.data.shows.length; i++) {
             let showItem = new showResults();
-            showItem = this.showJSON[i];
+            showItem = this.data.shows[i];
             for (var c = 0; c < showItem.classes.length; c++) {
                 let clsItem = new classes();
                 clsItem = showItem.classes[c];
@@ -653,7 +780,7 @@ export class showViewData {
                             foundExhibitor.shows.push({
                                 "show": showItem.show,
                                 "youthCount": showItem.youthCount,
-                                "class": clsItem.class,                                
+                                "class": clsItem.class,
                                 "placing": placeItem.placing,
                                 "championshipPoints": placeItem.championshipPoints,
                                 "placingPoints": placeItem.placingPoints,
@@ -667,7 +794,7 @@ export class showViewData {
                                 "shows": [{
                                     "show": showItem.show,
                                     "youthCount": showItem.youthCount,
-                                    "class": clsItem.class,                                    
+                                    "class": clsItem.class,
                                     "placing": placeItem.placing,
                                     "championshipPoints": placeItem.championshipPoints,
                                     "placingPoints": placeItem.placingPoints,
@@ -681,18 +808,20 @@ export class showViewData {
                 }
             }
         }
-        
+
         itemExhibitors.forEach(h => h.showTotals = store.pointsSummary(h.shows));
 
         //split into youth 10-14 and 15-18
-        var youngYouth = {"title":"Youth 10-14",
+        var youngYouth = {
+            "title": "Youth 10-14",
             "youth": []
         }
-        var olderYouth = {"title":"Youth 15-18",
+        var olderYouth = {
+            "title": "Youth 15-18",
             "youth": []
         };
-        
-        itemExhibitors.forEach(h => (h.shows[0].class.includes("10-14")) ? youngYouth.youth.push(h): olderYouth.youth.push(h));
+
+        itemExhibitors.forEach(h => (h.shows[0].class.includes("10-14")) ? youngYouth.youth.push(h) : olderYouth.youth.push(h));
 
         youthExhibitors.set(youngYouth.title, youngYouth);
         youthExhibitors.set(olderYouth.title, olderYouth);
@@ -703,9 +832,9 @@ export class showViewData {
     ReturnHitchClassResults() {
         let itemClasses = new Map();
 
-        for (var i = 0; i < this.showJSON.length; i++) {
+        for (var i = 0; i < this.data.shows.length; i++) {
             let showItem = new hitchShowResults();
-            showItem = this.showJSON[i];
+            showItem = this.data.shows[i];
             for (var c = 0; c < showItem.classes.length; c++) {
                 let clsItem = new classes();
                 clsItem = showItem.classes[c];
@@ -736,7 +865,7 @@ export class showViewData {
                         else {
                             foundClass.classCount += 1
                             foundClass.hitch.push({
-                                "hitchFarmName": placeItem.hitchFarmName,                                
+                                "hitchFarmName": placeItem.hitchFarmName,
                                 "membershipNum": placeItem.membershipNum,
                                 "showTotals": 0,
                                 "shows": [{
@@ -757,8 +886,8 @@ export class showViewData {
                         var newClass = {
                             "class": clsItem.class,
                             "classCount": 1,
-                            "hitch": [{                                
-                                "hitchFarmName": placeItem.hitchFarmName,                                
+                            "hitch": [{
+                                "hitchFarmName": placeItem.hitchFarmName,
                                 "membershipNum": placeItem.membershipNum,
                                 "showTotals": 0,
                                 "shows": [{
@@ -786,9 +915,9 @@ export class showViewData {
     ReturnHitchExhibitorResults() {
         let itemExhibitors = new Map();
 
-        for (var i = 0; i < this.showJSON.length; i++) {
+        for (var i = 0; i < this.data.shows.length; i++) {
             let showItem = new showResults();
-            showItem = this.showJSON[i];
+            showItem = this.data.shows[i];
             for (var c = 0; c < showItem.classes.length; c++) {
                 let clsItem = new classes();
                 clsItem = showItem.classes[c];
@@ -804,7 +933,7 @@ export class showViewData {
                             foundExhibitor.shows.push({
                                 "show": showItem.show,
                                 "hitchCount": showItem.hitchCount,
-                                "class": clsItem.class,                                
+                                "class": clsItem.class,
                                 "placing": placeItem.placing,
                                 "championshipPoints": placeItem.championshipPoints,
                                 "placingPoints": placeItem.placingPoints,
@@ -813,13 +942,13 @@ export class showViewData {
                         }
                         else {
                             var newExhibitor = {
-                                "hitchFarmName": placeItem.hitchFarmName,                                
+                                "hitchFarmName": placeItem.hitchFarmName,
                                 "membershipNum": placeItem.membershipNum,
                                 "showTotals": 0,
                                 "shows": [{
                                     "show": showItem.show,
                                     "hitchCount": showItem.hitchCount,
-                                    "class": clsItem.class,                                    
+                                    "class": clsItem.class,
                                     "placing": placeItem.placing,
                                     "championshipPoints": placeItem.championshipPoints,
                                     "placingPoints": placeItem.placingPoints,
@@ -833,7 +962,7 @@ export class showViewData {
                 }
             }
         }
-        
+
         itemExhibitors.forEach(h => h.showTotals = store.pointsSummary(h.shows));
 
         return itemExhibitors;
@@ -843,9 +972,9 @@ export class showViewData {
         //let itemHorses = new Map();
 
         let versatilityHorses = new Map();
-        for (var s = 0; s < this.showJSON.length; s ++) {
+        for (var s = 0; s < this.data.shows.length; s++) {
             let showItem = new showResults();
-            showItem = this.showJSON[s];
+            showItem = this.data.shows[s];
 
             let hitchHorses = new Map();
             let halterHorses = new Map();
@@ -886,8 +1015,8 @@ export class showViewData {
                             var foundHorse = versatilityHorses.get(halter.registrationNumber);
 
                             //see if found horse shows contains this hitch class  
-                            let foundShowClass = foundHorse.shows.find(s => s.show == hitch.show && s.class == hitch.class)                          
-                            if (foundShowClass == undefined){
+                            let foundShowClass = foundHorse.shows.find(s => s.show == hitch.show && s.class == hitch.class)
+                            if (foundShowClass == undefined) {
                                 foundHorse.shows.push({
                                     "show": hitch.show,
                                     "halterHorseCount": hitch.halterHorseCount,
@@ -897,7 +1026,7 @@ export class showViewData {
                                     "championshipPoints": hitch.championshipPoints,
                                     "placingPoints": hitch.placingPoints,
                                     "pointsTotal": hitch.pointsTotal
-                                })    
+                                })
                             }
                             foundHorse.shows.push({
                                 "show": halter.show,

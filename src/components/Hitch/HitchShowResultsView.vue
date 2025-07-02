@@ -1,5 +1,5 @@
 <template>
-    <DataTable v-model:expandedRows="expandedRows" :value="showDataList" @rowExpand="onRowExpand"
+    <DataTable v-model:expandedRows="expandedRows" :value="showDataList.shows" @rowExpand="onRowExpand"
         @rowCollapse="onRowCollapse" dataKey="show" :class="p-datatable-sm" tableStyle="min-width: 50rem">
         <template #header>
             <div class="flex flex-wrap justify-content-end gap-2">
@@ -10,6 +10,7 @@
         <Column expander style="width: 1rem" />
         <Column field="show" header="Show" sortable></Column>
         <Column field="hitchCount" header="Hitch Count"></Column>
+        <Column field="ridingCount" header="Riding Count"></Column>
 
         <template #expansion="slotPropsClass">
             <!--<div v-for="cls in slotProps.data.classes">

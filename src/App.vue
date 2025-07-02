@@ -1,5 +1,5 @@
 <template>
-  <Menubar :model="items" class="flexrow">
+  <Menubar :model="items" class="flexrow" style="background-color: lightskyblue">
     <template #start>
       <div class="flexrow">
         <img alt="logo" src="/belgian-draft-horse-alliance-clear.webp" height="40" class="mr-2" />
@@ -11,7 +11,7 @@
     </template>
   </Menubar>  
   <router-view />
-  <footer class="text-center">
+  <footer class="text-center" style="background-color: lightblue">
     <br/>
       &copy;{{ new Date().getFullYear() }} Belgian Draft Horse Corporation. All Rights Reserved. Website Design and Development by KLH.
   </footer>
@@ -25,6 +25,11 @@
   align-items: center;
   width: 100%;
 }
+
+body {
+  font-size: 10px;
+}
+
 </style>
 
 <script setup>

@@ -18,7 +18,7 @@
                 @rowCollapse="onRowCollapse" dataKey="registrationNumber" :class="p-datatable-sm" tableStyle="min-width: 50rem"
                 sortField="showTotals" :sortOrder="-1">
                     <Column expander style="width: 1rem" />
-                    <Column field="registrationNumber" header="Registraion" sortable></Column>
+                    <Column field="registrationNumber" header="Registration" sortable></Column>
                     <Column field="horseName" header="Horse" sortable></Column>
                     <Column field="owner" header="Owner" sortable></Column>
                     <Column field="sire" header="Sire" sortable></Column>

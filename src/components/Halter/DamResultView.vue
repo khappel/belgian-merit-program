@@ -18,7 +18,7 @@
                     <Column field="show" header="Show" sortable></Column>                    
                     <Column field="class" header="Class" sortable></Column>
                     <Column field="placing" header="Placing" sortable></Column>
-                    <Column field="registrationNumber" header="Registraion" sortable></Column>
+                    <Column field="registrationNumber" header="Registration" sortable></Column>
                     <Column field="horseName" header="Horse" sortable></Column>
                     <Column field="owner" header="Owner" sortable></Column>
                     <Column field="sire" header="Sire" sortable></Column>
@@ -60,7 +60,7 @@ export default {
     },
     methods: {
         expandAll() {
-            this.expandedRows = Array.from(this.horseData.values()).filter((p) => p.dam);
+            this.expandedRows = Array.from(this.horseData.showJSON.values()).filter((p) => p.dam);
         },
         collapseAll() {
             this.expandedRows = null;

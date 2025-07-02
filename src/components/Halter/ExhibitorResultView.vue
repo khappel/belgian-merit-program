@@ -18,7 +18,7 @@
                     <Column field="show" header="Show" sortable></Column>                    
                     <Column field="class" header="Class" sortable></Column>
                     <Column field="placing" header="Placing" sortable></Column>
-                    <Column field="registrationNumber" header="Registraion" sortable></Column>
+                    <Column field="registrationNumber" header="Registration" sortable></Column>
                     <Column field="horseName" header="Horse" sortable></Column>
                     <Column field="sire" header="Sire" sortable></Column>
                     <Column field="dam" header="Dam" sortable></Column>

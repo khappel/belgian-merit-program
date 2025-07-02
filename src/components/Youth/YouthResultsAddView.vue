@@ -23,7 +23,7 @@
 
             <Sidebar v-model:visible="visibleRight" position="right">
                 <Listbox v-model="defaultShowSelected" :options="shows" multiple optionLabel="show" class="w-full mb-1"
-                    listStyle="max-height:350px" />
+                    listStyle="max-height:80vh" />
                
                 <Button label="Add Show" icon="pi pi-plus" class="mr-2" @click="StartClassEntry" />
 
@@ -56,13 +56,14 @@
 <script>
 import PlacingEntryComponent from '../PlacingEntryComponent.vue'
 import { store } from '../../classess/store.js'
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 
 export default {
     name: "Results",
     data() {
         return {
-            store,
+            //store,
+            shows: ref(''),
             entryMode: "Youth",
             shows: [],
             showClasses: [],
@@ -107,6 +108,14 @@ export default {
 
             
         };
+    },
+    setup() {
+
+        onMounted(() => {
+            store.getAccessToken();
+            store.getShowDef();
+            store.getYouthClassDef();
+        });
     },
     components: {
         PlacingEntryComponent
@@ -173,16 +182,16 @@ export default {
             this.visibleRight = false;
             this.selectedShow = this.showList[this.showList.length - 1];
         },
-        getShowDef() {
+        /*getShowDef() {
             fetch("Definition Files/Shows.json")
                 .then(response => response.json())
                 .then(data => (this.shows = data));
-        },
-        getClassDef() {
+        },*/
+        /*getClassDef() {
             fetch("Definition Files/YouthClasses.json")
                 .then(response => response.json())
                 .then(data => (this.form.classes = data));
-        },
+        },*/
         setAccordianCount() {
             let length = 0;
 
@@ -226,11 +235,17 @@ export default {
     computed: {
         showYear() {
             return { year: this.inputYear, shows: this.showList };
+        },
+        shows() {
+            return store.showListData;
+        },
+        classes() {
+            return store.classListData;
         }
     },
     created: function () {
-        this.getShowDef();
-        this.getClassDef();
+        //this.getShowDef();
+        //this.getClassDef();
     },
     mounted() {
         if (localStorage.getItem('showYouthData')) {
@@ -253,7 +268,13 @@ export default {
         inputYear(newYear) {
             const parsed = JSON.stringify(this.showYear);
             localStorage.setItem('showYouthData', parsed);
-        }      
+        },
+        shows(showList){
+            shows = store.showListData;
+        },
+        classes(classList){
+            classes = store.youthClassListData;
+        }
     }
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <DataTable v-model:expandedRows="expandedRows" :value="showDataList" @rowExpand="onRowExpand"
+    <DataTable v-model:expandedRows="expandedRows" :value="showDataList.shows" @rowExpand="onRowExpand"
         @rowCollapse="onRowCollapse" dataKey="show" :class="p-datatable-sm" tableStyle="min-width: 50rem">
         <template #header>
             <div class="flex flex-wrap justify-content-end gap-2">

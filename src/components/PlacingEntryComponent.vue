@@ -52,8 +52,8 @@
                     <tr v-for="(placing, index) in Placings" :key="placing" style="text-align: left;">
                         <td>
                             <div v-if="index > 4">
-                                <InputText type="text" v-model="placing.placing" class="p-inputtext-sm" style="width:40px;"
-                                    @change="valueChange()" />
+                                <InputText type="text" v-model="placing.placing" class="p-inputtext-sm"
+                                    style="width:40px;" @change="valueChange()" />
                             </div>
                             <div v-else>
                                 {{ placing.placing }}
@@ -75,9 +75,9 @@
                         <template v-else-if="this.entryMode == 'Hitch'">
                             <td>
                                 <div class="p-inputgroup flex-1">
-                                    <AutoComplete v-model="placing.hitchFarmName" optionLabel="farm name"
-                                        class="p-inputtext-sm" :suggestions="filteredRegistrationItems" style="width:200x;"
-                                        @complete="searchRegistration" @item-select="selectedRegistration(placing)" />
+                                    <AutoComplete v-model="placing.hitchFarmName" optionLabel="value.exhibitor"
+                                        class="p-inputtext-sm" :suggestions="filteredOwnerItems" style="width:200x;"
+                                        @complete="searchOwner" @item-select="selectedOwner(placing)" />
                                     <!--<InputText type="text" id="registrationNumber" v-model="placing.registrationNumber"
                                     class="p-inputtext-sm" @change="updateValue(Placings, ShowClass, ClassCount)" />
                                 <Button icon="pi pi-search" severity="warning" @click="SearchRegistry" />-->
@@ -87,8 +87,9 @@
                             <td>
                                 <div class="p-inputgroup flex-1">
                                     <AutoComplete v-model="placing.membershipNum" optionLabel="membership number"
-                                        class="p-inputtext-sm" :suggestions="filteredRegistrationItems" style="width:200x;"
-                                        @complete="searchRegistration" @item-select="selectedRegistration(placing)" />
+                                        class="p-inputtext-sm" :suggestions="filteredRegistrationItems"
+                                        style="width:200x;" @complete="searchRegistration"
+                                        @item-select="selectedRegistration(placing)" />
                                     <!--<InputText type="text" id="registrationNumber" v-model="placing.registrationNumber"
                                     class="p-inputtext-sm" @change="updateValue(Placings, ShowClass, ClassCount)" />
                                 <Button icon="pi pi-search" severity="warning" @click="SearchRegistry" />-->
@@ -100,8 +101,9 @@
                             <td>
                                 <div class="p-inputgroup flex-1">
                                     <AutoComplete v-model="placing.registrationNumber" optionLabel="name"
-                                        class="p-inputtext-sm" :suggestions="filteredRegistrationItems" style="width:200x;"
-                                        @complete="searchRegistration" @item-select="selectedRegistration(placing)" />
+                                        class="p-inputtext-sm" :suggestions="filteredRegistrationItems"
+                                        style="width:200x;" @complete="searchRegistration"
+                                        @item-select="selectedRegistration(placing)" />
                                     <!--<InputText type="text" id="registrationNumber" v-model="placing.registrationNumber"
                                     class="p-inputtext-sm" @change="updateValue(Placings, ShowClass, ClassCount)" />
                                 <Button icon="pi pi-search" severity="warning" @click="SearchRegistry" />-->
@@ -119,8 +121,8 @@
                             </td>
                             <td>
                                 <div class="p-inputgroup flex-1">
-                                    <AutoComplete v-model="placing.owner" optionLabel="value.owner" class="p-inputtext-sm"
-                                        :suggestions="filteredOwnerItems" @complete="searchOwner"
+                                    <AutoComplete v-model="placing.owner" optionLabel="value.owner"
+                                        class="p-inputtext-sm" :suggestions="filteredOwnerItems" @complete="searchOwner"
                                         @item-select="selectedOwner(placing)" />
                                     <!--<InputText type="text" id="registrationNumber" v-model="placing.registrationNumber"
                                     class="p-inputtext-sm" @change="updateValue(Placings, ShowClass, ClassCount)" />
@@ -189,6 +191,7 @@ export default {
         HalterHorseCount: Number,
         HitchHorseCount: Number,
         YouthCount: Number,
+        RidingCount: Number,
         ClassType: String,
         ClassCount: Number,
         Placings: {
@@ -262,6 +265,7 @@ export default {
             halterHorseCount: this.HalterHorseCount,
             hitchHorseCount: this.HitchHorseCount,
             youthCount: this.YouthCount,
+            ridingCount: this.RidingCount,
             classType: this.classType,
             showClass: this.ShowClass
         }
@@ -322,21 +326,37 @@ export default {
             this.$emit('valueChange')
         },
         selectedRegistration(originalEvent, value) {
-            var selectedValue = originalEvent.registrationNumber;
-            if (!originalEvent.sire && selectedValue.value.sire) {
-                originalEvent.sire = selectedValue.value.sire;
+            if (this.entryMode == "Youth") {
+
             }
-            if (!originalEvent.horseName && selectedValue.value.horseName) {
-                originalEvent.horseName = selectedValue.value.horseName;
+            else if (this.entryMode == "Hitch") {
+                var selectedValue = originalEvent.membershipNum.value;
+                if (!originalEvent.membershipNum.value.exhibitor && selectedValue.value.hitchFarmName) {
+                    originalEvent.value.hitchFarmName = selectedValue.value.hitchFarmName;
+                }
+               
+                originalEvent.membershipNum = selectedValue.value.membershipNum;
+                this.valueChange();
             }
-            if (!originalEvent.dam && selectedValue.value.dam) {
-                originalEvent.dam = selectedValue.value.dam;
+            else {
+                var selectedValue = originalEvent.registrationNumber;
+                if (!originalEvent.sire && selectedValue.value.sire) {
+                    originalEvent.sire = selectedValue.value.sire;
+                }
+                if (!originalEvent.horseName && selectedValue.value.horseName) {
+                    originalEvent.horseName = selectedValue.value.horseName;
+                }
+                if (!originalEvent.dam && selectedValue.value.dam) {
+                    originalEvent.dam = selectedValue.value.dam;
+                }
+                if (!originalEvent.owner && selectedValue.value.owner) {
+                    originalEvent.owner = selectedValue.value.owner;
+                }
+                originalEvent.registrationNumber = selectedValue.name;
+                this.valueChange();
             }
-            if (!originalEvent.owner && selectedValue.value.owner) {
-                originalEvent.owner = selectedValue.value.owner;
-            }
-            originalEvent.registrationNumber = selectedValue.name;
-            this.valueChange();
+
+
         },
         searchRegistration(event) {
             setTimeout(() => {
@@ -346,19 +366,59 @@ export default {
                     var filteredItems;
                     const arr = [...this.horseData].map(([name, value]) => ({ name, value }));
 
-                    filteredItems = arr.filter((v) => {
-                        return v.value.registrationNumber.toLowerCase().startsWith(event.query.toLowerCase());
-                    });
+                    if (this.entryMode == "Youth") {
+                        filteredItems = arr.filter((v) => {
 
-                    this.filteredRegistrationItems = filteredItems;
+                            return v.value.registrationNumber.toLowerCase().startsWith(event.query.toLowerCase());
+                        });
+
+                        this.filteredRegistrationItems = filteredItems;
+                    }
+                    else if (this.entryMode == "Hitch") {
+                        filteredItems = arr.filter((v) => {
+
+                            return v.value.membershipNum.toLowerCase().startsWith(event.query.toLowerCase());
+                        });
+
+                        this.filteredRegistrationItems = filteredItems;
+                    }
+                    else {
+                        filteredItems = arr.filter((v) => {
+
+                            return v.value.registrationNumber.toLowerCase().startsWith(event.query.toLowerCase());
+                        });
+
+                        this.filteredRegistrationItems = filteredItems;
+                    }
+
+
                 }
             }, 250);
         },
         selectedOwner(originalEvent, value) {
-            var selectedValue = originalEvent.owner;
+            if (this.entryMode == "Youth") {
 
-            originalEvent.owner = selectedValue.name;
-            this.valueChange();
+                var selectedValue = originalEvent.owner;
+
+                originalEvent.owner = selectedValue.name;
+                this.valueChange();
+            }
+            else if (this.entryMode == "Hitch") {
+
+                var selectedValue = originalEvent.hitchFarmName;
+                if (!originalEvent.membershipNum && selectedValue.value.membershipNum) {
+                    originalEvent.membershipNum = selectedValue.value.membershipNum;
+                }
+                originalEvent.hitchFarmName = selectedValue.name;
+                this.valueChange();
+            }
+            else {
+
+                var selectedValue = originalEvent.owner;
+
+                originalEvent.owner = selectedValue.name;
+                this.valueChange();
+            }
         },
         searchOwner(event) {
             setTimeout(() => {
@@ -369,37 +429,93 @@ export default {
                     const arr = [...this.horseData].map(([name, value]) => ({ name, value }));
 
                     filteredItems = arr.filter((v) => {
-                        return v.value.owner.toLowerCase().startsWith(event.query.toLowerCase());
-                    });
-
-                    let newFilteredItems = new Map();
-                    filteredItems.forEach(x => {
-                        if (newFilteredItems.has(x.value.owner)) {
-                            var foundOwner = newFilteredItems.get(x.value.owner);
-
-                            foundOwner.horses.push({
-                                "registrationNumber": x.value.registrationNumber,
-                                "horseName": x.value.horseName,
-                                "sire": x.value.sire,
-                                "dam": x.value.dam,
-                            })
+                        if (this.entryMode == "Youth") {
+                            return v.value.exhibitor.toLowerCase().startsWith(event.query.toLowerCase());
+                        }
+                        else if (this.entryMode == "Hitch") {
+                            return v.value.exhibitor.toLowerCase().startsWith(event.query.toLowerCase());
                         }
                         else {
-                            var newOwner = {
+                            return v.value.owner.toLowerCase().startsWith(event.query.toLowerCase());
+                        }
+                    });
 
-                                "owner": x.value.owner,
-                                "horses": [{
+                    if (this.entryMode == "Youth") {
+                        let newFilteredItems = new Map();
+                        filteredItems.forEach(x => {
+                            if (newFilteredItems.has(x.value.exhibitor)) {
+                                var foundExhibitor = newFilteredItems.get(x.value.exhibitor);
+
+                                foundExhibitor.exhibitor.push({
+                                    "exhibitor": x.value.exhibitor,
+                                })
+                            }
+                            else {
+                                var newExhibitor = {
+
+                                    "exhibitor": x.value.exhibitor,
+                                };
+                                newFilteredItems.set(x.value.exhibitor, newExhibitor)
+                            }
+                        })
+
+                        this.filteredOwnerItems = [...newFilteredItems].map(([name, value]) => ({ name, value }));
+                    }
+                    else if (this.entryMode == "Hitch") {
+                        let newFilteredItems = new Map();
+                        filteredItems.forEach(x => {
+                            if (newFilteredItems.has(x.value.exhibitor)) {
+                                var foundExhibitor = newFilteredItems.get(x.value.exhibitor);
+
+                                foundExhibitor.exhibitor.push({
+                                    "exhibitor": x.value.exhibitor,
+                                    "membershipNum": x.value.membershipNum,
+                                })
+                            }
+                            else {
+                                var newExhibitor = {
+
+                                    "exhibitor": x.value.exhibitor,
+                                    "membershipNum": x.value.membershipNum,
+                                };
+                                newFilteredItems.set(x.value.exhibitor, newExhibitor)
+                            }
+                        })
+
+                        this.filteredOwnerItems = [...newFilteredItems].map(([name, value]) => ({ name, value }));
+                    }
+                    else {
+                        let newFilteredItems = new Map();
+                        filteredItems.forEach(x => {
+                            if (newFilteredItems.has(x.value.owner)) {
+                                var foundOwner = newFilteredItems.get(x.value.owner);
+
+                                foundOwner.horses.push({
                                     "registrationNumber": x.value.registrationNumber,
                                     "horseName": x.value.horseName,
                                     "sire": x.value.sire,
                                     "dam": x.value.dam,
-                                }]
-                            };
-                            newFilteredItems.set(x.value.owner, newOwner)
-                        }
-                    })
+                                })
+                            }
+                            else {
+                                var newOwner = {
 
-                    this.filteredOwnerItems = [...newFilteredItems].map(([name, value]) => ({ name, value }));
+                                    "owner": x.value.owner,
+                                    "horses": [{
+                                        "registrationNumber": x.value.registrationNumber,
+                                        "horseName": x.value.horseName,
+                                        "sire": x.value.sire,
+                                        "dam": x.value.dam,
+                                    }]
+                                };
+                                newFilteredItems.set(x.value.owner, newOwner)
+                            }
+                        })
+
+                        this.filteredOwnerItems = [...newFilteredItems].map(([name, value]) => ({ name, value }));
+                    }
+
+
                 }
             }, 250);
         },
@@ -518,7 +634,19 @@ export default {
     computed: {
         horseData() {
             //var x = showViewData.showIndex(45);
-            return new showViewData(store.showData).ReturnDistinctHorseList()
+            if (this.entryMode == "Youth") {
+                var youthList = new showViewData(store.youthShowData).ReturnDistinctYouthList()
+                
+
+                return youthList
+            }
+            else if (this.entryMode == "Hitch") {
+                return new showViewData(store.hitchShowData).ReturnDistinctHitchList()
+            }
+            else {
+                return new showViewData(store.showData).ReturnDistinctHorseList()
+            }
+
         },
 
     },

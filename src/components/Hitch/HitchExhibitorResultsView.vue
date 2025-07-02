@@ -1,7 +1,7 @@
 <template>
     <DataTable v-model:expandedRows="expandedRows" :value="Array.from(exhibitorData.values())" stripedRows
         @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" dataKey="membershipNum" :class="p - datatable - sm"
-        tableStyle="min-width: 50rem" sortField="title" :sortOrder="-1">
+        tableStyle="min-width: 50rem" sortField="showTotals" :sortOrder="-1">
         <template #header>
             <div class="flex flex-wrap justify-content-end gap-2">
                 <Button text icon="pi pi-plus" label="Expand" @click="expandAll" />

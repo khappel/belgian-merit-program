@@ -27,7 +27,7 @@
 
             <Sidebar v-model:visible="visibleRight" position="right">
                 <Listbox v-model="defaultShowSelected" :options="shows" multiple optionLabel="show" class="w-full mb-1"
-                    listStyle="max-height:300px" />
+                    listStyle="max-height:80vh" />
                 <!--<Dropdown v-model="defaultShowSelected" :options="shows" optionLabel="show" placeholder="Select show"
                     class="w-full mb-1" />-->
 
@@ -66,29 +66,29 @@
 <script>
 import PlacingEntryComponent from '../PlacingEntryComponent.vue'
 import { store } from '../../classess/store.js'
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 
 export default {
     name: "Results",
     data() {
         return {
-            store,
-            shows: [],
-            showClasses: [],
-            showDataList: [],
+            //store,
+            shows: ref(''),
+            //showClasses: [],
+            //showDataList: [],
             accordianCount: [],
             defaultShowSelected: [],
             //showYear: { "year": "", "shows": currentShowList() },
             inputYear: "",
             selectedShow: { "show": "", "halterHorseCount": 0, "halterHitchCount": 0, "classes": [] },
             showList: [],
-            enableForm: false,
-            enableYearMode: false,
+            //enableForm: false,
+            //enableYearMode: false,
             visibleRight: false,
             horseCount: 0,
             halterHorseCount: 0,
             hitchHorseCount: 0,
-            form: { "show": "", "halterHorseCount": 0, "halterHitchCount": 0, "classes": [] },
+            form: { "show": "", "halterHorseCount": 0, "halterHitchCount": 0, "classes": ref('') },
             items: [
                 {                    
                     label: 'New',
@@ -108,6 +108,14 @@ export default {
                 }
             ],
         };
+    },
+    setup() {
+
+        onMounted(() => {
+            store.getAccessToken();
+            store.getShowDef();
+            store.getHalterClassDef();
+        });
     },
     components: {
         PlacingEntryComponent
@@ -181,16 +189,16 @@ export default {
                  this.form.showClasses = this.showDataList.classsess
              }
          },*/
-        getShowDef() {
+        /*getShowDef() {
             fetch("Definition Files/Shows.json")
                 .then(response => response.json())
                 .then(data => (this.shows = data));
-        },
-        getClassDef() {
+        },*/
+        /*getClassDef() {
             fetch("Definition Files/Classes.json")
                 .then(response => response.json())
                 .then(data => (this.form.classes = data));
-        },
+        },*/
         setAccordianCount() {
             let length = 0;
 
@@ -234,7 +242,14 @@ export default {
     computed: {
         showYear() {
             return { year: this.inputYear, shows: this.showList };
+        },
+        shows() {
+            return store.showListData;
+        },
+        classes() {
+            return store.getHalterClassDef;
         }
+
     },
     /*setup() {
     const form: reactive([
@@ -262,8 +277,8 @@ export default {
     };
     },*/
     created: function () {
-        this.getShowDef();
-        this.getClassDef();
+        //this.getShowDef();
+        //this.getClassDef();
     },
     mounted() {
         if (localStorage.getItem('showData')) {
@@ -290,6 +305,12 @@ export default {
         inputYear(newYear) {
             const parsed = JSON.stringify(this.showYear);
             localStorage.setItem('showData', parsed);
+        },
+        shows(showList){
+            shows = store.showListData;
+        },
+        classes(classList){
+            this.form.classes = store.halterClassListData;
         }
         //selectedShow(newShow) {
         //    const parsed = JSON.stringify(this.showYear);
