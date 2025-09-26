@@ -13,14 +13,20 @@
 
                 <Listbox v-model="selectedShow" :options="showList" optionLabel="show" class="w-full mb-1" listStyle="max-height:300px" />
                 <Button label="Add Show" icon="pi pi-plus" @click="visibleRight = true" />
-                <div class="flex flex-row gap-2" style="align-items: center;">
-                    <label :for="selectedShow.halterHorseCount">Halter Horse Count</label>
-                    <InputNumber v-model.number="selectedShow.halterHorseCount" @change="componentChange()"
+                <div class="flex flex-row gap-2" style="align-items: center;" v-if="selectedShow">
+                    <label for="halterCount">Halter Horse Count</label>
+                    <InputNumber 
+                        id="halterHorseCount"
+                        v-model.number="selectedShow.halterHorseCount" 
+                        @change="componentChange()"
                         required />
                 </div>
-                <div class="flex flex-row gap-2" style="align-items: center;">
-                    <label :for="selectedShow.hitchHorseCount">Hitch Horse Count</label>
-                    <InputNumber v-model.number="selectedShow.hitchHorseCount" @change="componentChange()"
+                <div class="flex flex-row gap-2" style="align-items: center;" v-if="selectedShow">
+                    <label for="hitchHorseCount">Hitch Horse Count</label>
+                    <InputNumber 
+                        id="hitchHorseCount"
+                        v-model.number="selectedShow.hitchHorseCount" 
+                        @change="componentChange()"
                         required />
                 </div>
             </Fieldset>
@@ -31,13 +37,12 @@
                 <!--<Dropdown v-model="defaultShowSelected" :options="shows" optionLabel="show" placeholder="Select show"
                     class="w-full mb-1" />-->
 
-
                 <Button label="Add Show" icon="pi pi-plus" class="mr-2" @click="StartClassEntry" />
 
             </Sidebar>
 
             <form @submit="handleSubmit" class="placing-form; mr-0">
-                <h1>Enter Results for {{ selectedShow.show }}</h1>
+                <h1>Enter Results for {{ selectedShow?.show }}</h1>
                 <Accordion :multiple="true" :activeIndex="setAccordianCount()">
                     <AccordionTab v-for="cls in selectedShow?.classes" :key="cls.class" :header="cls.class">
                         
@@ -66,7 +71,7 @@
 <script>
 import PlacingEntryComponent from '../PlacingEntryComponent.vue'
 import { store } from '../../classess/store.js'
-import { onMounted, ref } from "vue";
+import { onMounted, ref, computed } from "vue";
 
 export default {
     name: "Results",
@@ -88,7 +93,7 @@ export default {
             horseCount: 0,
             halterHorseCount: 0,
             hitchHorseCount: 0,
-            form: { "show": "", "halterHorseCount": 0, "halterHitchCount": 0, "classes": ref('') },
+            form: { "show": "", "halterHorseCount": 0, "halterHitchCount": 0, "classes": [] },
             items: [
                 {                    
                     label: 'New',
@@ -169,7 +174,7 @@ export default {
 
         },
         StartClassEntry() {
-            let showcls = JSON.parse(JSON.stringify(this.form.classes));
+            let showcls = JSON.parse(JSON.stringify(this.classes));
             this.defaultShowSelected.forEach(showItem => {
                 const foundShow = this.showList.find(({ show }) => show === showItem.show)
                 //if (foundClass.has(placeItem.registrationNumber)) 
@@ -247,7 +252,7 @@ export default {
             return store.showListData;
         },
         classes() {
-            return store.getHalterClassDef;
+            return store.halterClassListData; // store.getHalterClassDef;
         }
 
     },

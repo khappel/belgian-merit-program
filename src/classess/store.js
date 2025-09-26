@@ -159,7 +159,7 @@ export const store = reactive({
 
         reader.addEventListener("loadend", function () {
           //clean up shows
-          store.hitchClassListData = JSON.parse(reader.result);
+          store.youthClassListData = JSON.parse(reader.result);
         });
 
         if (blob != undefined) {

@@ -14,9 +14,12 @@
 
                 <Listbox v-model="selectedShow" :options="showList" optionLabel="show" class="w-full mb-1" listStyle="max-height:300px" />
                 <Button label="Add Show" icon="pi pi-plus" @click="visibleRight = true" />
-                <div class="flex flex-row gap-2" style="align-items: center;">
-                    <label :for="selectedShow.youthCount">Youth Count</label>
-                    <InputNumber v-model.number="selectedShow.youthCount" @change="componentChange()"
+                <div class="flex flex-row gap-2" style="align-items: center;" v-if="selectedShow">
+                    <label for="youthCount">Youth Count</label>
+                    <InputNumber 
+                        id="youthCount"
+                        v-model.number="selectedShow.youthCount" 
+                        @change="componentChange()"
                         required />
                 </div>
             </Fieldset>
@@ -30,7 +33,7 @@
             </Sidebar>
 
             <form @submit="handleSubmit" class="placing-form; mr-0">
-                <h1>Enter Results for {{ selectedShow.show }}</h1>
+                <h1>Enter Results for {{ selectedShow?.show }}</h1>
                 <Accordion :multiple="true" :activeIndex="setAccordianCount()">
                     <AccordionTab v-for="cls in selectedShow?.classes" :key="cls.class" :header="cls.class">
                         
@@ -40,7 +43,7 @@
                         </div>
                         
                         <PlacingEntryComponent :EntryMode="entryMode" :Show="selectedShow.show" :ShowClass="cls"
-                            :YouthCount="selectedShow.youthCount" 
+                            :YouthCount="selectedShow?.youthCount" 
                             :ClassType="cls.classType"
                             :Placings="cls.placings" @input="(e, c, d) => handleChange(e, c, d)"
                             @valueChange="() => componentChange()"></PlacingEntryComponent>
@@ -56,7 +59,7 @@
 <script>
 import PlacingEntryComponent from '../PlacingEntryComponent.vue'
 import { store } from '../../classess/store.js'
-import { onMounted, ref } from "vue";
+import { onMounted, ref, computed } from "vue";
 
 export default {
     name: "Results",
@@ -65,8 +68,8 @@ export default {
             //store,
             shows: ref(''),
             entryMode: "Youth",
-            shows: [],
-            showClasses: [],
+            //shows: [],
+            //showClasses: [],
             showDataList: [],
             accordianCount: [],
             defaultShowSelected: [],
@@ -169,7 +172,7 @@ export default {
 
         },
         StartClassEntry() {
-            let showcls = JSON.parse(JSON.stringify(this.form.classes));
+            let showcls = JSON.parse(JSON.stringify(this.classes));
             this.defaultShowSelected.forEach(showItem => {
                 const foundShow = this.showList.find(({ show }) => show === showItem.show)
                 //if (foundClass.has(placeItem.registrationNumber)) 
@@ -240,7 +243,7 @@ export default {
             return store.showListData;
         },
         classes() {
-            return store.classListData;
+            return store.youthClassListData;
         }
     },
     created: function () {
@@ -273,7 +276,7 @@ export default {
             shows = store.showListData;
         },
         classes(classList){
-            classes = store.youthClassListData;
+            this.form.classess = store.youthClassListData;
         }
     }
 };

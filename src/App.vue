@@ -1,5 +1,13 @@
 <template>
-  <Menubar :model="items" class="flexrow" style="background-color: lightskyblue">
+  <Menubar :model="items" class="flexrow" style="background: linear-gradient(
+  to right,
+  #B6D0E2,  /* Powder Blue */
+  #C2E9FB,  /* Pale Sky Blue */
+  #D4F1F9,  /* Soft Baby Blue */
+  #E0FFFF,  /* Light Cyan */
+  #F0F8FF   /* Alice Blue */
+);
+">
     <template #start>
       <div class="flexrow">
         <img alt="logo" src="/belgian-draft-horse-alliance-clear.webp" height="40" class="mr-2" />
@@ -11,7 +19,7 @@
     </template>
   </Menubar>  
   <router-view />
-  <footer class="text-center" style="background-color: lightblue">
+  <footer class="text-center" style="background-color: linear-gradient(to right, white, skyblue)">
     <br/>
       &copy;{{ new Date().getFullYear() }} Belgian Draft Horse Corporation. All Rights Reserved. Website Design and Development by KLH.
   </footer>

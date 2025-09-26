@@ -14,13 +14,22 @@
 
                 <Listbox v-model="selectedShow" :options="showList" optionLabel="show" class="w-full mb-1" listStyle="max-height:300px" />
                 <Button label="Add Show" icon="pi pi-plus" @click="visibleRight = true" />
-                <div class="flex flex-row gap-2" style="align-items: center;">
-                    <label :for="selectedShow.hitchCount">Hitch Count</label>
-                    <InputNumber v-model.number="selectedShow.hitchCount" @change="componentChange()"
-                        required />
-                    <label :for="selectedShow.ridingCount">Riding Count</label>
-                    <InputNumber v-model.number="selectedShow.ridingCount" @change="componentChange()"
-                        required />
+                <div class="flex flex-row gap-2" style="align-items: center;" v-if="selectedShow">
+                <label for="hitchCount">Hitch Count</label>
+                <InputNumber
+                    id="hitchCount"
+                    v-model.number="selectedShow.hitchCount"
+                    @change="componentChange"
+                    required
+                />
+
+                <label for="ridingCount">Riding Count</label>
+                <InputNumber
+                    id="ridingCount"
+                    v-model.number="selectedShow.ridingCount"
+                    @change="componentChange"
+                    required
+                />
                 </div>
             </Fieldset>
 
@@ -60,7 +69,7 @@
 <script>
 import PlacingEntryComponent from '../PlacingEntryComponent.vue'
 import { store } from '../../classess/store.js'
-import { onMounted, ref } from "vue";
+import { onMounted, ref, computed } from "vue";
 
 export default {
     name: "Results",
@@ -76,7 +85,7 @@ export default {
             defaultShowSelected: [],
             //showYear: { "year": "", "shows": currentShowList() },
             inputYear: "",
-            selectedShow: { "show": "", "hitchCount": 0, "ridingCount":0, "classes": [] },
+            selectedShow: { "show": "", "hitchCount": 0, "ridingCount": 0, "classes": [] },
             showList: [],
             enableForm: false,
             enableYearMode: false,
@@ -118,7 +127,7 @@ export default {
     onMounted(() => {
         store.getAccessToken();
         store.getShowDef();
-
+        store.getHitchClassDef();
         //this.showListData = store.showListData;
         //store.getClassDef();
     });
@@ -181,7 +190,10 @@ export default {
 
         },
         StartClassEntry() {
-            let showcls = JSON.parse(JSON.stringify(this.form.classes));
+            //if (this.form.classes == undefined){
+
+            //}
+            let showcls = JSON.parse(JSON.stringify(this.classes));
             this.defaultShowSelected.forEach(showItem => {
                 const foundShow = this.showList.find(({ show }) => show === showItem.show)
                 //if (foundClass.has(placeItem.registrationNumber)) 
@@ -194,16 +206,16 @@ export default {
             this.visibleRight = false;
             this.selectedShow = this.showList[this.showList.length - 1];
         },
-        depgetShowDef() {
-            fetch("Definition Files/Shows.json")
-                .then(response => response.json())
-                .then(data => (this.shows = data));
-        },
-        depgetClassDef() {
-            fetch("Definition Files/HitchClasses.json")
-                .then(response => response.json())
-                .then(data => (this.form.classes = data));
-        },
+        //depgetShowDef() {
+        //    fetch("Definition Files/Shows.json")
+        //        .then(response => response.json())
+        //        .then(data => (this.shows = data));
+        //},
+        //depgetClassDef() {
+        //    fetch("Definition Files/HitchClasses.json")
+        //        .then(response => response.json())
+        //        .then(data => (this.form.classes = data));
+        //},
         setAccordianCount() {
             let length = 0;
 
@@ -250,6 +262,9 @@ export default {
         },
         shows() {
             return store.showListData;
+        },
+        classes() {
+            return store.hitchClassListData; //store.getHitchClassDef;
         }
     },
     created: function () {
@@ -289,6 +304,9 @@ export default {
         },
         shows(showList){
             shows = store.showListData;
+        },
+        classess(classList){
+            this.form.classes = store.hitchClassListData;
         }
     }
 };
