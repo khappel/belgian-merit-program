@@ -40,7 +40,12 @@
                 <Button label="Add Show" icon="pi pi-plus" class="mr-2" @click="StartClassEntry" />
 
             </Sidebar>
+            <Sidebar v-model:visible="visibleRightSelect" position="right">
+                <Dropdown v-model="defaultFileSelected" :options="fileYears" optionLabel="year"
+                    placeholder="Select a year" @change="downloadFile()" />
 
+
+            </Sidebar>
             <form @submit="handleSubmit" class="placing-form; mr-0">
                 <h1>Enter Results for {{ selectedShow?.show }}</h1>
                 <Accordion :multiple="true" :activeIndex="setAccordianCount()">
@@ -83,6 +88,7 @@ export default {
             showDataList: [],
             accordianCount: [],
             defaultShowSelected: [],
+            defaultFileSelected: [],
             //showYear: { "year": "", "shows": currentShowList() },
             inputYear: "",
             selectedShow: { "show": "", "hitchCount": 0, "ridingCount": 0, "classes": [] },
@@ -90,6 +96,7 @@ export default {
             enableForm: false,
             enableYearMode: false,
             visibleRight: false,
+            visibleRightSelect: false,
             youthCount: 0,
             form: { "show": "", "hitchCount": 0, "ridingCount":0, "classes": [] },
             items: [
@@ -108,6 +115,11 @@ export default {
                     label: 'Save',
                     icon:'',
                     command: () => this.SaveFile()
+                },
+                {
+                    label: '',
+                    icon: 'pi pi-cloud-download',
+                    command: () => this.visibleRightSelect = true
                 }
             ]
 
@@ -142,6 +154,23 @@ export default {
         PlacingEntryComponent
     },
     methods: {
+        getHitchShowData() {
+            store.hitchShowData = [];
+
+            this.getShowFiles();
+        },
+        async getShowFiles() {
+            try {
+                const response = await store.getShowFiles("Hitch", this.fileYears, this.defaultFileSelected);
+
+                if (response.length > 0) {
+                    this.fileYears = response;
+                    //this.defaultFileSelected = this.fileYears[0];
+                }
+            } catch (error) {
+                console.error("Error fetching show files:", error);
+            }
+        },
         OpenFile() {
             let fileInputElement = this.$refs.file;
             fileInputElement.click();
@@ -252,6 +281,24 @@ export default {
             const parsed = JSON.stringify(this.showYear);
             localStorage.setItem('showHitchData', parsed);
         },
+        async downloadFile() {
+            try {
+                await store.downloadFile("Hitch", this.defaultFileSelected.file, false);
+
+                const FileParse = store.hitchShowData;
+
+                if (FileParse.year !== undefined) {
+                    this.inputYear = FileParse.year;
+                    this.showList = FileParse.shows;
+                } else {
+                    this.showList = FileParse;
+                }
+
+                this.visibleRightSelect = false;
+            } catch (error) {
+                console.error("Failed to load Hitch file:", error);
+            }
+        },
         addResults() {
 
         }
@@ -268,6 +315,7 @@ export default {
         }
     },
     created: function () {
+        this.getHitchShowData();
         //store.getAccessToken();
         //store.getShowDef();
 

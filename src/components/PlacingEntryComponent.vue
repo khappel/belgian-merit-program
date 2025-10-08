@@ -181,7 +181,6 @@
 <script>
 import axios from 'axios'
 import { store } from '../classess/store.js'
-import { showViewData } from '../classess/showResults.js'
 
 export default {
     props: {
@@ -194,6 +193,8 @@ export default {
         RidingCount: Number,
         ClassType: String,
         ClassCount: Number,
+        HorseData: null,
+
         Placings: {
             type: Object,
             required: true,
@@ -258,7 +259,7 @@ export default {
                 }
             ],
             visibleSearchRight: false,
-            registrationItems: this.horseData,
+            registrationItems: this.HorseData,
             filteredRegistrationItems: null,
             filteredOwnerItems: null,
             filteredHorseItems: null,
@@ -361,10 +362,10 @@ export default {
         searchRegistration(event) {
             setTimeout(() => {
                 if (!event.query.trim().length) {
-                    this.filteredRegistrationItems = [...this.horseData.registrationNumber];
+                    this.filteredRegistrationItems = [...this.HorseData.registrationNumber];
                 } else {
                     var filteredItems;
-                    const arr = [...this.horseData].map(([name, value]) => ({ name, value }));
+                    const arr = [...this.HorseData].map(([name, value]) => ({ name, value }));
 
                     if (this.entryMode == "Youth") {
                         filteredItems = arr.filter((v) => {
@@ -423,10 +424,10 @@ export default {
         searchOwner(event) {
             setTimeout(() => {
                 if (!event.query.trim().length) {
-                    this.filteredOwnerItems = [...this.horseData.owner];
+                    this.filteredOwnerItems = [...this.HorseData.owner];
                 } else {
                     var filteredItems;
-                    const arr = [...this.horseData].map(([name, value]) => ({ name, value }));
+                    const arr = [...this.HorseData].map(([name, value]) => ({ name, value }));
 
                     filteredItems = arr.filter((v) => {
                         if (this.entryMode == "Youth") {
@@ -539,10 +540,10 @@ export default {
         searchHorse(event) {
             setTimeout(() => {
                 if (!event.query.trim().length) {
-                    this.filteredHorseItems = [...this.horseData.horseName];
+                    this.filteredHorseItems = [...this.HorseData.horseName];
                 } else {
                     var filteredItems;
-                    const arr = [...this.horseData].map(([name, value]) => ({ name, value }));
+                    const arr = [...this.HorseData].map(([name, value]) => ({ name, value }));
 
                     filteredItems = arr.filter((v) => {
                         return v.value.horseName.toLowerCase().startsWith(event.query.toLowerCase());
@@ -632,22 +633,22 @@ export default {
 
     },
     computed: {
-        horseData() {
-            //var x = showViewData.showIndex(45);
-            if (this.entryMode == "Youth") {
-                var youthList = new showViewData(store.youthShowData).ReturnDistinctYouthList()
-                
+        //horseData() {
+        //    //var x = showViewData.showIndex(45);
+        //    if (this.entryMode == "Youth") {
+        //        var youthList = new showViewData(store.youthShowData).ReturnDistinctYouthList()
+        //        
 
-                return youthList
-            }
-            else if (this.entryMode == "Hitch") {
-                return new showViewData(store.hitchShowData).ReturnDistinctHitchList()
-            }
-            else {
-                return new showViewData(store.showData).ReturnDistinctHorseList()
-            }
+        //        return youthList
+        //    }
+        //    else if (this.entryMode == "Hitch") {
+        //        return new showViewData(store.hitchShowData).ReturnDistinctHitchList()
+        //    }
+        //    else {
+        //        return new showViewData(store.showData).ReturnDistinctHorseList()
+        //    }
 
-        },
+        //},
 
     },
 }

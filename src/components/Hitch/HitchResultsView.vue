@@ -5,7 +5,7 @@
                 class="w-full md:w-27rem" @change="downloadFile()" />
             <Dropdown v-model="defaultViewSelected" :options="items" optionLabel="label" placeholder="Select a view"
                 class="w-full md:w-12rem" @change="changeView()" />
-                <router-view />
+            <router-view />
         </template>
     </card>
 </template>
@@ -20,11 +20,7 @@
 }
 </style>
 <script>
-import axios from 'axios'
-import { Dropbox } from 'dropbox';
-import PlacingComponent from '../PlacingComponent.vue'
 import { store } from '../../classess/store.js'
-import { showViewData } from '../../classess/showResults.js'
 
 export default {
     name: "Results",
@@ -36,26 +32,8 @@ export default {
                 icon: 'pi pi-fw pi-home',
                 to: '/hitchshowresultsview'
             },
-            /*placingDataList: [],*/
-            placingFile: 'Placings/2023BelgianMeritPlacings.json',
             defaultFileSelected: {},
             fileYears: [],
-            defaultShowSelected: [{
-                id: 1,
-                show: "ISF"
-            }],
-            shows: [
-                {
-                    id: 1,
-                    show: "ISF"
-                },
-                {
-                    id: 2,
-                    show: "Great Lakes"
-                }
-            ],
-            /*showDataList: [],
-            accordianCount: [],*/
             items: [
                 {
                     label: 'Show Results',
@@ -71,86 +49,46 @@ export default {
                     label: 'Class Results',
                     icon: 'fa-solid fa-horse',
                     to: '/hitchclassresultsview'
-                },                
+                },
             ],
-            //ACCESS_TOKEN: {},
         };
     },
     components: {
-        PlacingComponent
     },
     methods: {
-        getHitchShowData() {
+        async getHitchShowData() {
             store.hitchShowData = [];
 
-            this.getShowFiles();
+            await this.getShowFiles();
         },
         async getShowFiles() {
-            if (Object.keys(store.ACCESS_TOKEN).length === 0) {
-                await store.getAccessToken();
-            }
+            try {
+                const response = await store.getShowFiles("Hitch", this.fileYears, this.defaultFileSelected);
 
-            if (Object.keys(store.ACCESS_TOKEN).length > 0) {
-                var dbx = new Dropbox({ accessToken: store.ACCESS_TOKEN.access_token });
-
-                dbx.filesListFolder({ path: '/Hitch Master Files' })
-                    .then((response) => {
-                        response.result.entries.forEach(entry => {
-                            this.fileYears.push({ year: entry.name.trim(".json"), file: entry.id })
-                            this.fileYears = this.fileYears.sort(function (a, b) { return a.year - b.year });                            
-                        });
-                        if (this.fileYears.length > 0) {
-                            this.defaultFileSelected = this.fileYears[0];
-                            this.downloadFile();
-                            this.changeView();
-                        }
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    });
-
+                if (response.length > 0) {
+                    this.fileYears = response;
+                    this.defaultFileSelected = this.fileYears[0];
+                    this.changeView();
+                }
+            } catch (error) {
+                console.error("Error fetching show files:", error);
             }
         },
-        downloadFile() {
-            if (Object.keys(store.ACCESS_TOKEN).length === 0) {
-                store.getAccessToken();
-            }
-
-            var dbx = new Dropbox({ accessToken: store.ACCESS_TOKEN.access_token });
-
-            dbx.filesDownload({ path: this.defaultFileSelected.file })
-                .then(function (response) {
-                    var blob = response.result.fileBlob;
-                    var reader = new FileReader();
-
-                    reader.addEventListener("loadend", function () {
-                        //clean up shows
-                        store.hitchShowData = new showViewData(JSON.parse(reader.result)).CleanupHitchShowData();                        
-                    });
-
-                    if (blob != undefined) {
-                        reader.readAsText(blob);
-                    }
-
-
-                })
-                .catch(function (error) {
-                })
-
+        downloadFile(){
+            store.downloadFile("Hitch", this.defaultFileSelected.file);
+            this.changeView();
         },
-        removeEmpty(obj){
+        removeEmpty(obj) {
 
         },
         changeView() {
             this.$router.push({ path: this.defaultViewSelected.to })
             //this.$router.push('/')
-        },      
+        },
     },
     created: function () {
         store.getAccessToken();
-        //defaultFileSelected = defaultFile;
         this.getHitchShowData();
-        //showDataList = showData
     }
 };
 </script>

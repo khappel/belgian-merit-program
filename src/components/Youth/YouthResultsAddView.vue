@@ -3,7 +3,7 @@
         <template #title>
             <Menubar :model="items" />
             <input type="file" accept=".json" ref="file" style="display:none" @change="ReadFile" />
-            
+
         </template>
         <template #content class="m-0">
             <Fieldset legend="Show" class="w-full m-1 p-1" :toggleable="true">
@@ -12,51 +12,59 @@
                     <InputText id="inputYear" v-model="inputYear" />
                 </div>
 
-                <Listbox v-model="selectedShow" :options="showList" optionLabel="show" class="w-full mb-1" listStyle="max-height:300px" />
-                <Button label="Add Show" icon="pi pi-plus" @click="visibleRight = true" />
+                <Listbox v-model="selectedShow" :options="showList" optionLabel="show" class="w-full mb-1"
+                    listStyle="max-height:300px" />
+                <Button label="Add Show" icon="pi pi-plus" @click="visibleRightAdd = true" />
                 <div class="flex flex-row gap-2" style="align-items: center;" v-if="selectedShow">
                     <label for="youthCount">Youth Count</label>
-                    <InputNumber 
-                        id="youthCount"
-                        v-model.number="selectedShow.youthCount" 
-                        @change="componentChange()"
+                    <InputNumber id="youthCount" v-model.number="selectedShow.youthCount" @change="componentChange()"
                         required />
                 </div>
             </Fieldset>
 
-            <Sidebar v-model:visible="visibleRight" position="right">
+            <Sidebar v-model:visible="visibleRightAdd" position="right">
                 <Listbox v-model="defaultShowSelected" :options="shows" multiple optionLabel="show" class="w-full mb-1"
                     listStyle="max-height:80vh" />
-               
+
                 <Button label="Add Show" icon="pi pi-plus" class="mr-2" @click="StartClassEntry" />
 
             </Sidebar>
 
+            <Sidebar v-model:visible="visibleRightSelect" position="right">
+                <Dropdown v-model="defaultFileSelected" :options="fileYears" optionLabel="year"
+                    placeholder="Select a year" class="mb-3" style="width: 300px" /> 
+
+                    <Button label="Download For Entry" icon="pi pi-plus" class="mr-2 mb-2" @click="downloadFile" />
+
+                    <Button label="Set Lookup File" icon="pi pi-search-plus" class="mr-2 mb-2" @click="setLookupFile" />
+                    
+
+            </Sidebar>
             <form @submit="handleSubmit" class="placing-form; mr-0">
                 <h1>Enter Results for {{ selectedShow?.show }}</h1>
                 <Accordion :multiple="true" :activeIndex="setAccordianCount()">
                     <AccordionTab v-for="cls in selectedShow?.classes" :key="cls.class" :header="cls.class">
-                        
+
                         <div class="flex flex-row gap-2" style="align-items: center;">
                             <label :for="cls.classCount">Class Count</label>
                             <InputNumber v-model.number="cls.classCount" @change="componentChange()" />
                         </div>
-                        
-                        <PlacingEntryComponent :EntryMode="entryMode" :Show="selectedShow.show" :ShowClass="cls"
-                            :YouthCount="selectedShow?.youthCount" 
-                            :ClassType="cls.classType"
-                            :Placings="cls.placings" @input="(e, c, d) => handleChange(e, c, d)"
-                            @valueChange="() => componentChange()"></PlacingEntryComponent>
-                        
+
+                        <PlacingEntryComponent :EntryMode="entryMode" :HorseData="horseData" :Show="selectedShow.show" :ShowClass="cls"
+                            :YouthCount="selectedShow?.youthCount" :ClassType="cls.classType" :Placings="cls.placings"
+                            @input="(e, c, d) => handleChange(e, c, d)" @valueChange="() => componentChange()">
+                        </PlacingEntryComponent>
+
                     </AccordionTab>
                 </Accordion>
-                
+
             </form>
         </template>
     </Card>
 </template>
 
 <script>
+import { showViewData } from '../../classess/showResults.js'
 import PlacingEntryComponent from '../PlacingEntryComponent.vue'
 import { store } from '../../classess/store.js'
 import { onMounted, ref, computed } from "vue";
@@ -73,43 +81,49 @@ export default {
             showDataList: [],
             accordianCount: [],
             defaultShowSelected: [],
+            defaultFileSelected: [],
+            horseData: ref(''),
+            //visibleShowSelected: [],
             //showYear: { "year": "", "shows": currentShowList() },
             inputYear: "",
             selectedShow: { "show": "", "YouthCount": 0, "classes": [] },
             showList: [],
             enableForm: false,
             enableYearMode: false,
-            visibleRight: false,
+            visibleRightAdd: false,
+            visibleRightSelect: false,
             youthCount: 0,
             form: { "show": "", "YouthCount": 0, "classes": [] },
             items: [
-                {                    
+                {
                     label: 'New',
                     icon: 'pi pi-plus',
                     command: () => this.SetNewMode()
                 },
                 {
                     label: 'Open',
-                    icon:'pi pi-upload',
-                    severity:'success',
+                    icon: 'pi pi-upload',
+                    severity: 'success',
                     command: () => this.OpenFile()
                 },
                 {
                     label: 'Save',
-                    icon:'',
+                    icon: '',
                     command: () => this.SaveFile()
+                },
+                {
+                    label: '',
+                    icon: 'pi pi-cloud-download',
+                    command: () => this.visibleRightSelect = true
                 }
             ]
 
-
-
-            
-             //<Button label="New" icon="pi pi-plus" class="mr-2" @click="SetNewMode" />
+            //<Button label="New" icon="pi pi-plus" class="mr-2" @click="SetNewMode" />
             //<input type="file" accept=".json" ref="file" style="display:none" @change="ReadFile" />
             //<Button label="Open" icon="pi pi-upload" severity="success" class="mr-2" @click="OpenFile" />
             //<Button label="Save" icon="" class="mr-2" @click="SaveFile" />
 
-            
+
         };
     },
     setup() {
@@ -124,6 +138,23 @@ export default {
         PlacingEntryComponent
     },
     methods: {
+        getYouthShowData() {
+            store.youthShowData = [];
+
+            this.getShowFiles();
+        },
+        async getShowFiles() {
+            try {
+                const response = await store.getShowFiles("Youth", this.fileYears, this.defaultFileSelected);
+
+                if (response.length > 0) {
+                    this.fileYears = response;
+                    //this.defaultFileSelected = this.fileYears[0];
+                }
+            } catch (error) {
+                console.error("Error fetching show files:", error);
+            }
+        },
         OpenFile() {
             let fileInputElement = this.$refs.file;
             fileInputElement.click();
@@ -167,7 +198,7 @@ export default {
             this.inputYear = "";
             this.showList = [];
             this.selectedShow = form;
-            
+
             localStorage.removeItem("showYouthData");
 
         },
@@ -182,7 +213,7 @@ export default {
             })
 
             this.defaultShowSelected = [];
-            this.visibleRight = false;
+            this.visibleRightAdd = false;
             this.selectedShow = this.showList[this.showList.length - 1];
         },
         /*getShowDef() {
@@ -231,6 +262,39 @@ export default {
             const parsed = JSON.stringify(this.showYear);
             localStorage.setItem('showYouthData', parsed);
         },
+        async downloadFile() {
+            try {
+                await store.downloadFile("Youth", this.defaultFileSelected.file, false);
+
+                const FileParse = store.youthShowData;
+
+                if (FileParse.year !== undefined) {
+                    this.inputYear = FileParse.year;
+                    this.showList = FileParse.shows;
+                } else {
+                    this.showList = FileParse;
+                }
+
+                this.horseData = new showViewData(store.youthShowData).ReturnDistinctYouthList();
+
+                this.visibleRightSelect = false;
+            } catch (error) {
+                console.error("Failed to load Youth file:", error);
+            }
+        }, 
+        async setLookupFile(){
+            try {
+                await store.downloadFile("Youth", this.defaultFileSelected.file, false);
+
+                //const FileParse = store.youthShowData;
+                
+                this.horseData = new showViewData(store.youthShowData).ReturnDistinctYouthList();
+
+                this.visibleRightSelect = false;
+            } catch (error) {
+                console.error("Failed to load Youth file:", error);
+            }
+        },      
         addResults() {
 
         }
@@ -247,6 +311,7 @@ export default {
         }
     },
     created: function () {
+        this.getYouthShowData();
         //this.getShowDef();
         //this.getClassDef();
     },
@@ -267,15 +332,15 @@ export default {
             }
         }
     },
-    watch: {      
+    watch: {
         inputYear(newYear) {
             const parsed = JSON.stringify(this.showYear);
             localStorage.setItem('showYouthData', parsed);
         },
-        shows(showList){
+        shows(showList) {
             shows = store.showListData;
         },
-        classes(classList){
+        classes(classList) {
             this.form.classess = store.youthClassListData;
         }
     }

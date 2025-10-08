@@ -284,7 +284,7 @@ export class showViewData {
                     let placeItem = new placings();
                     placeItem = clsItem.placings[p];
 
-                    if (placeItem.exhibitor.length > 0) {
+                    if (placeItem?.exhibitor?.length > 0) {
                         if (itemExhibitors.has(placeItem.exhibitor.replace(/ /g, ''))) {
 
                         }

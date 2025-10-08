@@ -1,6 +1,7 @@
 // store.js
 import { reactive } from 'vue'
 import { Dropbox } from 'dropbox';
+import { showViewData } from '../classess/showResults.js'
 
 export const store = reactive({
   /*count: 0,*/
@@ -11,6 +12,9 @@ export const store = reactive({
   halterClassListData: [],
   hitchClassListData: [],
   youthClassListData: [],
+  halterShowYears: [],
+  hitchShowYears: [],
+  youthShowYears: [],
   ACCESS_TOKEN: {},
   /*increment() {
     this.count++
@@ -170,6 +174,167 @@ export const store = reactive({
       })
       .catch(function (error) {
       })
+  },
+  async getShowFiles(show) {  // fileYearsRef, defaultFileSelectedRef) {
+    if (Object.keys(store.ACCESS_TOKEN).length === 0) {
+      await store.getAccessToken();
+    }
+
+    if (Object.keys(store.ACCESS_TOKEN).length > 0) {
+      const dbx = new Dropbox({ accessToken: store.ACCESS_TOKEN.access_token });
+
+      let pathString = '';
+      switch (show) {
+        case "Halter":
+          pathString = '/Master Files';
+          break;
+        case "Hitch":
+          pathString = '/Hitch Master Files';
+          break;
+        case "Youth":
+          pathString = '/Youth Master Files';
+          break;
+      }
+
+      try {
+        const response = await dbx.filesListFolder({ path: pathString });
+
+        const fileYearEntries = response.result.entries.map(entry => ({
+          year: entry.name.replace(".json", ""),
+          file: entry.id
+        }));
+
+        fileYearEntries.sort((a, b) => b.year.localeCompare(a.year));
+
+        if (fileYearEntries.length > 0) {
+          this.defaultFileSelected = fileYearEntries[0];
+          this.downloadFile(show, this.defaultFileSelected.file);
+          return fileYearEntries;
+
+
+
+
+          // this.changeView(); // Uncomment if needed
+        }
+      } catch (err) {
+        console.error("Dropbox error:", err);
+      }
+    }
+  },
+  async getShowFilesDEP(show, fileYears, defaultFileSelected) {
+    if (Object.keys(store.ACCESS_TOKEN).length === 0) {
+      await store.getAccessToken();
+    }
+
+    if (Object.keys(store.ACCESS_TOKEN).length > 0) {
+      var dbx = new Dropbox({ accessToken: store.ACCESS_TOKEN.access_token });
+      var pathString;
+      var fileYearEntries;
+
+      switch (show) {
+        case "Halter":
+          pathString = '/Master Files';
+          break;
+        case "Hitch":
+          pathString = '/Hitch Master Files';
+          break;
+        case "Youth":
+          pathString = '/Youth Master Files';
+          break;
+      }
+
+      dbx.filesListFolder({ path: pathString })
+        .then((response) => {
+
+          fileYearEntries = response.result.entries.map(entry => ({
+            year: entry.name.replace(".json", ""),
+            file: entry.id
+          }));
+          //response.result.entries.forEach(entry => {
+          //  fileYearEntries.push({
+          //    year: entry.name.replace(".json", ""), // use replace instead of trim
+          //    file: entry.id
+          //  })
+
+          // Sort in descending order by year
+          fileYearEntries.sort((a, b) => {
+            if (a.year < b.year) return 1;
+            if (a.year > b.year) return -1;
+            return 0;
+          });
+
+          if (fileYearEntries.length > 0) {
+            fileYears = fileYearEntries;
+
+            defaultFileSelected = fileYears[0];
+            this.downloadFile(show, defaultFileSelected.file);
+            //this.changeView();
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+    }
+  },
+  async downloadFile(show, filePath, clean = true) {
+    if (Object.keys(store.ACCESS_TOKEN).length === 0) {
+      await store.getAccessToken(); // if async
+    }
+
+    const dbx = new Dropbox({ accessToken: store.ACCESS_TOKEN.access_token });
+
+    try {
+      const response = await dbx.filesDownload({ path: filePath });
+      const blob = response.result.fileBlob;
+
+      if (!blob) throw new Error("No file blob returned");
+
+      const fileText = await this.readBlobAsText(blob);
+      const parsedData = JSON.parse(fileText);
+      const viewData = new showViewData(parsedData);
+
+      switch (show) {
+        case "Halter":
+          if (clean == false) {
+            store.showData = viewData.data;
+          }
+          else {
+            store.showData = viewData.CleanupShowData();
+          }
+
+          break;
+        case "Hitch":
+          if (clean == false) {
+            store.hitchShowData = viewData.data;
+          }
+          else {
+            store.hitchShowData = viewData.CleanupHitchShowData();
+          }
+          break;
+        case "Youth":
+          if (clean == false) {
+            store.youthShowData = viewData.data;
+          }
+          else {
+            store.youthShowData = viewData.CleanupYouthShowData();
+          }
+          break;
+      }
+
+      return true; // ✅ resolve when done
+    } catch (error) {
+      console.error("Download or read failed:", error);
+      throw error;
+    }
+  },
+  readBlobAsText(blob) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsText(blob);
+    });
   },
   halterShowIndex: function (horseCount) {
     switch (true) {
